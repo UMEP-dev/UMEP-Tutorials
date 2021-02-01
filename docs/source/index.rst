@@ -72,7 +72,7 @@ tool. The tutorials available are found in the table below.
      - New York City, US
    * - Outdoor thermal comfort
      - Pre-Processor, Processor and Post-processor
-     - `IntroductionToSOLWEIG`
+     - `IntroToSOLWEIG`
      - Mean radiation temperature modelling in complex urban settings
      - Gothenburg, Sweden; New York City, US
    * - Anthropogenic heat
@@ -90,6 +90,12 @@ tool. The tutorials available are found in the table below.
      - `ProcessingSEBE`
      - Create UMEP workflows using the Processing Toolbox in QGIS
      - Gothenburg, Sweden
+   * - Outdoor Thermal Comfort
+     - Pre-Processor, Processor
+     - `TreePlanterTutorial`
+     - Locating trees to mitigate heat stress
+     - Gothenburg, Sweden
+     
 
 ..   * - Urban energy balance
 ..     - Pre-Processor, Processor and Post-processor
@@ -105,17 +111,19 @@ tool. The tutorials available are found in the table below.
 
    Tutorials/DailyShading
    Tutorials/SEBE
+   Tutorials/IntroductionToSolweig
    Tutorials/IntroductionToSuews
    Tutorials/SuewsAdvanced
    Tutorials/Footprint
    Tutorials/SuewsSpatial
    Tutorials/SuewsWUDAPT
-   Tutorials/IntroductionToSolweig
    Tutorials/LQF
    Tutorials/GQF
+   Tutorials/TreePlanter
    Tutorials/DSMGenerator
    Tutorials/LidarProcessing
    Tutorials/IntrodutionToProcessingSEBE
+
    
 .. Tutorials/SUEWSWUDAPT_Beijing
 

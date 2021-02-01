@@ -1,9 +1,9 @@
-.. _IntroToSOLWEIG:
+.. _TreePlanterTutorial:
 
-Thermal Comfort - Introduction to SOLWEIG
-=========================================
+Thermal Comfort - TreePlanter
+=============================
 
-.. note:: Click `here <IntroductionToSOLWEIGNYC>` to find the same tutorial as below but for data from New York City, US.
+.. note:: Under Construction. NOT READY
 
 Introduction
 ------------
