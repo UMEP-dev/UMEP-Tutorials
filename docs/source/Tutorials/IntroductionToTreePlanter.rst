@@ -52,10 +52,11 @@ UMEP is a python plugin used in conjunction with
 `QGIS <http://www.qgis.org>`__. To install the software and the UMEP
 plugin see the `getting
 started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
-section in the UMEP manual. If the installation is done with the version
-provided in Wallenberg et al. (2021), use the following steps:
+section in the UMEP manual. 
 
-#. `Download UMEP <http://doi.org/10.5281/zenodo.4616761>`__ (zip-file).
+**If the installation is done with the version presented in Wallenberg et al. (in review), use the following steps:**
+
+#. `Download UMEP-processing-main.zip <http://doi.org/10.5281/zenodo.4616761>`__ (zip-file).
 #. If you have an installed version of UMEP in your QGIS, uninstall it by going to
    *Plugins -> Manage and Install Plugins -> Installed -> UMEP* and click **Uninstall plugin**
 #. Go to *Plugins -> Manage and Install Plugins -> Install from ZIP*
@@ -67,10 +68,9 @@ to our `repository <https://github.com/UMEP-dev/UMEP>`__.
 Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The UMEP tutorial datasets can be downloaded from our here repository
-`here <http://doi.org/10.5281/zenodo.4616770>`__.
+The dataset for this tutorial can be downloaded from `here <http://doi.org/10.5281/zenodo.4616770>`__.
 
--  Download, extract and add the raster layers (DSM, CDSM and DEM) and
+-  Download TreePlanterTestData.zip, extract all files and add the raster layers (DSM, CDSM and DEM) and
    the planting_area.shp vector layer from the **TreePlanterTestData folder** 
    into a new QGIS session (see below).
 
@@ -104,8 +104,8 @@ Required meteorological data is:
 #. Relative humidity (%)
 #. Incoming shortwave radiation (W m\ :sup:`2`)
 
-The model performance will increase if diffuse and direct beam solar radiation is 
-available but the model can also calculate these variables. 
+The model performance will increase if diffuse and direct beam solar radiation is available but the model can also calculate 
+these variables using a statistical model (Reindl el at. 1990) from global radiation. 
 
 
 How to Run SOLWEIG from the UMEP processing plugin
@@ -225,3 +225,14 @@ end up in locations where their canopies block incoming solar radiation and
 mitigate high T\ :sub:`mrt`? Do the locations seem to be optimal?
 
 Tutorial finished.
+
+References
+----------
+
+`Lindberg F & Grimmond CSB 2011: The influence of vegetation and building morphology on shadow patterns and mean radiant
+temperatures in urban areas: model development and evaluation. Theoretical and Applied Climatology, 105, 311-323. <https://doi.org/10.1007/s00704-010-0382-8>`__
+
+`Reindl DT, Beckman WA & Duffie JA 1990: Diffuse fraction correlations. Solar Energy, 45(1), 1-7. <https://doi.org/10.1016/0038-092X(90)90060-P>`__
+
+Wallenberg N, Lindberg, F & Rayner, D: Locating trees to mitigate outdoor radiant load of humans in 
+urban areas using a metaheuristic hill climbing algorithm - Introducing TreePlanter v1.0. Geoscientific Model Development, *in review*.
