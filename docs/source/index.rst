@@ -92,7 +92,7 @@ tool. The tutorials available are found in the table below.
      - Gothenburg, Sweden
    * - Outdoor Thermal Comfort
      - Pre-Processor, Processor
-     - `TreePlanterTutorial`
+     - `IntroToTreePlanter`
      - Locating trees to mitigate heat stress
      - Gothenburg, Sweden
      
@@ -119,7 +119,7 @@ tool. The tutorials available are found in the table below.
    Tutorials/SuewsWUDAPT
    Tutorials/LQF
    Tutorials/GQF
-   Tutorials/TreePlanter
+   Tutorials/IntroductionToTreePlanter
    Tutorials/DSMGenerator
    Tutorials/LidarProcessing
    Tutorials/IntrodutionToProcessingSEBE
