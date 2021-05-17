@@ -116,7 +116,7 @@ How to Run SOLWEIG from the UMEP processing plugin
 
    -  You will make use of a test dataset from observations for Gothenburg, Sweden.
 
-    .. figure:: /images/SOLWEIG_processing_interface.PNG
+    .. figure:: /images/SOLWEIG_processing_interface.png
        :alt:  None
        :width: 100%
        :align: center
