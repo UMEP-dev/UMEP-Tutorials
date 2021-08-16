@@ -111,13 +111,6 @@ Now you will make use of the *LCZ Converter*-plugin to generate input data for t
    1.0.
 #. If you are unsure about the exact fractions for each of the LCZ click
    the tab *Pervious distribution*. Select *Same for all LCZ's*
-
-.. figure:: /images/LCZ_converter.jpg
-   :alt:  none
-   :align: center
-
-   Settings for the LCZ converter plugin.
-
 #. Now you can select your best estimate about the distribution of the
    pervious surface fractions for urban and the tree distribution for
    rural. In addition, also specify the expected height of the trees.
