@@ -67,16 +67,12 @@ A vector polygon grid is required for specifying the extent and resolution of th
 
 Population density
 ------------------
-Population density is required to estimate the anthropogenic heat release (Q\ :sub:`F`) in SUEWS. There is a possibility to make use of both night-time and daytime population densities to make the model more dynamic. In this tutorial you will only use a night-time dataset. This dataset can be aqcuired from the *Spatial Data Downloader* in UMEP.
+Population density is required to estimate the anthropogenic heat release (Q\ :sub:`F`) in SUEWS. There is a possibility to make use of both night-time and daytime population densities to make the model more dynamic. In this tutorial you will only use a night-time dataset. Earlier, this dataset could be aqcuired from the *Spatial Data Downloader* in UMEP. However, this tool is now deprecated as these capabilities are now accessed via QGIS directly instead.
 
-#. Open de spatial downloader at *UMEP > Pre-Processer > Spatial data >
-   Spatial Data Downloader*.
+#. Visit our `YouTube-channel <https://www.youtube.com/channel/UCTPkXncD3ghb5ZTdZe_u7gA>`__ and watch the video (Web Services) on how to access Web Coverage Services (WCS).
 #. Select *population density* and select the *GPWv4: UN-Adjusted
    Population Density* closest to the year you intend to model (2010). The values will be in (pp / square kilometer).
-#. Make sure your canvas is zoomed out to the entire LCZ map and click
-   *Use canvas extent*
-#. Now click *Get data*.
-#. Save as a geoTiff (.tif) with the name **GPWv4_2010**.
+#. Save your downloaded data as a geoTiff (.tif) with the name **GPWv4_2010**.
 #. Now you need to calculate population density per grid in units *pp/hectare*. First open the QGIS built-in tool *Zonal statistics* found in the *Processing Toolbox*. Open the tool and make the settings similar as shown below depending on QGIS version. This will calulate mean population density per grid.
 
    .. figure:: /images/SUEWS_WUDAPT_NYC_Zonalstat.jpg
