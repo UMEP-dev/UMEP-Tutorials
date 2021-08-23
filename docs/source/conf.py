@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u'UMEP Tutorial'
-copyright = u'2018, Fredrik Lindberg, Ting Sun, Sue Grimmond, Yihao Tang'
-author = u'Fredrik Lindberg, Ting Sun, Sue Grimmond, Yihao Tang'
+copyright = u'2018, Fredrik Lindberg, Ting Sun, Sue Grimmond, Yihao Tang, Nils Wallenberg'
+author = u'Fredrik Lindberg, Ting Sun, Sue Grimmond, Yihao Tang, Nils Wallenberg'
 
 # The short X.Y version
 version = u''
