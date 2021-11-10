@@ -258,7 +258,7 @@ SEBE plugin: located at *UMEP > Processor > Solar Energy > Solar Energy on Build
    `UTC <https://en.wikipedia.org/wiki/Coordinated_Universal_Time>`__
    offset is needed to accurately estimate the sun position; positive
    numbers for easterly positions, relative to the `prime meridian <https://en.wikipedia.org/wiki/Prime_meridian>`_, and negative for westerly. For example,
-   Gothenburg is located in CET timezone which is UTC +1.
+   Gothenburg is located in CET timezone which is UTC +1. **The UTC is related to the meteorological forcing data so if ERA5 data is used, UTC should be equal to zero**.
 #. The meteorological file needs to be specified.
 
 Pre-processing: wall height and aspect
