@@ -86,7 +86,7 @@ Get started with FUSION
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Start by examining the point cloud that you will make use of for the
-rest of this exercise. The data can be downloaded from `here <https://drive.google.com/file/d/0B31bjOSjDDdxME5vd1VMS25IZjg/view>`__ (link also at end of this document). All data is projected in **SWEREF99 TM
+rest of this exercise. The data can be downloaded from `here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/blob/master/other%20files/LidarQGISFUSION.zip>`__ (link also at end of this document). All data is projected in **SWEREF99 TM
 (EPSG:3006)** so it is very important to specify this when you add your
 data into QGIS. Save the data in a location where you have rights to
 read and write, e.g. the Desktop or a USB-stick. In the *Processing Toolbox*
@@ -420,6 +420,6 @@ Lindberg, F. and Grimmond, C. (2011) Nature of vegetation and building
 morphology characteristics across a city: Influence on shadow patterns
 and mean radiant temperatures in London. `Urban Ecosystems 14:4, 617-634. <https://link.springer.com/article/10.1007/s11252-011-0184-5>`__
 
-**Link to data**: https://drive.google.com/file/d/0B31bjOSjDDdxME5vd1VMS25IZjg/view
+**Link to data**: https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/blob/master/other%20files/LidarQGISFUSION.zip
 
 
