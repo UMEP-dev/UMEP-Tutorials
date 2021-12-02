@@ -113,7 +113,7 @@ Step 3: Vector grid
 
    vector.png
 
-#. Open vector grid at *Vector > Research Tools > Vector grid*.
+#. Open vector grid at *Vector > Research Tools > Create Grid...*.
 #. Select the extend of your LCZ map by clicking the ... next to *Grid
    extent (xmin, xmax, ymin, ymax)* and select *Use layer/canvas
    extent*.
@@ -294,7 +294,7 @@ Step 7: SUEWS
 Before running SUEWS, you will need to
 prepare some of the data required to run it.
 
-#. Open SUEWS prepare at: *UMEP > Pre-Processer > SUEWS prepare*.
+#. Open SUEWS prepare at: *UMEP > Pre-Processer > Urban Energy Balance (SUEWS) > SUEWS prepare*.
 #. Under *vector polygon grid* specify your created vector grid and the
    *ID field*.
 #. Select the location of the *Meteorological file* from step 2, the
@@ -362,7 +362,6 @@ the root mean squared error.
 
 Step 9: SUEWS analyser
 ----------------------
-
 
 .. figure::  /images/1200px-Suewsana.png
    :alt: Screenshot of SUEWS analyser

@@ -188,4 +188,5 @@ texinfo_documents = [
 # Fix for scrolling tables in the RTD-theme
 # https://rackerlabs.github.io/docs-rackspace/tools/rtd-tables.html
 def setup(app):
-    app.add_stylesheet('theme_overrides.css')
+    app.add_css_file('theme_overrides.css')
+    #app.add_stylesheet('theme_overrides.css')

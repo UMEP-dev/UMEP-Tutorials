@@ -95,6 +95,11 @@ tool. The tutorials available are found in the table below.
      - `IntroToTreePlanter`
      - Locating trees to mitigate heat stress
      - Gothenburg, Sweden
+   * - Urban Heat Island
+     - Pre-Processor, Processor, Post-processor
+     - `UWGSpatial`
+     - Spatial variation of UHI 
+     - Gothenburg, Sweden
      
 
 ..   * - Urban energy balance
@@ -123,6 +128,7 @@ tool. The tutorials available are found in the table below.
    Tutorials/DSMGenerator
    Tutorials/LidarProcessing
    Tutorials/IntrodutionToProcessingSEBE
+   Tutorials/UWGSpatial
 
    
 .. Tutorials/SUEWSWUDAPT_Beijing

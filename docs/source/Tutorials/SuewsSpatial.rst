@@ -287,7 +287,7 @@ Preparing input data for the SUEWS model
 
 A key capability of UMEP is to facilitate preparation of input data for the various models. SUEWS requires input information to model the urban energy balance. The plugin *SUEWS Prepare* serves this purpose. This tutorial makes use of high resolution data but `WUDAPT <http://www.wudapt.org/>`__ datasets, in-conjuction with the *LCZ Converter*, can be used (*UMEP > Pre-Processor > Spatial data > LCZ Converter*).
 
-- Open SUEWS Prepare (*UMEP > Pre-Processor > SUEWS prepare*).
+- Open SUEWS Prepare (*UMEP > Pre-Processor > Urban Energy Balance (SUEWS) > SUEWS prepare*).
 
 .. figure:: /images/SUEWSSpatial_Prepare1.png
    :alt:  none
@@ -444,9 +444,9 @@ Note that the warmest areas are located in the most dense urban environments and
 The influence of mitigation measures on the urban energy balance (optional)
 ---------------------------------------------------------------------------
 
-There are different ways of manipulating the data using UMEP, as well as directly changing the input data in SUEWS, to examine the influence of mitigation measures on the urban energy balance (UEB). The most detailed way would be to directly change the surface data by, for example, increasing the number of street trees. This can be done by using the `TreeGenerator <http://umep-docs.readthedocs.io/en/latest/pre-processor/Spatial%20Data%20Tree%20Generator.html>`__-plugin in UMEP, fpr example. This method would require that you go through the workflow of this tutorial again before you do your new model run. Another way is to directly manipulate input data to SUEWS at grid point level. This can done by e.g. changing the land cover fractions in **SUEWS_SiteSelect.txt**, the file that includes all grid-specific information used in SUEWS.
+There are different ways of manipulating the data using UMEP, as well as directly changing the input data in SUEWS, to examine the influence of mitigation measures on the urban energy balance (UEB). The most detailed way would be to directly change the surface data by, for example, increasing the number of street trees. This can be done by using the `TreeGenerator <http://umep-docs.readthedocs.io/en/latest/pre-processor/Spatial%20Data%20Tree%20Generator.html>`__-plugin in UMEP, for example. This method would require that you go through the workflow of this tutorial again before you do your new model run. Another way is to directly manipulate input data to SUEWS at grid point level. This can done by e.g. changing the land cover fractions in **SUEWS_SiteSelect.txt**, the file that includes all grid-specific information used in SUEWS.
 
-- Make a copy of your whole input folder created from SUEWSPRepare earlier and rename it to e.g. *Input_mitigation*.
+- Make a copy of your whole input folder created from SUEWSPrepare earlier and rename it to e.g. *Input_mitigation*.
 - In that folder remove all the files beginning with *InitialConditions* **except** the one called **InitialConditionsnyc_2010.nml**.
 - Open **SUEWS_SiteSelect.txt** in Excel (or similar software).
 - Now increace the fraction of decidious trees (*Fr_DecTr*) for grid 3242 and 3243 by 0.2. As the total land cover fraction has to be 1 you also need to reduce the paved fraction (*Fr_Paved*) by the same amount.

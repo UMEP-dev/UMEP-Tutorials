@@ -301,7 +301,7 @@ References
    suburban and woodland areas of southern England. `Env Pollution 198,
    186-200 <http://dx.doi.org/10.1016/j.envpol.2014.12.031>`__
 
- 
+
 Further explanation
 -------------------
 
