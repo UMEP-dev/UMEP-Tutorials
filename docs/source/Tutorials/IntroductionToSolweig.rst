@@ -187,7 +187,7 @@ Required meteorological data to calculate T\ :sub:`mrt` is:
 The model performance will increase if diffuse and direct beam solar radiation is 
 available but the mdoel can also calculate these variables. 
 
-** If Point Of Interest (POIs) is used, wind speed (m/s) is also required**.
+**If Point Of Interest (POIs) is used, wind speed (m/s) is also required**.
 
 
 How to Run SOLWEIG from the UMEP-plugin
