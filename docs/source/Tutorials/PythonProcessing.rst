@@ -1,3 +1,5 @@
+.. _PythonProcessing:
+
 Python for processing
 =========================================
 
