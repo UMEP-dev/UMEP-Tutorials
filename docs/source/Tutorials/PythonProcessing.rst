@@ -29,7 +29,7 @@ To use QGIS functions in your Python scripts, you need to have the same system p
 
 The export part should be done within the QGIS Python console. First open QGIS as if you would like to use UMEP. Then open a Python console and execute the following commands:
 
-.. code-block:: python
+::
   # Export sys path
   import sys
   import pandas as pd
@@ -47,12 +47,14 @@ The export part should be done within the QGIS Python console. First open QGIS a
       json.dump(env, f, ensure_ascii=False, indent=4)
 
 Then you prepare the processing framework to access all default QGIS processing functions
-.. code-block:: python
+
+::
   from processing.core.Processing import Processing
   Processing.initialize()
   
 Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably '/home/ **your_username** /.local/share/QGIS/QGIS3/profiles/default/python/plugins' for linux users and 'C:\Users\ **your_username** \AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins' for Windows users) and then adding it as follow:
-.. code-block:: python
+
+::
   import sys
   third_party_path = os.path.join(user_home, ".local/share/QGIS/QGIS3/profiles/default/python/plugins")
   sys.path.append(r'{0}'.format(third_party_path))
@@ -69,7 +71,8 @@ You can now call QGIS processes in your script. All processes ? No, actually for
        Example of provider class (click on figure for larger image)
 
 Along with this information, you need to add the following lines in your Python script to import the plugin processes in the QGIS factory of processes:
-.. code-block:: python
+
+::
   from processing_umep.processing_umep_provider import ProcessingUMEPProvider
   umep_provider = ProcessingUMEPProvider()
   QgsApplication.processingRegistry().addProvider(umep_provider)
@@ -84,7 +87,8 @@ Finally, you just need to call the process using Python command. To know how to 
        How to get all needed inputs for a given processing (click on figure for larger image)
 
 Before to run them in your Python script, you need to import the module “processing”:
-.. code-block:: python
+
+::
   from qgis import processing
 
 You can then adapt the values of the dictionary in your own script. This command will return a dictionary of outputs from the process you run. You can then use these outputs to connect processes between each other (e.g. in the previous example you get a dictionary with two outputs: “OUTPUT_DIR” and “OUTPUT_FILE”).
@@ -120,7 +124,8 @@ The UMEP tutorial datasets can be downloaded from our here repository
    land cover (*Properties -> Style (lower left) -> Load Style*).
 
 Then define in your Python script the location of the input needed data and where it will be saved
-.. code-block:: python
+
+::
   # Input files definition
   input_directory = " **directoryofyouchoice** "
   input_mask = "mask_layer.geojson"
@@ -135,7 +140,8 @@ Then define in your Python script the location of the input needed data and wher
 
 Crop your data to focus on a specific area
 ~~~~~~~~~~~~~~~~~~~~~~
-.. code-block:: python
+
+::
   # Set the EPSG code for the .asc file which has no EPSG
   from qgis.core import QgsCoordinateReferenceSystem
   cdsm_epsg = QgsCoordinateReferenceSystem('EPSG:3007')
@@ -190,7 +196,8 @@ Crop your data to focus on a specific area
 
 Preprocess SOLWEIG inputs
 ~~~~~~~~~~~~~~~~~~~~~~
-.. code-block:: python
+
+::
   # Calculates SVF from cropped data
   svf_outputs = processing.run("umep:Urban Geometry: Sky View Factor", 
                                { 'ANISO' : True, 
@@ -210,7 +217,8 @@ Preprocess SOLWEIG inputs
 
 Process SOLWEIG
 ~~~~~~~~~~~~~~~~~~~~~~
-.. code-block:: python
+
+::
   processing.run("umep:Outdoor Thermal Comfort: SOLWEIG", 
                  {'INPUT_DSM': crop_dsm["OUTPUT"],
                   'INPUT_SVF': os.path.join(svf_outputs['OUTPUT_DIR'],'svfs.zip'),
