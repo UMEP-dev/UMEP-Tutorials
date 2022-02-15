@@ -6,16 +6,16 @@ Python for processing
 Introduction
 ------------
 
-Run UMEP from outside QGIS environment can be quite useful to:
-  #. Simulate large areas (run multiple zones in a row within a Python loop)
-  #. Automatically connect UMEP models to other models or postprocessing scripts
+Run UMEP from outside QGIS environment can be quite useful:
+  #. To simulate large areas (run multiple zones in a row within a Python loop)
+  #. To automatically connect UMEP models to other models or postprocessing scripts
 
 Objectives
 ----------
 
 This tutorial shows:
   #. How to makes QGIS functions accessible from standalone Python scripts
-  #. How to call QGIS (then UMEP) function in Python
+  #. How to call QGIS functions (thus UMEP functions...) in Python
   #. A simple application case using SOLWEIG
 
 Requirements
@@ -25,10 +25,9 @@ If you use Python in a specific Python environment, make sure it is the same as 
 
 1. Makes QGIS functions accessible from standalone Python scripts
 -----------------------
-To use QGIS functions in your Python scripts, you need to have the same system path and environment variables as you have in QGIS. Thus you need to export them from QGIS and then import them in your Python script.
+To use QGIS functions in your Python scripts, you need to have the same system path and environment variables as you have in QGIS. Thus you need to export them from QGIS and then import them into your Python script.
 
-The export part should be done within the QGIS Python console. First open QGIS as if you would like to use UMEP. Then open a Python console and execute the following commands:
-
+The export part should be done within the QGIS Python console. First open QGIS as if you would like to use UMEP. Then open the QGIS Python console and execute the following commands (note that the export will be saved in the user repository. If you change the directory, you will need to change it accordingly in the next step):
 ::
   # Export sys path
   import sys
@@ -46,14 +45,35 @@ The export part should be done within the QGIS Python console. First open QGIS a
   with open('./.qgis_env.json', 'w') as f:
       json.dump(env, f, ensure_ascii=False, indent=4)
 
-Then you prepare the processing framework to access all default QGIS processing functions
+Then to use QGIS functions, you need to import these variables and paths in your script, prepare the QGIS processing framework and define QGIS plugins you want to use in the system paths.
+First, open a new script and import the QGIS environment variables and system paths:
+::
+  # Necessary imports
+  import os
+  import sys
+  import json
+  import pandas as pd
 
+  # Get user home directory
+  user_home = os.environ['HOME']
+
+  # Set up system paths
+  qspath = os.path.join(user_home, '.qgis_sys_paths.csv')
+  paths = pd.read_csv(qspath).paths.tolist()
+  sys.path += paths
+
+  # Set up environment variables
+  qepath = os.path.join(user_home, '.qgis_env.json')
+  js = json.loads(open(qepath, 'r').read())
+  for k, v in js.items():
+      os.environ[k] = v
+
+Then you prepare the processing framework to access all default QGIS processing functions
 ::
   from processing.core.Processing import Processing
   Processing.initialize()
   
-Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably '/home/ **your_username** /.local/share/QGIS/QGIS3/profiles/default/python/plugins' for linux users and 'C:\Users\ **your_username** \AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins' for Windows users) and then adding it as follow:
-
+Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably *'/home/ __your_username__ /.local/share/QGIS/QGIS3/profiles/default/python/plugins'* for linux users and *'C:\\Users\\ __your_username__ \\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\plugins'* for Windows users) and then adding it as follow:
 ::
   import sys
   third_party_path = os.path.join(user_home, ".local/share/QGIS/QGIS3/profiles/default/python/plugins")
@@ -61,7 +81,7 @@ Last you import QGIS plugins in the Python system paths. To do so, you need to f
 
 2. Call QGIS (then UMEP) functions in Python
 -----------------------
-You can now call QGIS processes in your script. All processes ? No, actually for QGIS plugin process, you need a preliminary import. In the plugin directory (probably “/home/username/.local/share/QGIS/QGIS3/profiles/default/python/plugins” for linux users and “C:\Users\ **your_username** \AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins” for Windows users), go to the plugin directory you want to use (for example “processing_umep” for UMEP), open the Python file called (“ **anyname** _provider.py” for our example) and get the name of the class (here “ProcessingUMEPProvider”).
+You can now call QGIS processes in your script. All processes ? No, actually for QGIS plugin processes, you need to import them first. In the plugin directory (probably *'/home/ __your_username__ /.local/share/QGIS/QGIS3/profiles/default/python/plugins'* for linux users and *'C:\\Users\\ __your_username__ \\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\plugins'* for Windows users), go to the plugin directory you want to use (for example *'processing_umep'* for UMEP), open the Python file called (*' __anyname__ _provider.py'* for our example) and get the name of the class (here *'ProcessingUMEPProvider'*).
 
     .. figure:: /images/PythonProcessing_findClassName.png
        :alt:  None
@@ -71,13 +91,13 @@ You can now call QGIS processes in your script. All processes ? No, actually for
        Example of provider class (click on figure for larger image)
 
 Along with this information, you need to add the following lines in your Python script to import the plugin processes in the QGIS factory of processes:
-
 ::
   from processing_umep.processing_umep_provider import ProcessingUMEPProvider
   umep_provider = ProcessingUMEPProvider()
+  from qgis.core import QgsApplication
   QgsApplication.processingRegistry().addProvider(umep_provider)
 
-Finally, you just need to call the process using Python command. To know how to call a specific process, the easiest way is to run it in QGIS first and then copy and paste the content of the history log into your script.
+Finally, you just need to call the process using the right Python processing command. To know how to call a specific process, the easiest way is to run it within the QGIS interface first and then copy and paste the content of the history log into your script.
 
     .. figure:: /images/PythonProcessing_getProcessingDictionary.png
        :alt:  None
@@ -86,18 +106,24 @@ Finally, you just need to call the process using Python command. To know how to 
 
        How to get all needed inputs for a given processing (click on figure for larger image)
 
-Before to run them in your Python script, you need to import the module “processing”:
-
+Before to run it in your Python script, you need to import the module *'processing'*:
 ::
   from qgis import processing
 
-You can then adapt the values of the dictionary in your own script. This command will return a dictionary of outputs from the process you run. You can then use these outputs to connect processes between each other (e.g. in the previous example you get a dictionary with two outputs: “OUTPUT_DIR” and “OUTPUT_FILE”).
+You can then adapt the values of the dictionary in your own script. This command will return a dictionary of outputs from the process you run. You can then use these outputs to connect processes between each other (e.g. in the previous example you get a dictionary with two outputs: *'OUTPUT_DIR'* and *'OUTPUT_FILE'*).
 
-Now let’s see the script of a real application.
+    .. figure:: /images/PythonProcessing_processingOutputs.png
+       :alt:  None
+       :width: 100%
+       :align: center
+
+       Name of the processing outputs (click on figure for larger image)
+
+Now that all needed processes can be run from your Python script, let’s apply and connect some of them.
 
 3. Application case: SOLWEIG
 -----------------------
-In this example, we will compute the mean radiant temperature of a given area. Thus we will need to produce the SOLWEIG inputs using the “Sky View Factor” and “Wall height and Aspect” preprocessors and then connect their outputs to the SOLWEIG processor. They are only UMEP processors, thus in order to illustrate that you can connect them to other QGIS processes, we will first crop the data in order to minimize the size of the study area.
+In this example, we will compute the mean radiant temperature for a given area. Thus we will need to produce the SOLWEIG inputs using the *'Sky View Factor'* and *'Wall height and Aspect'* preprocessors and then connect their outputs to the SOLWEIG processor. These processors are only UMEP ones, thus in order to illustrate that you can connect them to other QGIS processes, we will first crop the data in order to minimize the size of the study area using the GDAL *'Clip raster by mask layer'* process.
 
 Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -124,7 +150,6 @@ The UMEP tutorial datasets can be downloaded from our here repository
    land cover (*Properties -> Style (lower left) -> Load Style*).
 
 Then define in your Python script the location of the input needed data and where it will be saved
-
 ::
   # Input files definition
   input_directory = " **directoryofyouchoice** "
@@ -140,7 +165,7 @@ Then define in your Python script the location of the input needed data and wher
 
 Crop your data to focus on a specific area
 ~~~~~~~~~~~~~~~~~~~~~~
-
+First, we want crop the raster files to limit the size of study area by using the vector mask. Only the *'.asc'* file need *'SOURCE_CRS'* and *'TARGET_CRS'* specified since it does not contain any coordinate system information.
 ::
   # Set the EPSG code for the .asc file which has no EPSG
   from qgis.core import QgsCoordinateReferenceSystem
@@ -196,7 +221,7 @@ Crop your data to focus on a specific area
 
 Preprocess SOLWEIG inputs
 ~~~~~~~~~~~~~~~~~~~~~~
-
+Then before to apply the SOLWEIG processor, we need to calculate the sky view factor, wall height and wall aspect for the cropped zone.
 ::
   # Calculates SVF from cropped data
   svf_outputs = processing.run("umep:Urban Geometry: Sky View Factor", 
@@ -217,7 +242,7 @@ Preprocess SOLWEIG inputs
 
 Process SOLWEIG
 ~~~~~~~~~~~~~~~~~~~~~~
-
+Last we can run SOLWEIG using the input data produced by the previous steps.
 ::
   processing.run("umep:Outdoor Thermal Comfort: SOLWEIG", 
                  {'INPUT_DSM': crop_dsm["OUTPUT"],
