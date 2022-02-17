@@ -3,8 +3,6 @@
 Introduction to UMEP Python scripting
 =====================================
 
-.. note:: UNDER DEVELOPMENT. NOT READY.
-
 .. note:: The second part of this tutorial helps you to setup your standalone script in a Windows environment. For other OSs, have a look at `this tutorial <PythonProcessing2>`.
 
 Introduction
