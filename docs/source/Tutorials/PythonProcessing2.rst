@@ -33,12 +33,13 @@ To use QGIS functions in your Python scripts, you need to have the same system p
 
 The export part should be done within the QGIS Python console. First open QGIS as if you would like to use UMEP. Then open the QGIS Python console and execute the following commands (note that the export will be saved in the user repository. If you change the directory, you will need to change it accordingly in the next step):
 ::
-  # Export sys path
+  # Export sys path to user home (you can specify an other directory is you like)
   import sys
   import pandas as pd
+  export_directory = os.path.expanduser("~")
   paths = sys.path
   df = pd.DataFrame({'paths':paths})
-  df.to_csv('./.qgis_sys_paths.csv', index=False)
+  df.to_csv(os.path.join(export_directory,'.qgis_sys_paths.csv'), index=False)
 
   # Export environment variables
   import os
@@ -46,7 +47,7 @@ The export part should be done within the QGIS Python console. First open QGIS a
   env = dict(os.environ)
   rem = ['SECURITYSESSIONID', 'LaunchInstanceID', 'TMPDIR']
   _ = [env.pop(r, None) for r in rem]
-  with open('./.qgis_env.json', 'w') as f:
+  with open(os.path.join(export_directory,'.qgis_env.json'), 'w') as f:
       json.dump(env, f, ensure_ascii=False, indent=4)
 
 Then to use QGIS functions, you need to import these variables and paths in your script, prepare the QGIS processing framework and define QGIS plugins you want to use in the system paths.
@@ -58,16 +59,16 @@ First, open a new script and import the QGIS environment variables and system pa
   import json
   import pandas as pd
 
-  # Get user home directory
-  user_home = os.environ['HOME']
+  # Defines the directory where have been exported the path and variables
+  export_directory = os.path.expanduser("~")
 
   # Set up system paths
-  qspath = os.path.join(user_home, '.qgis_sys_paths.csv')
+  qspath = os.path.join(export_directory, '.qgis_sys_paths.csv')
   paths = pd.read_csv(qspath).paths.tolist()
   sys.path += paths
 
   # Set up environment variables
-  qepath = os.path.join(user_home, '.qgis_env.json')
+  qepath = os.path.join(export_directory, '.qgis_env.json')
   js = json.loads(open(qepath, 'r').read())
   for k, v in js.items():
       os.environ[k] = v
@@ -77,10 +78,16 @@ Then you prepare the processing framework to access all default QGIS processing 
   from processing.core.Processing import Processing
   Processing.initialize()
   
-Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably *'/home/ __your_username__ /.local/share/QGIS/QGIS3/profiles/default/python/plugins'* for linux users and *'C:\\Users\\ __your_username__ \\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\plugins'* for Windows users) and then adding it as follow:
+Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably *'/home/ __your_username__ /.local/share/QGIS/QGIS3/profiles/default/python/plugins'* for linux users and *'C:\\Users\\ __your_username__ \\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\plugins'* for Windows users) and then adding it as follow (keep only the line corresponding to your OS):
 ::
   import sys
+  user_home = os.path.expanduser("~")
+  
+  # For Linux users
   third_party_path = os.path.join(user_home, ".local/share/QGIS/QGIS3/profiles/default/python/plugins")
+  # For Windows users
+  third_party_path = os.path.join(user_home, "\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins")
+  
   sys.path.append(r'{0}'.format(third_party_path))
 
 2. Call QGIS (then UMEP) functions in Python
@@ -135,15 +142,14 @@ Data for this exercise
 The UMEP tutorial datasets can be downloaded from our here repository
 `here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/tree/master/other%20files/Goteborg_SWEREF99_1200.zip>`__.
 
--  Download, extract and add the raster layers (DSM, CDSM, DEM and land
-   cover) from the **Goteborg folder** into a new QGIS session (see
-   below).
+Download and extract the raster layers (DSM, CDSM, DEM and land cover) and the vector mask layer (mask_layer) from the **Goteborg folder** into the folder of your choice (keep the folder directory, you will need it later on).
 
+If you want to know what you have downloaded:
+- Open the data into QGIS:
    -  Create a new project
-   -  Examine the geodata by adding the layers (*DSM_KRbig*,
-      *CDSM_KRbig*, *DEM_KRbig* and *landcover*) to your project (***Layer
-      > Add Layer > Add Raster Layer**).
-
+   -  Examine the geodata by adding the layers to your project:
+       - for *DSM_KRbig*, *CDSM_KRbig*, *DEM_KRbig* and *landcover*: ***Layer > Add Layer > Add Raster Layer**
+       - for *mask_layer.shp*: ***Layer > Add Layer > Add Vector Layer**
 -  Coordinate system of the grids is Sweref99 1200 (EPSG:3007). If you
    look at the lower right hand side you can see the CRS used in the
    current QGIS project.
@@ -153,7 +159,7 @@ The UMEP tutorial datasets can be downloaded from our here repository
    **landcoverstyle.qml** found in the test dataset. Right click on the
    land cover (*Properties -> Style (lower left) -> Load Style*).
 
-Then define in your Python script the location of the input needed data and where it will be saved
+Then define in your Python script the location of the input needed data (where you have extracted the data) and where it will be saved
 ::
   # Input files definition
   input_directory = " **directoryofyouchoice** "
