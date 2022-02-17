@@ -8,9 +8,9 @@ Introduction to UMEP Python scripting
 Introduction
 ------------
 
-Writing Python scripts for GIS applications can make your GIS life much easier. Especially when you want to automate various GIS processes or analyses. I this tutorial you will take your first steps in using UMEP tools in a Python script to create an aggregated shadow map generated over mutiple days. 
+Writing Python scripts for GIS applications can make your GIS life much easier. Especially when you want to automate various GIS processes or analyses. In this tutorial you will take your first steps in using UMEP tools in a Python script to create an aggregated shadow map generated over mutiple days. 
 
-This tutorial consist of two parts:
+This tutorial consists of two parts:
   #. Create a loop script in the Python editor in QIGS which generates mutiple shadows on a Digital Surface Model (DSM).
   #. Learn how to write a standalone script outside of QGIS in Windows. Here we use of `Jupyter Notebook <https://jupyter.org/>`__ as the  integrated development environment (IDE).
 
@@ -27,7 +27,7 @@ Creating a script in the QGIS Python editor
 -------------------------------------------
 First make sure that you have installed **UMEP for processing** from the *Plugins>Manage and Install Plugins*. Then open the QGIS Python Console from *Plugins>Python Console*. From here you can access the **Editor** by clicking on the symbol with a sheet of paper and a pen. Here we can write Python code and execute Python command as a script.
 
-After loading the raster datasets into QGIS and downloading UMEP for processing it is
+After loading the raster datasets into QGIS and downloading **UMEP for processing** it is
 necessary to run the tool **Shadow generator** from **UMEP for Processing** which can be found in
 the Processing Toolbox under *UMEP>Solar Radiation: Shadow Generator*. You will first execute the **Shadow Generator** to obtain the input information for the Shadow generator.
 
@@ -55,11 +55,11 @@ When the algorithm is done, go to the *Log*-tab and copy the lines underneath th
   'TRANS_VEG' : 3, 
   'UTC' : 1 }
 
-These inputs will be used later to develop the script that we need. Note that your paths to *INPUT_DSM* and *INPUT_CDSM* is different. The Shadow Generator only allows you to choose one date, UTC and Light Transmissivity percentage but with the Python Script it will be possible to run the tool for several dates and different settings.
+These inputs will be used later to develop the script that we need. Note that your paths to *INPUT_DSM* and *INPUT_CDSM* are different. The Shadow Generator only allows you to choose one date, UTC and Light Transmissivity percentage but with the Python Script it will be possible to run the tool for several dates and different settings.
 
-Paste everything in an empty script in the Editor and save it as **MyFirstPythopnScript.py**. You can execute it by clicking the green arrow above the Editor but nothing exiting will happen since the script really does not do anything yet. We first should create a variable of the pasted text by adding *parin = * before the first curly bracket. Then also add *print(parin)* at the end of your script. Remember that Python is intendent sensitive to the print statement must start at the beginning of a row. Extecute again and the parin variable will print out in the QGIS Python console. Still not very exiting. We do not really need to print the parin variable so we can comment this line out by adding a # in the beginning of that line. To execute the Shadow casting algorithm you need to add *processing.run("umep:Solar Radiation: Shadow Generator", parin)* at the end of your script.
+Paste everything in an empty script in the Editor and save it as **MyFirstPythopnScript.py**. You can execute it by clicking the green arrow above the Editor but nothing exciting will happen since the script really does not do anything yet. We first should create a variable of the pasted text by adding *parin = * before the first curly bracket. Then also add *print(parin)* at the end of your script. Remember that Python is intendent sensitive to the print statement must start at the beginning of a row. Execute again and the parin variable will print out in the QGIS Python console. Still not very exciting. We do not really need to print the parin variable so we can comment this line out by adding a # in the beginning of that line. To execute the Shadow casting algorithm you need to add *processing.run("umep:Solar Radiation: Shadow Generator", parin)* at the end of your script.
 
-Your script should now look like:
+Your script should now looks like:
 ::
   parin = { 'DATEINI' : QDate(2022, 2, 15), 
   'DST' : False, 
@@ -80,7 +80,7 @@ Your script should now look like:
   
   processing.run("umep:Solar Radiation: Shadow Generator", parin)
 
-You can change the settings for the Shadow casting algorithm as you wich now. For example, change the OUTPUT_DIR to "C:/temp/shadowmaps/". You also need to create such folder on your system. If you dont have right to create a folder such as *C:/temp/shadowmaps/* you can create the shadowmaps folder on your desktop. If you now execute your script you will see a number of tif-files in your shadowmaps folder. Before you move on, make sure that your shadowmaps folder is empty.
+You can change the settings for the Shadow casting algorithm as you wish now. For example, change the OUTPUT_DIR to "C:/temp/shadowmaps/". You also need to create such folder on your system. If you don't have right to create a folder such as *C:/temp/shadowmaps/* you can create the shadowmaps folder on your desktop. If you now execute your script you will see a number of tif-files in your shadowmaps folder. Before you move on, make sure that your shadowmaps folder is empty.
 
 The next step is to figure out how to write a date loop in a way that the tool can be run for several dates at the same time. The date variable in the loop has to be written in a way that matches the date from the Shadow Generator input parameters.
 
@@ -119,7 +119,7 @@ Also add three more variables defining the start date of your analysis:
   startmonth = 4
   startday = 1
   
-Now, you will create a loop so that the script will execute the shadow casting algorith for a number of days in sequence. Important when working with loops (and statements) in Python is to indent the code within a loop. We will try to make a *for*-loop starting after the startday variable:
+Now, you will create a loop so that the script will execute the shadow casting algorithm for a number of days in sequence. Important when working with loops (and statements) in Python is to indent the code within a loop. We will try to make a *for*-loop starting after the startday variable:
 ::   
   for i in range(0, 10):
       date = datetime.date(startyear, startmonth, startday) + datetime.timedelta(days=i)
@@ -160,9 +160,9 @@ Your current script should now look like:
 
     # processing.run("umep:Solar Radiation: Shadow Generator", parin)
     
-Execute and a sequence of 10 dates starting from April 1, 2022 should be displayed in the Pyhthon console.
+Execute (a sequence of 10 dates starting from April 1, 2022 should be displayed in the Python console).
 
-Moving on, now we need to include the shadow casting algorith within the loop we just created. This is done by indenting the *parin* variable, the *processing.run* statement and the *datetorun* variable. Do not forget to uncomment your processing.run statement at this point. You also need to change the *datetorun* variable to include the new date variable:
+Moving on, now we need to include the shadow casting algorithm within the loop we have just created. This is done by indenting the *parin* variable, the *processing.run* statement and the *datetorun* variable. Do not forget to uncomment your processing.run statement at this point. You also need to change the *datetorun* variable to include the new date variable:
 ::
   datetorun = QDate.fromString(date, "d-M-yyyy")
   
@@ -188,7 +188,7 @@ Next step is to add all the shadow images into one aggregated raster. In the for
      
     index = index + 1 #A counter that specifies total numer of shadows in a year (30 minute resolution)
 
-As you can see you can also add comments in the code, to specify what is happening in the code. The lines above should be within the main for-loop, a so-called nested loop (a loop within a loop) so remember to use the correct intendation. Some new variables is found in this nested  for-loop. These need to be defined before the main loop, at the top of the code. One of these new variables is an empty raster (fillraster) that will be used to aggregate all the shadow images generated.
+As you can see you can also add comments in the code, to specify what is happening in the code. The lines above should be within the main for-loop, a so-called nested loop (a loop within a loop) so remember to use the correct indentation. Some new variables is found in this nested for-loop. These need to be defined before the main loop, at the top of the code. One of these new variables is an empty raster (fillraster) that will be used to aggregate all the shadow images generated.
 ::
   index = 0
 
@@ -255,7 +255,7 @@ Your script should now look like this:
     
   fillraster = fillraster / index
 
-The last thing we need to do is to save fillraster as a geotiff. Here, we will make use of a function that we will create. This makes it possible to later reuse the same code when needed. A function in Python is recognised by strating with *def* followed by indented lines of code included in the function. At the top of your script, after your imports, add the following:
+The last thing we need to do is to save fillraster as a geotiff. Here, we will make use of a function that we will create. This makes it possible to later reuse the same code when needed. A function in Python is recognised by starting with *def* followed by indented lines of code included in the function. At the top of your script, after your imports, add the following:
 ::
   def saveraster(gdal_data, filename, raster):
       rows = gdal_data.RasterYSize
@@ -380,7 +380,7 @@ First we need to install Jupyter and configure our environment so that all OSGeo
 
 This method requires that you have installed QGIS according to the recommendation in Getting Started <https://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__. Other installation configurations might not work.
 
-Start the **setup** from the **Start-menu>OSGeo4W**, choose the **Advanced Install** and click forward to the **Select Packages**-section. Here, search for jupyter and make sure all components are installed (it should say *Keep* or an installation version number in the *New*-column). Do the same serach for **notebook** and make sure that it is installed.
+Start the **setup** from the **Start-menu>OSGeo4W**, choose the **Advanced Install** and click forward to the **Select Packages**-section. Here, search for jupyter and make sure all components are installed (it should say *Keep* or an installation version number in the *New*-column). Do the same search for **notebook** and make sure that it is installed.
 
     .. figure:: /images/JupyterInstall.png
        :alt:  None
@@ -389,7 +389,7 @@ Start the **setup** from the **Start-menu>OSGeo4W**, choose the **Advanced Insta
 
        Install of Jupyter components (click on figure for larger image)
 
-If all components already are installed you can cancel your installation, otherwise continue and install.
+If all components are already installed you can cancel your installation, otherwise continue and install.
 
 When everything is installed, open the **OSGeo4W Shell** from the Start-menu. We will use a small work-around to configure our session for UMEP/QGIS scripting. First execute the command **python-qgis**. This will start a Python session and access the OSGeo and QGIS components needed available for the current shell. Now close this Python session with the command **quit()**. Now, make use of the **cd** command to locate yourself in the folder where you have your **MyFirstPythopnScript.py**-script. If you do not know how to make use of **cd**-command in dos it is just a google away.
 
@@ -411,7 +411,7 @@ To start a new Notebook click on **New** and **Python3** as shown below.
 
        Starting a new Notebook (click on figure for larger image)
 
-A Notebook can be executed in so-called cells which give you more control of your code. Start by adding all the lines with your imports from your **MyFirstPythopnScript.py**-script into the first cell and click *Run*. A new cell is added below. Now add add your saveraster function in the next cell, click *Run* and then add the code up to the for-loop in a new cell and click *Run* again. Depending on your version of QGIS you might get a DeprecationWarning about np.float. Try removing *np.* and re-run the cells. You can restart the code in **Kernel>Restart & Clear Output**. Here you can also run all cell at the cam time (**Restart and Run All**).
+A Notebook can be executed in so-called cells which give you more control of your code. Start by adding all the lines with your imports from your **MyFirstPythopnScript.py**-script into the first cell and click *Run*. A new cell is added below. Now add add your saveraster function in the next cell, click *Run* and then add the code up to the for-loop in a new cell and click *Run* again. Depending on your version of QGIS you might get a DeprecationWarning about np.float. Try removing *np.* and re-run the cells. You can restart the code in **Kernel>Restart & Clear Output**. Here you can also run all cells at the same time (**Restart and Run All**).
 
 Maybe it is good to save your Notebook at this point. Save as **MyFirstNotebookScript**. If you check your filesystem you now have a file called **MyFirstNotebookScript.ipynd** which is the Notebook just created.
 
