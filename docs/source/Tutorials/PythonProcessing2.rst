@@ -145,6 +145,7 @@ The UMEP tutorial datasets can be downloaded from our here repository
 Download and extract the raster layers (DSM, CDSM, DEM and land cover) and the vector mask layer (mask_layer) from the **Goteborg folder** into the folder of your choice (keep the folder directory, you will need it later on).
 
 If you want to know what you have downloaded:
+
 - Open the data into QGIS:
    -  Create a new project
    -  Examine the geodata by adding the layers to your project:
@@ -153,7 +154,7 @@ If you want to know what you have downloaded:
 -  Coordinate system of the grids is Sweref99 1200 (EPSG:3007). If you
    look at the lower right hand side you can see the CRS used in the
    current QGIS project.
--  Have a look at `DailyShading` on how you can visulaise DSM and CDSM at the same time.
+-  Have a look at `DailyShading` on how you can visualise DSM and CDSM at the same time.
 -  Examine the different datasets before you move on.
 -  To add a legend to the **land cover** raster you can load
    **landcoverstyle.qml** found in the test dataset. Right click on the
