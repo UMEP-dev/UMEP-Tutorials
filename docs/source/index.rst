@@ -100,7 +100,16 @@ tool. The tutorials available are found in the table below.
      - `UWGSpatial`
      - Spatial variation of UHI 
      - Gothenburg, Sweden
-     
+   * - Python Scripting
+     - Processor
+     - `PythonProcessing1`
+     - Python in QGIS/UMEP and Jupyter Notebook for Windows 
+     - Gothenburg, Sweden     
+   * - Python Scripting
+     - Pre-Processor, Processor
+     - `PythonProcessing2`
+     - Python in QGIS/UMEP for processing in Linux/Mac
+     - Gothenburg, Sweden     
 
 ..   * - Urban energy balance
 ..     - Pre-Processor, Processor and Post-processor
@@ -129,6 +138,8 @@ tool. The tutorials available are found in the table below.
    Tutorials/LidarProcessing
    Tutorials/IntrodutionToProcessingSEBE
    Tutorials/UWGSpatial
+   Tutorials/PythonProcessing1
+   Tutorials/PythonProcessing2
 
    
 .. Tutorials/SUEWSWUDAPT_Beijing
