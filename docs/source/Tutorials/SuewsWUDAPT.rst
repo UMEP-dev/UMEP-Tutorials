@@ -62,7 +62,7 @@ A vector polygon grid is required for specifying the extent and resolution of th
    extent * and select *Use Map Canvas Extent*.
 #. As you can see the units in now in meters and not in degrees. Specify the desired grid spacing to 5000 meters. This will save time later on. Of course you can set it a much smaller number if you have the time to wait when the model performs the calculations later on.
 #. Create as temporary layer.
-#. Save your grid by right-click on the new layer in the *Layers Panel* and choose *Save as...*. Here it is very important that you save in the same CRS as you other layers (ESPG:4326). Save as a shape file.
+#. Save your grid by right-click on the new layer in the *Layers Panel* and choose *Export > Save Features as...*. Here it is very important that you save in the same CRS as you other layers (ESPG:4326). Save as a shape file named **Grid_5000m**. When the new shapefile is created, you can remove the temporary one from your QGIS-project.
 
 
 Population density
