@@ -104,7 +104,7 @@ Now you will make use of the *LCZ Converter*-plugin to generate input data for t
    of the LCZ classes. For more information about each of the classes
    see `LCZConverter <http://umep-docs.readthedocs.io/en/latest/pre-processor/Spatial%20Data%20LCZ%20Converter.html>`__.
    If you choose to edit the table, make sure all fractions add up to
-   1.0.
+   1.0. You can also adjust parameters such as building height etc.
 #. If you are unsure about the exact fractions for each of the LCZ click
    the tab *Pervious distribution*. Select *Same for all LCZ's*
 #. Now you can select your best estimate about the distribution of the
