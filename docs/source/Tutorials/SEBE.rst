@@ -117,108 +117,21 @@ Steps
    -  Data file is formatted for the UMEP plugin (in general) and the
       SEBE plugin (in particular).
    -  First four columns are *time related*.
-   -  Columns of interest are **kdown, kdiff and kdir**. These are
-      related to shortwave radiation and give global, diffuse and direct
-      radiation, respectively.
+   -  Columns of interest are **kdown** (global irradiance on the horizontal plane), **kdiff** (diffuse irradiance on the horizontal plane) and **kdir** (beam/direct irradiance on a plane always normal to sun rays). 
+   -  All columns must be present but can be filled with numbers to indicate they are not in use (e.g. -999).
    -  The meteorological file should preferably be at least a year long. Multi-year data improves the solar energy estimation.
-   -  One option is to use a `typical meteorological
-      year <https://en.wikipedia.org/wiki/Typical_meteorological_year>`__
+   -  One option is to use a `typical meteorological year <https://en.wikipedia.org/wiki/Typical_meteorological_year>`__
       as you will do in this tutorial
+
+For more details on the meteorological file structure in UMEP, see <https://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__.
 
 **Variables included in the meteorological data file:**
 
 **No.** indicates the column of the variable in the file. **Use** indicates if it is *R – required* or
 *O- optional* (in this application) or *N- Not used in this
-application*. All columns must be present but can be filled with
-numbers to indicate they are not in use (e.g. -999).
+application*. 
 
-+------+------+-------------+-----------------+
-| No.  | USE  | Column name | Description     |
-+======+======+=============+=================+
-| 1    | R    | iy          | Year [YYYY]     |
-+------+------+-------------+-----------------+
-| 2    | R    | id          | Day of year     |
-|      |      |             | [DOY]           |
-+------+------+-------------+-----------------+
-| 3    | R    | it          | Hour [H]        |
-+------+------+-------------+-----------------+
-| 4    | R    | imin        | Minute [M]      |
-+------+------+-------------+-----------------+
-| 5    | N    | qn          | Net all-wave    |
-|      |      |             | radiation [W    |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 6    | N    | qh          | Sensible heat   |
-|      |      |             | flux [W         |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 7    | N    | qe          | Latent heat     |
-|      |      |             | flux [W         |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 8    | N    | qs          | Storage heat    |
-|      |      |             | flux [W         |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 9    | N    | qf          | Anthropogenic   |
-|      |      |             | heat flux [W    |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 10   | N    | U           | Wind speed [m   |
-|      |      |             | s\ :sup:`-1`]   |
-+------+------+-------------+-----------------+
-| 11   | O    | RH          | Relative        |
-|      |      |             | Humidity [%]    |
-+------+------+-------------+-----------------+
-| 12   | O    | Tair        | Air temperature |
-|      |      |             | [°C]            |
-+------+------+-------------+-----------------+
-| 13   | N    | pres        | Barometric      |
-|      |      |             | pressure [kPa]  |
-+------+------+-------------+-----------------+
-| 14   | N    | rain        | Rainfall [mm]   |
-+------+------+-------------+-----------------+
-| 15   | R    | kdown       | Incoming        |
-|      |      |             | shortwave       |
-|      |      |             | radiation [W    |
-|      |      |             | m\ :sup:`-2`]   |
-|      |      |             | Must be >= 0 W  |
-|      |      |             | m\ :sup:`-2`.   |
-+------+------+-------------+-----------------+
-| 16   | N    | snow        | Snow [mm]       |
-+------+------+-------------+-----------------+
-| 17   | N    | ldown       | Incoming        |
-|      |      |             | longwave        |
-|      |      |             | radiation [W    |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 18   | N    | fcld        | Cloud fraction  |
-|      |      |             | [tenths]        |
-+------+------+-------------+-----------------+
-| 19   | N    | Wuh         | External water  |
-|      |      |             | use[m\ :sup:`3`]|
-+------+------+-------------+-----------------+
-| 20   | N    | xsmd        | Observed soil   |
-|      |      |             | moisture [m3    |
-|      |      |             | m\ :sup:`-3` or |
-|      |      |             | kg              |
-|      |      |             | kg\ :sup:`-1`]  |
-+------+------+-------------+-----------------+
-| 21   | N    | lai         | Observed leaf   |
-|      |      |             | area index [m2  |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 22   | O    | kdiff       | Diffuse         |
-|      |      |             | radiation [W    |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 23   | O    | kdir        | Direct          |
-|      |      |             | radiation [W    |
-|      |      |             | m\ :sup:`-2`]   |
-+------+------+-------------+-----------------+
-| 24   | N    | wdir        | Wind direction  |
-|      |      |             | [°]             |
-+------+------+-------------+-----------------+
+
 
 Preparing data for SEBE
 -----------------------
