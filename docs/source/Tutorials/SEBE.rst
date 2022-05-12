@@ -123,7 +123,7 @@ Steps
    -  One option is to use a `typical meteorological year <https://en.wikipedia.org/wiki/Typical_meteorological_year>`__
       as you will do in this tutorial
 
-For more details on the meteorological file structure in UMEP, see <https://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__.
+For more details on the meteorological file structure in UMEP, see `the meteorological data preprocessor <https://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__.
 
 **Variables included in the meteorological data file:**
 
