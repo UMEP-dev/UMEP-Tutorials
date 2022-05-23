@@ -131,8 +131,8 @@ Some short remarks on what you have done so far:
 - The `UTC <https://en.wikipedia.org/wiki/Coordinated_Universal_Time>`__ offset is needed to accurately estimate the sun position, positive numbers for easterly position and negative for westerly. For example, Gothenburg is located in CET which is UTC +1.
 
 
-Use a post-prcessing tool to animate shadows
---------------------------------------------
+Use a post-processing tool to animate shadows
+---------------------------------------------
 
 The UMEP plugin consists of three parts; a pre-processor, a processor and a post-processor. The pre-processor prepares spatial and meteorological data as inputs to the modelling system. The processor includes all the main models for the main calculations. To provide initial “quick looks” the post-processor will enable results to be plotted, statistics calculated etc. Based on the model output. Now you will use a post-processing plugin to examine the shadow pattern you have generated in this tutorial more closely.
 
