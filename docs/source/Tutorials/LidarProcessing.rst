@@ -205,7 +205,7 @@ building footprints with the switch **/outside**. Examine the results
 in the FUSION LAS viewer.
 
 Run the same algorithm, but just cut the points that are within the
-building footprints. Name the output **buildings.las**.
+building footprints by removing the **/outside**-switch. Name the output **buildings.las**.
 
 Finally, cut out all the ground points. Name the output **ground.las**. If you are not able to write the correct syntax, see the solutions at the end of this exercise.
 
