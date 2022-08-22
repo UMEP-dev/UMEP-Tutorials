@@ -110,7 +110,7 @@ Steps
 #. Use *Layer > Add Layer > Add Raster Layer* to open the .tif and .asc raster files and *Layer > Add Layer > Add Vector Layer*. The Vector layer is a shape file which consists of multiple files. It is the **building.shp** that should be used to load the vector layer into QGIS.
 #. You will need to indicate the coordinate reference system (`CRS <https://docs.qgis.org/3.10/en/docs/user_manual/working_with_projections/working_with_projections.html>`__) for the **CDSM_KRbig.asc** dataset.
 
-    - Right-click on **CDSM_KRbig** and go to *Set CRS > Set Layer CRS...*. Choose EPSG:3007. You can use the filter to search for the correct CRS. 
+    - Right-click on **CDSM_KRbig** and go to *Layer CRS > Set Layer CRS...*. Choose EPSG:3007. You can use the filter to search for the correct CRS. 
 
 #. Open the meteorological (**GBG_TMY_1977.txt**) file in a text editor or in a spreadsheet such as MS excel or LibreOffice (Open office).
 
@@ -138,7 +138,7 @@ Preparing data for SEBE
 Required inputs
 ~~~~~~~~~~~~~~~~
 
-SEBE plugin: located at *UMEP > Processor > Solar Energy > Solar Energy on Building Envelopes (SEBE)* in the menu bar.
+SEBE plugin: located at *UMEP > Processor > Solar Radiation > Solar Energy on Building Envelopes (SEBE)* in the menu bar.
 
 .. figure:: /images/SEBE_SEBE1.png
    :alt: SEBE1.png
