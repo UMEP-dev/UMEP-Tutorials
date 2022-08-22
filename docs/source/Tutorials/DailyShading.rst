@@ -58,7 +58,7 @@ Add data to your QGIS project
 
 Now you should see two layer in your *Layers*-panel. You should also see that **CDSM_KRbig** has a question mark (?) next to it. This is because no CRS is connected to this raster data. You will need to indicate the CRS that is associated with this data. 
 
-- Right-click on **CDSM_KRbig** and go to *Set CRS -> Set Layer CRS...*. Choose EPSG:3007. 
+- Right-click on **CDSM_KRbig** and go to *Layer CRS -> Set Layer CRS...*. Choose EPSG:3007. 
 
 When loading a dataset into QGIS, a default apperance is used. The CDSM which includes higher vegetation (trees and bushes) has the default value of zero (black) where no vegetation is present. Lets now change the apperance of the CDSM:
 
