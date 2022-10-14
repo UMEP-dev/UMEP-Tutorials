@@ -186,7 +186,7 @@ To access third party processing plugins (such as UMEP) in a stand-alone Python 
   import sys
 
   # Initiating a QGIS application
-  qgishome = 'C:/OSGeo4W64/apps/qgis/'
+  qgishome = 'C:/OSGeo4W/apps/qgis/'
   QgsApplication.setPrefixPath(qgishome, True)
   app = QgsApplication([], False)
   app.initQgis()
