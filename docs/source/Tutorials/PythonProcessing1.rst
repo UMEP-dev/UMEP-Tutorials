@@ -186,7 +186,7 @@ Next step is to add all the shadow images into one aggregated raster. In the for
     tempgdal = None
     os.remove('c:/temp/shadowmaps/' + no_of_files[j])
      
-    index = index + 1 #A counter that specifies total numer of shadows in a year (30 minute resolution)
+    index = index + 1 #A counter that specifies total number of shadows in a year (30 minute resolution)
 
 As you can see you can also add comments in the code, to specify what is happening in the code. The lines above should be within the main for-loop, a so-called nested loop (a loop within a loop) so remember to use the correct indentation. Some new variables is found in this nested for-loop. These need to be defined before the main loop, at the top of the code. One of these new variables is an empty raster (fillraster) that will be used to aggregate all the shadow images generated.
 ::
