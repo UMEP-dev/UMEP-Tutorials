@@ -378,7 +378,7 @@ In this section we will explain a method to execute the script we just created i
 
 First we need to install Jupyter and configure our environment so that all OSGeo components are recognised by the notebook. 
 
-This method requires that you have installed QGIS according to the recommendation in Getting Started <https://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__. Other installation configurations might not work.
+This method requires that you have installed QGIS according to the recommendation in `Getting Started <https://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__. Other installation configurations might not work.
 
 Start the **setup** from the **Start-menu>OSGeo4W**, choose the **Advanced Install** and click forward to the **Select Packages**-section. Here, search for jupyter and make sure all components are installed (it should say *Keep* or an installation version number in the *New*-column). Do the same search for **notebook** and make sure that it is installed.
 
