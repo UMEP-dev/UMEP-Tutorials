@@ -81,7 +81,7 @@ Calculate daily shadow patterns
 
 - Open the **Daily Shadow Pattern** tool located at *UMEP -> Processor -> Solar radiation -> Daily Shadow Pattern* in the menu bar. 
 
-This tool can do what its name suggests, namely calculate gound shadow patterns based on a DSM and a CDSM.
+This tool can do what its name suggests, namely calculate ground shadow patterns based on a DSM and a CDSM.
 
 - Create a directory e.g. on your Desktop called **DailyShading**. Also create a sub-directory to **DailyShading** called **June21_buildings**. 
 - Use this directory to save the result.
