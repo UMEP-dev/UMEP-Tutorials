@@ -29,7 +29,7 @@ First make sure that you have installed **UMEP for processing** from the *Plugin
 
 After loading the raster datasets into QGIS and downloading **UMEP for processing** it is
 necessary to run the tool **Shadow generator** from **UMEP for Processing** which can be found in
-the Processing Toolbox under *UMEP>Processor>Solar Radiation: Shadow Generator*. You will first execute the **Shadow Generator** to obtain the input information for the Shadow generator.
+the Processing Toolbox under *UMEP>Processor>Solar Radiation: Shadow Generator* (same tool as *Daily Shadow Patterns* in menu-based UMEP). You will first execute the **Shadow Generator** to obtain the input information for the Shadow generator.
 
 The settings in the Shadow Generator are set accordingly:
 
