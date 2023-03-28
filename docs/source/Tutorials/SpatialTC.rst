@@ -8,7 +8,7 @@ Introduction
 
 In this tutorial you will show you how to produce maps of thermal comfort indices using outputs from two different models in UMEP. 
 
-The two different models used are SOLWEIG (radiation model) and URock (wind model). These two models are combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA. This tutorial will make use of PET as an example.
+The two different models used are SOLWEIG (radiation model) and URock (wind model). These two models are combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA. This tutorial will make use of PET (Physilogical Equivalent Temperature) as an example.
 
 
 Steps
@@ -92,21 +92,27 @@ Produce map of PET with SpatialTC
 
 Now you will run SpatialTC based on the output from the SOLWEIG and URock run in the previous sections.
 
-You need to load three rasters: the mean radiant temperature that has been produced by SOLWEIG, the pedestrian wind speed produced by URock, and the one that exclude buildings from the analysis (produced by SOLWEIG). You also need to set the meteorological text file that has been used for the calculation of the Tmrt map.
+You need to specify three rasters: one of the mean radiant temperature that has been produced by SOLWEIG, the pedestrian wind speed produced by URock, and the one that exclude buildings from the analysis (produced by SOLWEIG). You also need to set the meteorological text file that has been used for the calculation of the T\ :sub:`mrt` map.
 
-Last you need to select the thermal comfort index to map (PET for this tutorial.  Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
+  - Load the *Tmrt_1983_173_1600D.tif* into your QGIS project. This file can be found in your outout folder form the previous SOLWEG-run. Do not change the file name as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
 
-HERE I AM...
-
+  - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
     .. figure:: /images/spatialtc.jpg
        :alt:  None
-       :width: 411px
+       :width: 100%
        :align: center
        
-       Settings for your Spatial TC tool 
+       Settings for the Spatial TC tool.
     
-When the computation is finished, you should have 
+When the computation is finished, you should have a map as shown below.
+
+    .. figure:: /images/spatialtc_result.jpg
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Spatial variations of PET produced with the Spatial TC tool.
 
 Tutorial finished.
 
