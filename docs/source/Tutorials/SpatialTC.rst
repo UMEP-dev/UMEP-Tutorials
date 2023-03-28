@@ -8,7 +8,7 @@ Introduction
 
 In this tutorial you will show you how to produce maps of thermal comfort indices using outputs from two different models in UMEP. 
 
-The two different models used is SOLWEIG (radiation model) and URock (wind model). These two model are the combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA. This tutorial will make use of PET as an example.
+The two different models used are SOLWEIG (radiation model) and URock (wind model). These two models are combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA. This tutorial will make use of PET as an example.
 
 
 Steps
@@ -24,12 +24,12 @@ Data for this exercise
 The UMEP tutorial datasets can be downloaded from our here repository
 `here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/raw/master/other%20files/Annedal_EPSG3006.zip>`__.
 
--  Download, extract and add the raster layers (DSM, CDSM, DEM), the building polygon layer and the line profile layer into a new QGIS session. Coordinate system of the grids is Sweref99 TM (EPSG:3006).
+-  Download, extract and add the raster layers (DSM, CDSM, DEM), the building polygon layer and the line profile layer (not used in this tutorial) into a new QGIS session. Coordinate system of the grids is Sweref99 TM (EPSG:3006).
 
 Produce result with URock
 -------------------------
 
-The output data generated from the introduction tutorial on Urock will be used for this exercise. If you have not gone through `IntroToURock`, do so and make sure that you produce data with vegetation infromation included (last sectionen in the tutorial.
+The output data generated from the introduction tutorial on Urock will be used for this exercise. If you have not gone through `IntroToURock`, do so and make sure that you produce data with vegetation information included (last section of the tutorial).
 
 Produce T\ :sub:`mrt` raster from SOLWEIG
 -----------------------------------------
@@ -58,7 +58,7 @@ It is recommend to get familiar with the SOLWEIG model before you produce your i
    -  If you look in your output folder you will find a zip-file and a .npz-file containing all the
       necessary SVF maps needed to run the SOLWEIG-model.
 
-   -  Another pre-processing plugin is needed to create the building wall heights and aspect. Open *UMEP -> Pre-Processor -> Urban geometry -> Wall height and aspect* and use the settings as shown below. QGIS scales loaded rasters by a *cumulative count out* approach (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your results to see the walls identified (*Layer Properties > Symbology*).
+   -  Another pre-processing plugin is needed to create the building wall heights and aspect. Open *UMEP -> Pre-Processor -> Urban geometry -> Wall height and aspect* and use the settings as shown below. QGIS scales the loaded rasters by a *cumulative count out* approach (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your results to see the walls identified (*Layer Properties > Symbology*).
    
     .. figure:: /images/spatialtc_wallheightaspect.jpg
        :alt:  None
@@ -91,6 +91,10 @@ Produce map of PET with SpatialTC
 ---------------------------------
 
 Now you will run SpatialTC based on the output from the SOLWEIG and URock run in the previous sections.
+
+You need to load three rasters: the mean radiant temperature that has been produced by SOLWEIG, the pedestrian wind speed produced by URock, and the one that exclude buildings from the analysis (produced by SOLWEIG). You also need to set the meteorological text file that has been used for the calculation of the Tmrt map.
+
+Last you need to select the thermal comfort index to map (PET for this tutorial.  Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
 HERE I AM...
 

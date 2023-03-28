@@ -17,8 +17,7 @@ The model requires **meteorological** forcing data (wind speed and direction) an
 Steps
 ~~~~~
 
-#. Produce relevant input data needed to
-   run the model using URock Prepare.
+#. Produce relevant input data needed to run the model using URock Prepare.
 #. Run the model
 #. Examine the model output using URock Analyzer
 
@@ -27,10 +26,10 @@ Initial Practical steps
 
 **UMEP for Processing** is a python plugin used in conjunction with
 `QGIS <http://www.qgis.org>`__. To install the software and the UMEP
-plugin (if not allreadty installed), see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
+plugin (if not already installed), see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
 section in the UMEP manual.
 
-As **UMEP for PRocessing** is under constant development, some documentation may be missing
+As **UMEP for Processing** is under constant development, some documentation may be missing
 and/or there may be instability. Please report any issues or suggestions
 to our `repository <https://github.com/UMEP-dev/UMEP>`__.
 
@@ -47,16 +46,16 @@ To run **URock**, you need a building vector dataset including building height a
 URock Prepare
 -------------
 #. Open **URock Prepare** from the **Pre-Processing** section in **UMEP for Processing** found in the **Processing Toolbox**. 
-#. Use the settings shown below except for the output where you maybe need to specify a specific location on your comuter where you have read and write access.
+#. Use the settings shown below except for the output where you maybe need to specify a specific location on your computer where you have read and write access.
 
     .. figure:: /images/urockprepare.jpg
        :alt:  None
        :width: 100%
        :align: center
        
-       Dailog for the settings in URock (part1)
+       Dialog for the settings in URock (part1)
 
-   If you have a dataset with points including tree location and attributes with heights and/or ratio information, this can also be used to generate vegetation data. Now click **Run** and two new files that is ready to use in URock. The current version of URock does not include ground topography (hopefully avaialable in upcoming versions). The DEM is used to derive building heights comparing the DSM and the DEM.
+   If you have a dataset with points including tree location and attributes with heights and/or ratio information, this can also be used to generate vegetation data. Now click **Run** and two new files that are ready to use in URock will be created. The current version of URock does not include ground topography (hopefully available in upcoming versions). The DEM is used to derive building heights comparing the DSM and the DEM.
 
 URock
 -----
@@ -68,24 +67,24 @@ URock
        :width: 100%
        :align: center
        
-       Dailog for the settings in URock (part 1)
+       Dialog for the settings in URock (part 1)
        
     .. figure:: /images/urock2.jpg
        :alt:  None
        :width: 100%
        :align: center
        
-       Dailog for the settings in URock (part1)
+       Dialog for the settings in URock (part1)
 
 
 #. When all the settings are made, click **Run**.
 
-The computation will take a some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the Urock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somewhar slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
+The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somehow slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
 
 URock Analyzer
 --------------
 
-With this tool you can examine your output more in detail by making vertical profile plots and also calculate average wind profile from a polygon. You will produce a line plot using the line vector layer (*lineprofile.gpkg*) included in the tutorial data.
+With this tool you can examine your output more in detail by making vertical profile plots along lines and also calculating average wind profile within polygons. You will produce a line plot using the line vector layer (*lineprofile.gpkg*) included in the tutorial data.
 
 #. Open **URock Analyzer** from *UMEP > Post-Processor > Urban Wind Field: URock Analyzer* and specify the settings as shown below:
 
@@ -94,15 +93,15 @@ With this tool you can examine your output more in detail by making vertical pro
        :width: 100%
        :align: center
        
-       Dailog for the settings in URock Analyzer
+       Dialog for the settings in URock Analyzer
        
     It is also possible to plot profiles from multiple lines if included in the vector file used for line profiles input.
 
 
-Influence of vegetation on pedestrain wind
+Influence of vegetation on pedestrian wind
 ------------------------------------------
 
-If you are interested, You can re-run URock and add the vegetation data. Then you just add your vegetation layer and specify VEG_HEIGHT as your vegetation crown top height field. Leave all other settings same as before except the output folder location. This will take much longer time to compute (approximately 20 minutes on a regular laptop). When calulation is finished you can examine the influence on trees have on the wind within the model domain. 
+If you are interested, You can re-run URock and add the vegetation data. Then you just add your vegetation layer and specify VEG_HEIGHT as your vegetation crown top height field. Leave all other settings same as before except the output folder location. This will take longer time to compute (approximately 20 minutes on a regular laptop). When calculation is finished you can examine the influence that trees have on the wind within the model domain. 
 
 Tutorial finished.
 
