@@ -54,13 +54,6 @@ plugin see the `getting
 started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
 section in the UMEP manual. 
 
-**If the installation is done with the version presented in Wallenberg et al. (in review), use the following steps:**
-
-#. `Download UMEP-processing-main.zip <http://doi.org/10.5281/zenodo.4616761>`__ (zip-file).
-#. If you have an installed version of UMEP in your QGIS, uninstall it by going to
-   *Plugins -> Manage and Install Plugins -> Installed -> UMEP* and click **Uninstall plugin**
-#. Go to *Plugins -> Manage and Install Plugins -> Install from ZIP*
-
 As UMEP is under constant development, some documentation may be missing
 and/or there may be instability. Please report any issues or suggestions
 to our `repository <https://github.com/UMEP-dev/UMEP>`__.
@@ -111,8 +104,7 @@ these variables using a statistical model (Reindl el at. 1990) from global radia
 How to Run SOLWEIG from the UMEP processing plugin
 --------------------------------------------------
 
-#. Open SOLWEIG from *UMEP -> Processor -> Outdoor Thermal Comfort ->
-   Mean radiant temperature (SOLWEIG)* in the **Processing Toolbox**.
+#. Open SOLWEIG from *UMEP -> Processor -> Outdoor Thermal Comfort : Solweig v2022a* in the **Processing Toolbox**.
 
    -  You will make use of a test dataset from observations for Gothenburg, Sweden.
 
@@ -235,4 +227,4 @@ temperatures in urban areas: model development and evaluation. Theoretical and A
 `Reindl DT, Beckman WA & Duffie JA 1990: Diffuse fraction correlations. Solar Energy, 45(1), 1-7. <https://doi.org/10.1016/0038-092X(90)90060-P>`__
 
 Wallenberg N, Lindberg, F & Rayner, D: Locating trees to mitigate outdoor radiant load of humans in 
-urban areas using a metaheuristic hill climbing algorithm - Introducing TreePlanter v1.0. Geoscientific Model Development, *in review*.
+urban areas using a metaheuristic hill climbing algorithm - Introducing TreePlanter v1.0. Geoscientific Model Development.

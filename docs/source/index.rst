@@ -110,7 +110,17 @@ tool. The tutorials available are found in the table below.
      - `PythonProcessing2`
      - Python in QGIS/UMEP for processing in Linux/Mac
      - Gothenburg, Sweden     
-
+   * - Urban Wind Fields
+     - Pre-Processor, Processor, Post-Processor
+     - `IntroToURock`
+     - Modelling of 3D wind in urban areas
+     - Gothenburg, Sweden
+   * - Outdoor Thermal Comfort
+     - Pre-Processor, Processor, Post-Processor
+     - `SpatialTC`
+     - Generating raster maps of outdoor thermal comfort
+     - Gothenburg, Sweden
+     
 ..   * - Urban energy balance
 ..     - Pre-Processor, Processor and Post-processor
 ..     - `SUEWSWUDAPT_Beijing`
@@ -140,7 +150,9 @@ tool. The tutorials available are found in the table below.
    Tutorials/UWGSpatial
    Tutorials/PythonProcessing1
    Tutorials/PythonProcessing2
-
+   Tutorials/IntroductionToURock
+   Tutorials/SpatialTC
+   
    
 .. Tutorials/SUEWSWUDAPT_Beijing
 
