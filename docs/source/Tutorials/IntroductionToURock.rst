@@ -10,7 +10,7 @@ Introduction
 
 In this tutorial you will make use the model **URock** to estimate wind fields in an urban setting using a semi-empirical wind model based on Röckle (1990).
 
-URock can be used to calculate the 3D wind field of an urban area using information about the wind (at least speed and direction at a given height) and geographical data describing the area of interest (building and vegetation footprint and height). Two main stages are used: wind field initialization and wind field balance. For a detailed description of the model see, `Bernard et al. (2023) <https://meetingorganizer.copernicus.org/EGU23/EGU23-16480.html>`__.
+URock can be used to calculate the 3D wind field of an urban area using information about the wind (at least speed and direction at a given height) and geographical data describing the area of interest (building and vegetation footprint and height). Two main stages are used: wind field initialization and wind field balance. For a detailed description of the model see, `Bernard et al. (2023) <https://egusphere.copernicus.org/preprints/2023/egusphere-2023-354/>`__.
 
 The model requires **meteorological** forcing data (wind speed and direction) and geometry information for buildings and trees. 
 
@@ -108,6 +108,8 @@ Tutorial finished.
 
 References
 ----------
+
+Bernard, J., Lindberg, F., and Oswald, S.: URock 2023a: An open source GIS-based wind model for complex urban settings, EGUsphere [preprint], https://doi.org/10.5194/egusphere-2023-354, 2023. 
 
 Röckle, R.: Bestimmung der Strömungsverhältnisse im Bereich komplexer Bebauungsstrukturen, Ph.D. thesis, 1990.
 
