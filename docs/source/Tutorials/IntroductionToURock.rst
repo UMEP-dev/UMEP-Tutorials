@@ -24,7 +24,7 @@ Steps
 Initial Practical steps
 -----------------------
 
-**UMEP for Processing** is a python plugin used in conjunction with
+**UMEP for Processing** is a Python plugin used in conjunction with
 `QGIS <http://www.qgis.org>`__. To install the software and the UMEP
 plugin (if not already installed), see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
 section in the UMEP manual.
