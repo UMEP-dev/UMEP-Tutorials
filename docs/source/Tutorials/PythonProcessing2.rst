@@ -39,6 +39,10 @@ To use QGIS functions in your Python scripts, you need to add the following at t
   app = QgsApplication([], gui_flag)
   app.initQgis()
   
+  # Then you prepare the processing framework to access all default QGIS processing function
+  from processing.core.Processing import Processing
+  Processing.initialize()
+  
 
 2. Call QGIS (then UMEP) functions in Python
 -----------------------
