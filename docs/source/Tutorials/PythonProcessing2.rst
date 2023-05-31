@@ -29,66 +29,17 @@ If you use Python in a specific Python environment, make sure it is the same as 
 
 1. Makes QGIS functions accessible from standalone Python scripts
 -----------------------
-To use QGIS functions in your Python scripts, you need to have the same system path and environment variables as you have in QGIS. Thus you need to export them from QGIS and then import them into your Python script.
+To use QGIS functions in your Python scripts, you need to add the following at the beginning of your Python script:
 
-The export part should be done within the QGIS Python console. First open QGIS as if you would like to use UMEP. Then open the QGIS Python console and execute the following commands (note that the export will be saved in the user repository. If you change the directory, you will need to change it accordingly in the next step):
-::
-  # Export sys path to user home (you can specify an other directory is you like)
-  import sys
-  import pandas as pd
-  export_directory = os.path.expanduser("~")
-  paths = sys.path
-  df = pd.DataFrame({'paths':paths})
-  df.to_csv(os.path.join(export_directory,'.qgis_sys_paths.csv'), index=False)
-
-  # Export environment variables
-  import os
-  import json
-  env = dict(os.environ)
-  rem = ['SECURITYSESSIONID', 'LaunchInstanceID', 'TMPDIR']
-  _ = [env.pop(r, None) for r in rem]
-  with open(os.path.join(export_directory,'.qgis_env.json'), 'w') as f:
-      json.dump(env, f, ensure_ascii=False, indent=4)
-
-Then to use QGIS functions, you need to import these variables and paths in your script, prepare the QGIS processing framework and define QGIS plugins you want to use in the system paths.
-First, open a new script and import the QGIS environment variables and system paths:
 ::
   # Necessary imports
-  import os
-  import sys
-  import json
-  import pandas as pd
-
-  # Defines the directory where have been exported the path and variables
-  export_directory = os.path.expanduser("~")
-
-  # Set up system paths
-  qspath = os.path.join(export_directory, '.qgis_sys_paths.csv')
-  paths = pd.read_csv(qspath).paths.tolist()
-  sys.path += paths
-
-  # Set up environment variables
-  qepath = os.path.join(export_directory, '.qgis_env.json')
-  js = json.loads(open(qepath, 'r').read())
-  for k, v in js.items():
-      os.environ[k] = v
-
-Then you prepare the processing framework to access all default QGIS processing functions
-::
-  from processing.core.Processing import Processing
-  Processing.initialize()
+  from qgis.core import QgsApplication
   
-Last you import QGIS plugins in the Python system paths. To do so, you need to find the path of the folder containing them (probably *'/home/ __your_username__ /.local/share/QGIS/QGIS3/profiles/default/python/plugins'* for linux users and *'C:\\Users\\ __your_username__ \\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\plugins'* for Windows users) and then adding it as follow (keep only the line corresponding to your OS):
-::
-  import sys
-  user_home = os.path.expanduser("~")
+  # Starts the qgis application without the graphical user interface
+  gui_flag = False
+  app = QgsApplication([], gui_flag)
+  app.initQgis()
   
-  # For Linux users
-  third_party_path = os.path.join(user_home, ".local/share/QGIS/QGIS3/profiles/default/python/plugins")
-  # For Windows users
-  third_party_path = os.path.join(user_home, "\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins")
-  
-  sys.path.append(r'{0}'.format(third_party_path))
 
 2. Call QGIS (then UMEP) functions in Python
 -----------------------
@@ -105,7 +56,6 @@ Along with this information, you need to add the following lines in your Python 
 ::
   from processing_umep.processing_umep_provider import ProcessingUMEPProvider
   umep_provider = ProcessingUMEPProvider()
-  from qgis.core import QgsApplication
   QgsApplication.processingRegistry().addProvider(umep_provider)
 
 Finally, you just need to call the process using the right Python processing command. To know how to call a specific process, the easiest way is to run it within the QGIS interface first and then copy and paste the content of the history log into your script.
@@ -119,7 +69,7 @@ Finally, you just need to call the process using the right Python processing com
 
 Before to run it in your Python script, you need to import the module *'processing'*:
 ::
-  from qgis import processing
+  import processing
 
 You can then adapt the values of the dictionary in your own script. This command will return a dictionary of outputs from the process you run. You can then use these outputs to connect processes between each other (e.g. in the previous example you get a dictionary with two outputs: *'OUTPUT_DIR'* and *'OUTPUT_FILE'*).
 
@@ -130,7 +80,12 @@ You can then adapt the values of the dictionary in your own script. This command
 
        Name of the processing outputs (click on figure for larger image)
 
+At the end of your script, do not forget to end the connection to the QGIS session by adding the following:
+::
+  app.exitQgis()
+
 Now that all needed processes can be run from your Python script, let’s apply and connect some of them.
+
 
 3. Application case: SOLWEIG
 -----------------------
