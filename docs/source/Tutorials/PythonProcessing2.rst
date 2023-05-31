@@ -30,7 +30,6 @@ If you use Python in a specific Python environment, make sure it is the same as 
 1. Makes QGIS functions accessible from standalone Python scripts
 -----------------------
 To use QGIS functions in your Python scripts, you need to add the following at the beginning of your Python script:
-
 ::
   # Necessary imports
   from qgis.core import QgsApplication
