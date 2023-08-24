@@ -68,16 +68,16 @@ It is recommend to get familiar with the SOLWEIG model before you produce your i
        Settings for the Wall height and aspect plugin.
 
 #. Open the SOLWEIG plugin and use the settings shown below (see both figures). Do not 
-   forget to tick *Save Mean Radiant Temperature raster(s)*. The metfile is found in the downloaded tutorial data (*metfile.txt*) and is a clear (and not very warm) Summer day. Click **Run**. 
+   forget to tick *Save necessary raster(s) for the TreePlanter and Spatial TC tools*. The metfile is found in the downloaded tutorial data (*metfile.txt*) and is a clear (and not very warm) Summer day. Click **Run**. 
    
-    .. figure:: /images/spatialtc_solweig1.jpg
+    .. figure:: /images/spatialtc_solweig1.png
        :alt:  None
        :width: 100%
        :align: center
        
        The settings for your SOLWEIG run (click on figure for larger image).
       
-    .. figure:: /images/spatialtc_solweig2.jpg
+    .. figure:: /images/spatialtc_solweig2.png
        :alt:  None
        :width: 100%
        :align: center
@@ -92,13 +92,13 @@ Produce map of PET with SpatialTC
 
 Now you will run SpatialTC based on the output from the SOLWEIG and URock run in the previous sections.
 
-You need to specify three rasters: one of the mean radiant temperature that has been produced by SOLWEIG, the pedestrian wind speed produced by URock, and the one that exclude buildings from the analysis (produced by SOLWEIG). You also need to set the meteorological text file that has been used for the calculation of the T\ :sub:`mrt` map.
+You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG and one with the pedestrian wind speed produced by URock.
 
   - Load the *Tmrt_1983_173_1600D.tif* into your QGIS project. This file can be found in your outout folder form the previous SOLWEG-run. Do not change the file name as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
 
   - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
-    .. figure:: /images/spatialtc.jpg
+    .. figure:: /images/spatialtc.png
        :alt:  None
        :width: 100%
        :align: center
