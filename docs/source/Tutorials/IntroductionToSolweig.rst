@@ -208,8 +208,8 @@ How to Run SOLWEIG from the UMEP-plugin
 #. To be able to run the model, some additional spatial datasets needs to
    be created.
 
-   -  Close the SOLWEIG plugin and open UMEP from the processing toolbox then *Pre-Processor -> Urban
-      geometry: Sky View Factor*.
+   -  Close the SOLWEIG plugin and open UMEP from the processing toolbox then 
+      *Pre-Processor -> Urban geometry: Sky View Factor*.
    -  To run SOLWEIG various sky view factor (SVF) maps for both
       vegetation and buildings must be created (see `Lindberg and
       Grimmond
@@ -234,8 +234,10 @@ How to Run SOLWEIG from the UMEP-plugin
       necessary SVF maps needed to run the SOLWEIG-model.
 
 #. Another preprocessing plugin is needed to create the building wall
-   heights and aspect. Open *UMEP -> Pre-Processor -> Urban geometry ->
-   Wall height and aspect* and use the settings as shown below. QGIS scales loaded rasters by a *cumulative count out* approach (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your results to see the walls identified (*Layer Properties > Symbology*).
+   heights and aspect. Open UMEP from the processing toolbox again and then 
+   *Pre-Processor -> Urban geometry: Wall height and aspect* and use the settings as shown below. QGIS scales loaded rasters by a *cumulative count out* approach 
+   (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your 
+   results to see the walls identified (*Layer Properties > Symbology*).
    
     .. figure:: /images/SOLWEIG_wallgeight_solweig.png
        :alt:  None
