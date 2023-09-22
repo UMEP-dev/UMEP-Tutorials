@@ -208,8 +208,8 @@ How to Run SOLWEIG from the UMEP-plugin
 #. To be able to run the model, some additional spatial datasets needs to
    be created.
 
-   -  Close the SOLWEIG plugin and open *UMEP -> Pre-Processor -> Urban
-      geometry -> Sky View Factor*.
+   -  Close the SOLWEIG plugin and open UMEP from the processing toolbox then *Pre-Processor -> Urban
+      geometry: Sky View Factor*.
    -  To run SOLWEIG various sky view factor (SVF) maps for both
       vegetation and buildings must be created (see `Lindberg and
       Grimmond
