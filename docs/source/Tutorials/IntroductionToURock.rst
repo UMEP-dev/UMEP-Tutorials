@@ -37,7 +37,7 @@ Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The UMEP tutorial datasets can be downloaded from our here repository
-`here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/raw/master/other%20files/Annedal_EPSG3006.zip>`__.
+`here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/blob/master/other%20files/Annedal_EPSG3006.zip>`__.
 
 -  Download, extract and add the raster layers (DSM, CDSM, DEM), the building polygon layer and the line profile layer into a new QGIS session. Coordinate system of the grids is Sweref99 TM (EPSG:3006). 
 
