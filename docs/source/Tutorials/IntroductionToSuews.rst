@@ -7,7 +7,7 @@ Introduction
 ------------
 
 In this tutorial you will use a land-surface model,
-`SUEWS <http://suews-docs.readthedocs.io>`__ to simulate energy
+`SUEWS <https://suews.readthedocs.io/en/latest/>`__ to simulate energy
 exchanges in a city (London is the test case).
 
 SUEWS (Surface Urban Energy and Water Balance Scheme) allows the energy
@@ -30,7 +30,7 @@ SUEWS can be run in a number of different ways:
    the full capabilities of the model.
 #. Via the `UMEP for Processing <https://umep-docs.readthedocs.io/en/latest/UMEPforProcessing.html>`__-plugin.
 #. SUEWS standalone (see
-   `manual <http://suews-docs.readthedocs.io>`__).
+   `manual <https://suews.readthedocs.io/en/latest/>`__).
 #. `SuPy <https://supy.readthedocs.io/>`__, a Python-enhanced tool for SUEWS.   
 #. Within other larger scale models (e.g. `WRF <https://www.mmm.ucar.edu/weather-research-and-forecasting-model>`__).
 
@@ -62,7 +62,7 @@ SUEWS Model Inputs
 ------------------
 
 Details of the model inputs and outputs are provided in the `SUEWS
-manual <http://suews-docs.readthedocs.io>`__. As this tutorial is
+manual <https://suews.readthedocs.io/en/latest/>`__. As this tutorial is
 concerned with a **simple application**, only the most critical
 parameters are shown. Other versions allow many other parameters to be
 modified to more appropriate values if applicable. The table below
