@@ -234,7 +234,7 @@ two files:
 #. **RunControl.nml** - includes overall settings used in the model run. 
 
 If you open these files in a text editor. To understand the header
-variables read the `SUEWS manual <http://suews-docs.readthedocs.io>`__.
+variables read the `SUEWS manual <https://suews.readthedocs.io/en/latest/>`__.
 
 Sensitivity to land surface fractions
 -------------------------------------
