@@ -192,7 +192,7 @@ separate out certain points from the point cloud. Remove **by\_get.shp**
 from your QGIS project if the layer is loaded. Locate yourself in the
 **LaserData** folder and enter the following command in one line:
 ::
-  polyclipdata /outside /class:1 “c:\\temp\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” “c:\\temp\\LidarQGISFUSION\\Output\\veg.las” “gvc.las”
+  polyclipdata /outside /class:1 “c:\temp\LidarQGISFUSION\Fastighetskartan\by_get.shp” “c:\temp\LidarQGISFUSION\Output\veg.las” “gvc.las”
 
 Sometimes the folder paths malfunction. If you get an error
 message, try copying the **by_get.shp** in the same folder as
@@ -395,11 +395,11 @@ To add an environment path in the command prompt:
 
 To cut out laser points within building footprints:
 ::
-  polyclipdata /class:1 ”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”buildings.las” ”gvc.las”
+  polyclipdata /class:1 ”c:\LidarQGISFUSION\Fastighetskartan\by_get.shp” ”buildings.las” ”gvc.las”
 
 To cut out laser points on the ground:
 ::
-  C:\\LidarQGISFUSION\\Laserdata>polyclipdata /outside /class:2 ”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”ground.las” ”gvc.las”
+  C:\LidarQGISFUSION\Laserdata>polyclipdata /outside /class:2 ”c:\LidarQGISFUSION\Fastighetskartan\by_get.shp” ”ground.las” ”gvc.las”
 
 References
 ----------
