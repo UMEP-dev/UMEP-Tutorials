@@ -176,7 +176,7 @@ following command:
 You have now created an ESRI ASCII grid (in the same folder as
 **ground.dtm**) that you now can open QGIS. Open **ground.asc** in QGIS.
 You can also open the building footprint polygons from *Fastighetskartan*
-(**by\_get.shp**). Do not close the Command Prompt. If you have already
+(**by_get.shp**). Do not close the Command Prompt. If you have already
 done this, you need set your path to Fusion again.
 
 Create Digital Surface Models using QGIS/FUSION
@@ -195,7 +195,7 @@ from your QGIS project if the layer is loaded. Locate yourself in the
   polyclipdata /outside /class:1 “c:\\temp\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” “c:\\temp\\LidarQGISFUSION\\Output\\veg.las” “gvc.las”
 
 Sometimes the folder paths malfunction. If you get an error
-message, try copying the **by\_get.shp** in the same folder as
+message, try copying the **by_get.shp** in the same folder as
 **gvc.las** and then remove the path from the command. Remember that a shape file consists of many files, i.e. you need to copy all files starting with the name **by_get**. What you did with
 the above command was take all the points classified as
 *unclassified*, with the switch **/class:1**, and cut them based on the
@@ -272,7 +272,7 @@ lot of "holes", there are also occasional lamp posts, etc. Plus the buildings in
 how the **CanopyModel** algorithm works. You can read more about this
 in the manual if you are interested. Let's start by removing buildings.
 To do this, create a new polygon layer by buffering the building
-footprint layer (**by\_get.shp**) by 2 meters (*Vector > Geoprocessing Tools > Buffer*). Set *End cap style* to *Flat* and *Join style* to *Miter*. Name your new shapefile **by\_buff.shp** and save it in the folder **Fastighetskartan**. We must also create an additional attribute for **by\_buff.shp** with the value
+footprint layer (**by_get.shp**) by 2 meters (*Vector > Geoprocessing Tools > Buffer*). Set *End cap style* to *Flat* and *Join style* to *Miter*. Name your new shapefile **by_buff.shp** and save it in the folder **Fastighetskartan**. We must also create an additional attribute for **by\_buff.shp** with the value
 0. Open the *attribute table* and then the *Field Calculator* (abacus). Configure the following settings (Figure 11) and click OK. Then
 save and close the editor mode (buttons to the top left of the attribute table).
 
@@ -305,7 +305,7 @@ This can be done in the *Raster Calculator* in QGIS. Open *Raster
 Calculator* and choose write the following expression in the *Raster
 Calculator Expression* Window:
 :: 
-  (cdsm_filt@1 > 0.5) \* cdsm_filt@1
+  (cdsm_filt@1 > 0.5) * cdsm_filt@1
 
 Call the output file **cdsm_filt2.tif** and save as a geoTIFF.
 
@@ -317,7 +317,7 @@ for example, a positive pole height value is surrounded by ground pixels
 the filter window (usually 3x3), i.e. zero. Search for **Majority
 filter** from *SAGA GIS* in the *Processing Toolbox*. Run the filter
 algorithm using default settings. Make sure not to remove too many vegetation pixels. This is set by the *Threshold* parameter. Use a temporary output and then export
-the layer as a geoTIFF with the name **cdsm\_final**. There are also
+the layer as a geoTIFF with the name **cdsm_final**. There are also
 other filters that you could make use of. For example, filters to fill gaps in the vegetation or remove linear features (see Linberg and Grimmond 2011). If you feel you have much time left, consider how to fill gaps in vegetation using filtering techniques.
 
 .. figure:: /images/Lidar13.jpg
@@ -325,7 +325,7 @@ other filters that you could make use of. For example, filters to fill gaps in t
    :width: 100%
    :align: center 
 
-   Figure 13. cdsm\_final.tif
+   Figure 13. cdsm_final.tif
 
 PART 2 - Land Cover data
 ------------------------
