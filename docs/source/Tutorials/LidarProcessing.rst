@@ -309,16 +309,10 @@ Calculator Expression* Window:
 
 Call the output file **cdsm_filt2.tif** and save as a geoTIFF.
 
-Finally, you need to run a majority filter to remove some noise (posts,
-etc.) on our vegetation DSM. A majority filter replaces individual
-pixels that are surrounded by pixels with the same value. In our case,
-for example, a positive pole height value is surrounded by ground pixels
-(zeros). This replaces the pixel value to the value that occurs most in
-the filter window (usually 3x3), i.e. zero. Search for **Majority
-filter** from *SAGA GIS* in the *Processing Toolbox*. Run the filter
-algorithm using default settings. Make sure not to remove too many vegetation pixels. This is set by the *Threshold* parameter. Use a temporary output and then export
-the layer as a geoTIFF with the name **cdsm_final**. There are also
-other filters that you could make use of. For example, filters to fill gaps in the vegetation or remove linear features (see Linberg and Grimmond 2011). If you feel you have much time left, consider how to fill gaps in vegetation using filtering techniques.
+Finally, you need to run a majority filter to remove some noise (posts, etc.) on our vegetation DSM. A majority filter replaces individual
+pixels that are surrounded by pixels with the same value. In our case, for example, a positive pole height value is surrounded by ground pixels
+(zeros). This replaces the pixel value to the value that occurs most in the filter window (usually 3x3), i.e. zero. Search for **Majority
+filter** from *SAGA GIS* in the *Processing Toolbox*. Run the filter algorithm using default settings except changing the Theshold values to 65. Use a temporary output and then export the layer as a geoTIFF with the name **cdsm_final**. There are also other filters that you could make use of. For example, filters to fill gaps in the vegetation or remove linear features (see Linberg and Grimmond 2011). If you feel you have much time left, consider how to fill gaps in vegetation using filtering techniques.
 
 .. figure:: /images/Lidar13.jpg
    :alt:  none
