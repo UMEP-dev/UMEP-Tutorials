@@ -294,8 +294,8 @@ settings as in Figure 12. The Output extent is taken from the
 
    Figure 12. Rasterize in QGIS.
 
-Open the *Raster Calculator* and multiply **buff\_bolean** with **cdsm**.
-Call the new layer **cdsm\_filt.tif**. This operation has now removed
+Open the *Raster Calculator* and multiply **buff_bolean** with **cdsm**.
+Call the new layer **cdsm_filt.tif**. This operation has now removed
 vegetation pixels that were present within the buffered buildings.
 
 Unfortunately, the Canopy Model algorithm in FUSION/QGIS is produces
@@ -305,9 +305,9 @@ This can be done in the *Raster Calculator* in QGIS. Open *Raster
 Calculator* and choose write the following expression in the *Raster
 Calculator Expression* Window:
 :: 
-  (cdsm\_filt@1 > 0.5) \* cdsm\_filt@1
+  (cdsm_filt@1 > 0.5) \* cdsm_filt@1
 
-Call the output file **cdsm\_filt2.tif** and save as a geoTIFF.
+Call the output file **cdsm_filt2.tif** and save as a geoTIFF.
 
 Finally, you need to run a majority filter to remove some noise (posts,
 etc.) on our vegetation DSM. A majority filter replaces individual
