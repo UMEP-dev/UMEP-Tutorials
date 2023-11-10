@@ -170,8 +170,8 @@ Now you can use all the executable algorithms that are available in the
 **C:\\FUSION\\**. Try by typing **gridsurfacecreate**. Now you will see
 the documentation available for this specific algorithm. As you want to convert your **.dtm** file you will make use of **DTM2ASCII**. Type the
 following command:
-
-    **dtm2ascii /raster ground.dtm**
+::
+  dtm2ascii /raster ground.dtm
 
 You have now created an ESRI ASCII grid (in the same folder as
 **ground.dtm**) that you now can open QGIS. Open **ground.asc** in QGIS.
@@ -191,10 +191,8 @@ the command prompt, **PolyClipData**. The algorithm is used to
 separate out certain points from the point cloud. Remove **by\_get.shp**
 from your QGIS project if the layer is loaded. Locate yourself in the
 **LaserData** folder and enter the following command in one line:
-
-    **polyclipdata /outside /class:1
-    “c:\\temp\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp”
-    “c:\\temp\\LidarQGISFUSION\\Output\\veg.las” “gvc.las”**
+::
+  polyclipdata /outside /class:1 “c:\\temp\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” “c:\\temp\\LidarQGISFUSION\\Output\\veg.las” “gvc.las”
 
 Sometimes the folder paths malfunction. If you get an error
 message, try copying the **by\_get.shp** in the same folder as
@@ -249,9 +247,8 @@ want to filter out lower points that can be, for example, people or cars. To do 
 the algorithm of running it from the *Processing Toolbox* so we need
 to run it from the command prompt. Locate your folder *Output* and enter
 the following:
-
-    **clipdata /ground:ground.dtm /zmin:2.5 veg.las veg\_filt.las 318864.0
-    319364.0 6397926.0 6398400.0**
+::
+  clipdata /ground:ground.dtm /zmin:2.5 veg.las veg\_filt.las 318864.0 319364.0 6397926.0 6398400.0
 
 This was done to exclude all the points that are lower than 2.5 meters
 from our ground model (**/zmin:2.5**). The coordinates at the end are
@@ -275,13 +272,9 @@ lot of "holes", there are also occasional lamp posts, etc. Plus the buildings in
 how the **CanopyModel** algorithm works. You can read more about this
 in the manual if you are interested. Let's start by removing buildings.
 To do this, create a new polygon layer by buffering the building
-footprint layer (**by\_get.shp**) by 2 meters (*Vector > Geoprocessing Tools > Buffer*). Set *End cap style* to *Flat* and *Join style* to *Miter*. Name your new shapefile
-**by\_buff.shp** and save it in the folder **Fastighetskartan**. We must
-also create an additional attribute for **by\_buff.shp** with the value
-0. Open the *attribute table* and then the *Field Calculator*
-(abacus). Configure the following settings (Figure 11) and click OK. Then
-save and close the editor mode (buttons to the top left of the attribute
-table).
+footprint layer (**by\_get.shp**) by 2 meters (*Vector > Geoprocessing Tools > Buffer*). Set *End cap style* to *Flat* and *Join style* to *Miter*. Name your new shapefile **by\_buff.shp** and save it in the folder **Fastighetskartan**. We must also create an additional attribute for **by\_buff.shp** with the value
+0. Open the *attribute table* and then the *Field Calculator* (abacus). Configure the following settings (Figure 11) and click OK. Then
+save and close the editor mode (buttons to the top left of the attribute table).
 
 .. figure:: /images/Lidar11.jpg
    :alt:  none
@@ -311,8 +304,8 @@ Therefore, we need to remove these values from the vegetation raster.
 This can be done in the *Raster Calculator* in QGIS. Open *Raster
 Calculator* and choose write the following expression in the *Raster
 Calculator Expression* Window:
-
-    **(cdsm\_filt@1 > 0.5) \* cdsm\_filt@1**
+:: 
+  (cdsm\_filt@1 > 0.5) \* cdsm\_filt@1
 
 Call the output file **cdsm\_filt2.tif** and save as a geoTIFF.
 
@@ -376,8 +369,8 @@ This is about as far as you can come with a point cloud like this. Bare soil is 
 Merging into on land cover grid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Make use of the *Raster Calculator* again using the following syntax:
-
-   **("build_bolean@1") + ("lc_bolean@1" * 2) + (("build_bolean@1" * "veg_bolean@1") * 3)** 
+::
+  ("build_bolean@1") + ("lc_bolean@1" * 2) + (("build_bolean@1" * "veg_bolean@1") * 3)
 
 Call the output **landcover_raw.tif**.
 
@@ -397,20 +390,16 @@ Commands
 --------
 
 To add an environment path in the command prompt:
-
-    **Path %PATH%;C:\\FUSION**
+::
+  Path %PATH%;C:\\FUSION
 
 To cut out laser points within building footprints:
-
-    **polyclipdata /class:1**
-    **”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”buildings.las”**
-    **”gvc.las”**
+::
+  polyclipdata /class:1 ”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”buildings.las” ”gvc.las”
 
 To cut out laser points on the ground:
-
-    **C:\\LidarQGISFUSION\\Laserdata>polyclipdata /outside /class:2**
-    **”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”ground.las”**
-    **”gvc.las”**
+::
+  C:\\LidarQGISFUSION\\Laserdata>polyclipdata /outside /class:2 ”c:\\LidarQGISFUSION\\Fastighetskartan\\by\_get.shp” ”ground.las” ”gvc.las”
 
 References
 ----------
