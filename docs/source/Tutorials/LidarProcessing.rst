@@ -248,7 +248,7 @@ the algorithm of running it from the *Processing Toolbox* so we need
 to run it from the command prompt. Locate your folder *Output* and enter
 the following:
 ::
-  clipdata /ground:ground.dtm /zmin:2.5 veg.las veg\_filt.las 318864.0 319364.0 6397926.0 6398400.0
+  clipdata /ground:ground.dtm /zmin:2.5 veg.las veg_filt.las 318864.0 319364.0 6397926.0 6398400.0
 
 This was done to exclude all the points that are lower than 2.5 meters
 from our ground model (**/zmin:2.5**). The coordinates at the end are
