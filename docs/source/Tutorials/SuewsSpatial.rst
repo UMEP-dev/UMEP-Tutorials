@@ -387,10 +387,9 @@ To perform modelling energy fluxes for multiple grids, `SUEWSAdvanced` can be us
 
 - Open *UMEP > Processor > Urban Energy Balance > SUEWS/BLUEWS, Advanced*. Here you can change some of the run control settings in SUEWS. SUEWS can also be executed outside of UMEP and QGIS (see `SUEWS Manual <http://suews-docs.readthedocs.io>`__). This is recommended when modelling long time series (multiple years) of large model domains (many grid points).
 - Change the OHM option to [1]. This allows the anthropogenic energy to be partitioned also into the storage energy term.
-- Leave the rest of the combobox settings at the top as default and tick both the *Use snow module* and the *Obtain temporal resolution...* boxes.
+- Leave the rest of the combobox settings at the top as default.
 - Set the *Temporal resolution of output (minutes) to 60.*
 - Locate the directory where you saved your output from *SUEWSPrepare* earlier and choose an output folder of your choice.
-- Also, Tick the box *Apply spin-up using...*. This will force the model to run twice using the conditions from the first run as initial conditions for the second run.
 - Click *Run*. This computation will take a while so be patient.
 
 Analysing model reults
