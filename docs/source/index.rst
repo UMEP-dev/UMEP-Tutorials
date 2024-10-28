@@ -97,8 +97,13 @@ tool. The tutorials available are found in the table below.
      - Gothenburg, Sweden
    * - Urban Heat Island
      - Pre-Processor, Processor, Post-processor
+     - `TARGETTutorial`
+     - Spatial variation of air temperature 
+     - Gothenburg, Sweden
+   * - Urban Heat Island
+     - Pre-Processor, Processor, Post-processor
      - `UWGSpatial`
-     - Spatial variation of UHI 
+     - Spatial variation of air temperature 
      - Gothenburg, Sweden
    * - Python Scripting
      - Processor
@@ -127,6 +132,7 @@ tool. The tutorials available are found in the table below.
 ..     - Making use of `WUDAPT <http://www.wudapt.org/>`__ local climate zones as well as `WATCH <http://www.eu-watch.org/>`__ meteorological forcing data in `SUEWS  <http://suews-docs.readthedocs.io>`__
 ..     - Beijing, China
 
+Direct link back to `the UMEP Manual <https://umep-docs.readthedocs.io/>`__.
 
 .. toctree::
    :caption: UMEP Tutorials
@@ -147,6 +153,7 @@ tool. The tutorials available are found in the table below.
    Tutorials/DSMGenerator
    Tutorials/LidarProcessing
    Tutorials/IntrodutionToProcessingSEBE
+   Tutorials/TARGETTutorial
    Tutorials/UWGSpatial
    Tutorials/PythonProcessing1
    Tutorials/PythonProcessing2

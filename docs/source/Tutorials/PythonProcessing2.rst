@@ -5,7 +5,7 @@ Python for processing (SOLWEIG)
 
 .. note:: UNDER DEVELOPMENT. NOT READY.
 
-.. note:: The first part of this tutorial is designed for a Linux/Unix/Mac type of OS. For Windowss users, first have a look at `this tutorial <PythonProcessing1>` and the last part of this tutorial
+.. note:: The first part of this tutorial is designed for a Linux/Unix/Mac type of OS. For Windows users, first have a look at `this tutorial <PythonProcessing1>` and the last part of this tutorial
 
 Introduction
 ------------

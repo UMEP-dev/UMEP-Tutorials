@@ -55,8 +55,7 @@ The tools in **UMEP for processing** are the same as in **UMEP** found in the me
 * Add **DSM_KRbig.tif** to your project.
 * In the *Processing Toolbox*, Open *UMEP -> Pre-Processor -> Urban Geometry: Wall Height and Aspect*.
 
-  .. figure:: /images/ProcessingWallHeight.jpg
-    :width: 100%
+  .. figure:: /images/ProcessingWallHeight2.jpg
     :align: center
     :alt:  None
 
@@ -69,8 +68,7 @@ If you also open the same tool but from the menubar you will see that is is the 
 Before closing the tool, take a look in the log-window. Here you see some useful information e.g. if the tool was finished sucesfully, but also the name of all the input parameters:
 :: 
   Input parameters: 
-  { 'ASPECT_BOOL' : True, 
-  'INPUT' : 'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif', 
+  { 'INPUT' : 'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif', 
   'INPUT_LIMIT' : 3, 
   'OUTPUT_ASPECT' : 'TEMPORARY_OUTPUT', 
   'OUTPUT_HEIGHT' : 'TEMPORARY_OUTPUT' } 
@@ -109,7 +107,7 @@ Now you can see the tool visible in the main modeler window.
 Now two steps (boxes) are shown in the main Modeler window.
 
 * Under *Model Properties*, Change *Name* to **SEBEProcessing** and *Group* to **My UMEP Models**
-* Save model as **SEBEProcessing.model3** and locate it in the folder recommend by QGIS (C:\Users\**your_user_name**\AppData\Roaming\QGIS\QGIS3\profiles\default\processing\models). Then you will easily be able to locate the model from the *Processing Toolbox* later.
+* Save model as **SEBEProcessing.model3** and locate it in the folder recommend by QGIS (C:/Users/**your_user_name**/AppData/Roaming/QGIS/QGIS3/profiles/default/processing/models). Then you will easily be able to locate the model from the *Processing Toolbox* later.
 
   .. figure:: /images/ModelerSEBE1.jpg
     :width: 100%
@@ -171,11 +169,11 @@ One easy way to do this is to look at the history actions in the *Processing Too
 
 #. Locate the first time you ran *Wall Height and Aspect* in the History. Copy that line. Is should look some thing like this:
 ::
-  processing.run("umep:Urban Geometry: Wall Height and Aspect", {'INPUT':'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif','ASPECT_BOOL':True,'INPUT_LIMIT':3,'OUTPUT_HEIGHT':'TEMPORARY_OUTPUT','OUTPUT_ASPECT':'TEMPORARY_OUTPUT'})
+  processing.run("umep:Urban Geometry: Wall Height and Aspect", {'INPUT':'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif','INPUT_LIMIT':3,'OUTPUT_HEIGHT':'TEMPORARY_OUTPUT','OUTPUT_ASPECT':'TEMPORARY_OUTPUT'})
 
 You may notice that the last part in curly brakets starting with 'INPUT': is your input parameters. The text before that is how you access the tool via Python.
 
-#. Open the Python console in QGIS (*Plugins > Python Console*) and paste the line you just copied. Before you press *return*, change the output of the height raster to e.g. *'C:/temp/heightraster.tif'* and change **ASPECT_BOOL** to *False*. Press *return*. A new layer (**heightraster.tif**) should have been created.
+#. Open the Python console in QGIS (*Plugins > Python Console*) and paste the line you just copied. Before you press *return*, change the output of the height raster to e.g. *'C:/temp/heightraster.tif'* and remove the last variable **OUTPUT_ASPECT**. Press *return*. A new layer (**heightraster.tif**) should have been created.
 
 Accessing algorithms in a stand-alone Python script 
 ---------------------------------------------------
