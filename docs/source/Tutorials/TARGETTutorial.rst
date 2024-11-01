@@ -12,7 +12,7 @@ In this tutorial you will generate input data for the
 `TARGET model <https://umep-docs.readthedocs.io/en/latest/processor/Urban%20Heat%20Island%20TARGET.html>`__ and simulate spatial
 (and temporal) variations of air temperature for an area in Gothenburg, Sweden.
 
-The **TARGET** tool is an implementation of the Python version of  `TARGET <https://github.com/jixuan-chen/target>`__ application with the same name. The original TARGET model was presented in `Broadbent at al. 2019 <https://gmd.copernicus.org/articles/12/785/2019/>`__.
+The **TARGET** tool is an implementation of the Python version of `TARGET <https://github.com/jixuan-chen/target>`__ application with the same name. The original TARGET model was presented in `Broadbent at al. 2019 <https://gmd.copernicus.org/articles/12/785/2019/>`__.
 
 This tutorial makes use of local high resolution detailed spatial data. If this kind of data is unavailable, other datasets derived from e.g. `Open Street Map <https://www.openstreetmap.org/>`__ can be exploited. However, it is strongly recommended to go through this tutorial before moving on to more user-specific datasets.
 

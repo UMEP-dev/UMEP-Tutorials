@@ -359,7 +359,7 @@ Population density
 Population density will be used to estimate the anthropogenic heat release (Q\ :sub:`F`) in SUEWS. There is a possibility to use both night-time and daytime population densities to make the model more dynamic. You have two different raster grids for night-time (**pop_nighttime_perha**) and daytime (**pop_daytime_perha**), respectively. This time you will make use of QGIS built-in function to to acquire the population density for each grid.
 
 - In the *Processing Toolbox*, search for *Zonal Statistics*. Open the tool.
-- Choose your **pop_daytime_perha** layer as *Raster layer* and your **Grid_500m** as the *vector layer*. Use a *Output column prefix* of **PPday** and chose only to calculate *Mean*. Click OK.
+- Choose your **pop_daytime_perha** layer as *Raster layer* and your **Grid_500m** as the *vector layer*. Use a *Output column prefix* of **PPday** and chose only to calculate *Mean*. Click OK. Currently (November 2024), there are issues in QGIS adding new attribute columns to your grid using "append to layer". Therefore, you need to create a new vector grid file when running zonal statistics.
 - Run the tool again but this time use the night-time dataset (**PPnight**).
 
 SUEWS Prepare
@@ -385,7 +385,7 @@ Running the SUEWS model in UMEP
 
 To perform modelling energy fluxes for multiple grids, `SUEWSAdvanced` can be used.
 
-- Open *UMEP > Processor > Urban Energy Balance > SUEWS/BLUEWS, Advanced*. Here you can change some of the run control settings in SUEWS. SUEWS can also be executed outside of UMEP and QGIS (see `SUEWS Manual <http://suews-docs.readthedocs.io>`__). This is recommended when modelling long time series (multiple years) of large model domains (many grid points).
+- Open *UMEP > Processor > Urban Energy Balance > SUEWS, Advanced* (In **UMEP for Processing** is is called *SUEWS v2022a*). Here you can change some of the run control settings in SUEWS. SUEWS can also be executed outside of UMEP and QGIS (see `SUEWS Manual <http://suews-docs.readthedocs.io>`__). This is recommended when modelling long time series (multiple years) of large model domains (many grid points).
 - Change the OHM option to [1]. This allows the anthropogenic energy to be partitioned also into the storage energy term.
 - Leave the rest of the combobox settings at the top as default.
 - Set the *Temporal resolution of output (minutes) to 60.*
