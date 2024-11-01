@@ -7,8 +7,7 @@ Introduction
 ------------
 
 In this tutorial you will generate input data for the
-`Urban Weather Generator <https://umep-docs.readthedocs.io/en/latest/processor/Urban%20Heat%20Island%20Urban%20Weather%20Generator.html>`__ and simulate spatial
-(and temporal) variations of urban heat island (UHI) in Gothenburg, Sweden.
+`Urban Weather Generator <https://umep-docs.readthedocs.io/en/latest/processor/Urban%20Heat%20Island%20Urban%20Weather%20Generator.html>`__ and simulate spatial (and temporal) variations of urban heat island (UHI) in Gothenburg, Sweden.
 
 The **Urban Weather Generator** (UWG) tool is an implementation of the `Ladybug <https://github.com/ladybug-tools/uwg>`__ application with the same name. The `original Urban Weather Generator <http://urbanmicroclimate.scripts.mit.edu/uwg.php>`__ was developed by Bruno Bueno for `his PhD thesis at MIT <https://dspace.mit.edu/handle/1721.1/59107>`__. Since this time, it has been validated 3 times and has been `enhanced by Aiko Nakano <https://dspace.mit.edu/handle/1721.1/108779>`__. In 2016, Joseph Yang also `improved the engine and added a range of building templates <https://dspace.mit.edu/handle/1721.1/107347>`__. For more detailed information on UWG, follow the links above.
 
@@ -17,7 +16,7 @@ This tutorial makes use of local high resolution detailed spatial data. If this 
 Objectives
 ----------
 
-To perform and analyse intra urban temperature variations within an area is Gothenburg, Sweden using the Urban Weather Generator.
+To perform and analyse intra urban temperature variations within an area in Gothenburg, Sweden using the Urban Weather Generator.
 
 Initial Steps
 -------------
@@ -97,7 +96,7 @@ First we need to derive surface fractions etc. from the geodata for each grid. T
    :alt:  none
    :width: 75%
 
-   The settings for calculating building morphology.
+   The settings for calculating building morphology. Click on image for enlargement.
 
 This operation should have produced 16 different text files; 15 (*anisotrophic*) that include morphometric parameters from each 5 degree section for each grid and one file (*isotropic*) that includes averaged values for each of the 15 grids. You can open **kv_IMPGrid_isotropic.txt** and compare the different values for different grids. Header abbreviations are explained `here <http://umep-docs.readthedocs.io/en/latest/Abbreviations.html>`__.
 
@@ -130,7 +129,7 @@ Preparing input data for the Urban Weather Generator
 
 Now all input information required is pre-processed apart from the final step which is to create the uwg-files used by the model.
 
-- Open SUEWS Prepare (*UMEP > Pre-Processor > Urban Heat Island > UWG prepare*) and use the following settings.
+- Open **UWG Prepare** (*UMEP > Pre-Processor > Urban Heat Island > UWG prepare*) and use the following settings.
 
 .. figure:: /images/uwg_prepare.jpg
    :alt:  none
@@ -178,7 +177,7 @@ The result should look something like this:
    Above: Wind speed and global radiation from epw-file. Below: Air temperature from airport compared with grid 9 (click for a larger image).
    
    
-Finally, you can also make a spatial grid from your model reults, both as a raster of add output to you grid polygon layer. You will add a new attribute to your grid polygon layer. Open the same tool but in UMEP for Processing and use the following settings:
+Finally, you can also make a spatial grid from your model reults, both as a raster of add output to your grid polygon layer. You will add a new attribute to your grid polygon layer. Open the same tool but in UMEP for Processing and use the following settings:
 
 .. figure:: /images/uwg_analyzer_spatial.jpg
    :alt:  none
