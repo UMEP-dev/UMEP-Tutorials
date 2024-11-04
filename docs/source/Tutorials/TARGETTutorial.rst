@@ -44,7 +44,7 @@ The order in the *Layers Panel* determines what layer is visible. You can choose
 
 The land cover grid comes with a specific QGIS style file.
 
-- Right-click on the land cover layer (**torgg_lc**) and choose *Properties*. At the bottom left of the window there is a *Style*-button. Choose *Load Style* and open **landcoverstyle.qml** and click OK.
+- Right-click on the land cover layer (**torgg_lc**) and choose *Properties*. At the bottom left of the window there is a *Style*-button. Choose *Load Style* and open **landcoverstyle.qml** (shipped with the data for this tutorial) and click OK.
 - Make only your land cover class layer visible to examine the spatial variability of the different land cover classes.
 
 The land cover grid has already been classified into the seven different classes used in most UMEP applications (see `Land Cover Reclassifier <http://umep-docs.readthedocs.io/en/latest/pre-processor/Urban%20Land%20Cover%20Land%20Cover%20Reclassifier.html>`__). If you have a land cover dataset that is not UMEP formatted you can use the *Land Cover Reclassifier* found at *UMEP > Pre-processor > Urban Land Cover > Land Cover Reclassifier* in the menu-bar to reclassify your data. TARGET land cover infromation is in somewhat different classes that the standard UMEP classes. The updated Land Cover Reclassifier includes possibilities to pre-process data into all nine classes used by TARGET. In the table below you see the classes used and how they relate to the standard UMEP classes:
@@ -91,7 +91,7 @@ A polygon grid (300 m x 300 m) to define the study area and individual grids is 
 Preparing input data
 --------------------
 
-First we need to derive surface fractions etc. from the geodata for each grid. This is similar as done in many other tutorials e.g. `SuewsSpatial`. We start to calculate roughness parameters based on the building geometry within each grids. Open *UMEP > Pre-Processor > Urban Morphology > Morphometric Calculator (Grid)*. 
+First we need to derive surface fractions etc. from the geodata for each grid. This is similar as done in many other tutorials e.g. `SuewsSpatial`. We start to calculate roughness parameters based on the building geometry within each grids. Open *UMEP > Pre-Processor > Urban Morphology > Morphometric Calculator (Grid)*. **Note**: This tool and other has benn moved to **UMEP for Processing**, e.g. *UMEP > Pre-Processor > Urban Morphology:Morphometric Calculator (Grid)*. 
 
 - Use the settings as in the figure below and press *Run*.
 - When calculation is done, close the plugin.
