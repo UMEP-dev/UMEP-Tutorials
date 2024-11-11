@@ -35,10 +35,10 @@ tool. The tutorials available are found in the table below.
      - `SEBE`
      - Amount of solar energy received on building facets
      - Gothenburg, Sweden; London, UK
-   * - Urban energy balance
-     - Processor
-     - `IntroductionToSuews`
-     - Energy, water and radiation fluxes for one location
+   * - Source Area Footprint
+     - Pre-Processor
+     - `Footprint`
+     - Interpretation of eddy covariance flux source areas
      - London, UK
    * - Spatial data
      - Pre-Processor
@@ -51,14 +51,14 @@ tool. The tutorials available are found in the table below.
      - Generating UMEP input data from a LiDAR point cloud
      - Gothenburg, Sweden
    * - Urban energy balance
+     - Processor
+     - `IntroductionToSuews`
+     - Energy, water and radiation fluxes for one location
+     - London, UK
+   * - Urban energy balance
      - Pre-Processor and Processor
      - `SUEWSAdvanced`
      - Energy, water and radiation fluxes for one location
-     - London, UK
-   * - Source Area Footprint
-     - Pre-Processor
-     - `Footprint`
-     - Interpretation of eddy covariance flux source areas
      - London, UK
    * - Urban energy balance
      - Pre-Processor, Processor and Post-processor
@@ -70,30 +70,40 @@ tool. The tutorials available are found in the table below.
      - `SUEWSWUDAPT`
      - Making use of `WUDAPT <http://www.wudapt.org/>`__ local climate zones in `SUEWS  <http://suews-docs.readthedocs.io>`__
      - New York City, US
+   * - Urban Energy Balance
+     - Pre-Processor, Processor, Post-Processor
+     - `SUEWSDatabase`
+     - Energy, water and radiation fluxes for a spatial grid using a urban typology database 
+     - Gothenburg, Sweden
+   * - Anthropogenic heat
+     - Processor
+     - `LQF`
+     - Anthropogenic heat modelling in London using LQF (LUCY methodology)
+     - London, UK
+   * - Anthropogenic heat
+     - Processor
+     - `GQF`
+     - Anthropogenic heat modelling in London using GQF (GreaterQF methodology)
+     - London, UK
    * - Outdoor thermal comfort
      - Pre-Processor, Processor and Post-processor
      - `IntroToSOLWEIG`
      - Mean radiation temperature modelling in complex urban settings
      - Gothenburg, Sweden; New York City, US
-   * - Anthropogenic heat
-     - Processor
-     - `GQF`
-     - Anthropogenic heat modelling in London using GQF (uses the GreaterQF methodology)
-     - London, UK
-   * - Anthropogenic heat
-     - Processor
-     - `LQF`
-     - Anthropogenic heat modelling in London using LQF (uses the LUCY methodology)
-     - London, UK
-   * - UMEP for Processing
-     - Pre-Processor, Processor
-     - `ProcessingSEBE`
-     - Create UMEP workflows using the Processing Toolbox in QGIS
-     - Gothenburg, Sweden
    * - Outdoor Thermal Comfort
      - Pre-Processor, Processor
      - `IntroToTreePlanter`
      - Locating trees to mitigate heat stress
+     - Gothenburg, Sweden
+   * - Urban Wind Fields
+     - Pre-Processor, Processor, Post-Processor
+     - `IntroToURock`
+     - Modelling of 3D wind in urban areas
+     - Gothenburg, Sweden
+   * - Outdoor Thermal Comfort
+     - Pre-Processor, Processor, Post-Processor
+     - `SpatialTC`
+     - Generating raster maps of outdoor thermal comfort
      - Gothenburg, Sweden
    * - Urban Heat Island
      - Pre-Processor, Processor, Post-processor
@@ -105,6 +115,11 @@ tool. The tutorials available are found in the table below.
      - `UWGSpatial`
      - Spatial variation of air temperature 
      - Gothenburg, Sweden
+   * - UMEP for Processing
+     - Pre-Processor, Processor
+     - `ProcessingSEBE`
+     - Create UMEP workflows using the Processing Toolbox in QGIS
+     - Gothenburg, Sweden
    * - Python Scripting
      - Processor
      - `PythonProcessing1`
@@ -115,17 +130,7 @@ tool. The tutorials available are found in the table below.
      - `PythonProcessing2`
      - Python in QGIS/UMEP for processing in Linux/Mac
      - Gothenburg, Sweden     
-   * - Urban Wind Fields
-     - Pre-Processor, Processor, Post-Processor
-     - `IntroToURock`
-     - Modelling of 3D wind in urban areas
-     - Gothenburg, Sweden
-   * - Outdoor Thermal Comfort
-     - Pre-Processor, Processor, Post-Processor
-     - `SpatialTC`
-     - Generating raster maps of outdoor thermal comfort
-     - Gothenburg, Sweden
-     
+
 ..   * - Urban energy balance
 ..     - Pre-Processor, Processor and Post-processor
 ..     - `SUEWSWUDAPT_Beijing`
@@ -141,24 +146,25 @@ Direct link back to `the UMEP Manual <https://umep-docs.readthedocs.io/>`__.
 
    Tutorials/DailyShading
    Tutorials/SEBE
-   Tutorials/IntroductionToSolweig
-   Tutorials/IntroductionToSuews
-   Tutorials/SuewsAdvanced
    Tutorials/Footprint
-   Tutorials/SuewsSpatial
-   Tutorials/SuewsWUDAPT
-   Tutorials/LQF
-   Tutorials/GQF
-   Tutorials/IntroductionToTreePlanter
    Tutorials/DSMGenerator
    Tutorials/LidarProcessing
-   Tutorials/IntrodutionToProcessingSEBE
-   Tutorials/TARGETTutorial
-   Tutorials/UWGSpatial
-   Tutorials/PythonProcessing1
-   Tutorials/PythonProcessing2
+   Tutorials/IntroductionToSuews
+   Tutorials/SuewsAdvanced
+   Tutorials/SuewsSpatial
+   Tutorials/SuewsWUDAPT
+   Tutorials/SUEWSDatabase
+   Tutorials/LQF
+   Tutorials/GQF
+   Tutorials/IntroductionToSolweig
+   Tutorials/IntroductionToTreePlanter
    Tutorials/IntroductionToURock
    Tutorials/SpatialTC
+   Tutorials/TARGETTutorial
+   Tutorials/UWGSpatial
+   Tutorials/IntrodutionToProcessingSEBE
+   Tutorials/PythonProcessing1
+   Tutorials/PythonProcessing2
    
    
 .. Tutorials/SUEWSWUDAPT_Beijing

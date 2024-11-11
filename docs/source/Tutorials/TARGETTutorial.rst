@@ -159,14 +159,14 @@ Now, lets run the TARGET model. Open *UMEP -> Processor -> Urban Heat Island: TA
 Analysing the results
 ---------------------
 
-If you take a look in your output folder, you see a number of UMEP-formatted meteorological files which is the output from the model, one for each grid. First, try to plot grid 11 between May 7 and 17 by opening *UMEP -> Post Processor -> Urban Heat Island -> UWGAnalyzer* and use the settings below beofre clicking **Plot**:
+If you take a look in your output folder, you see a number of UMEP-formatted meteorological files which is the output from the model, one for each grid. First, try to plot grid 11 between May 7 and 17 by opening *UMEP -> Post Processor -> Urban Heat Island -> TARGETAnalyzer* and use the settings below beofre clicking **Plot**:
 
 
 .. figure:: /images/target_postprocessor_plot11gui.jpg
    :alt:  none
    :width: 75%
 
-   Settings for the UWG Post-processing plugin (click for a larger image).
+   Settings for the TARGET Post-processing plugin (click for a larger image).
    
 The result should look something like this:
 
@@ -184,5 +184,8 @@ Finally, you can also make a spatial grid from your model reults, both as a rast
    :width: 80%
 
    Settings for the TARGET Post-processing plugin create an dirunal average temperature difference map (click for a larger image).
+
+
+Having two different analysers, one access from a menu and one from the Processing Toolbox, might be a bit confusing. There are two reasons for this. *Firstly*, there are possibilites to interact with the Menu-based plugins in a way that is not possible from the Processing toolbox, i.e. making plots for single grids and make intermediate settings while using the plugin. *Secondly*, having the plugin as a processing plugin makes it possible to build in into workflows, both using the Model Builder in QGIS and in a Python script.
 
 Tutorial finished.
