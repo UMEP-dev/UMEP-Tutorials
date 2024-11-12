@@ -181,7 +181,7 @@ Next step is to add all the shadow images into one aggregated raster. In the for
         
   for j in range(0, no_of_files.__len__()):
     tempgdal = gdal.Open('c:/temp/shadowmaps/' + no_of_files[j])
-    Tempraster = tempgdal.ReadAsArray().astype(np.float)
+    Tempraster = tempgdal.ReadAsArray().astype(float)
     fillraster = fillraster + Tempraster
     tempgdal = None
     os.remove('c:/temp/shadowmaps/' + no_of_files[j])
@@ -193,7 +193,7 @@ As you can see you can also add comments in the code, to specify what is happeni
   index = 0
 
   baseraster = gdal.Open('C:/Users/xlinfr/Documents/PythonScripts/SOLWEIG/SOLWEIGdata/DSM_KRbig.tif')
-  fillraster = baseraster.ReadAsArray().astype(np.float)
+  fillraster = baseraster.ReadAsArray().astype(float)
   fillraster = fillraster * 0.0 
 
 When the nested loop is done, *fillraster* should be normalised by the number of iterations:
