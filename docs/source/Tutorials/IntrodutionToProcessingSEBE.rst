@@ -169,11 +169,11 @@ One easy way to do this is to look at the history actions in the *Processing Too
 
 #. Locate the first time you ran *Wall Height and Aspect* in the History. Copy that line. Is should look some thing like this:
 ::
-  processing.run("umep:Urban Geometry: Wall Height and Aspect", {'INPUT':'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif','INPUT_LIMIT':3,'OUTPUT_HEIGHT':'TEMPORARY_OUTPUT','OUTPUT_ASPECT':'TEMPORARY_OUTPUT'})
+  processing.run("umep:Urban Geometry: Wall Height and Aspect", {'INPUT':'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif','INPUT_LIMIT':3,'OUTPUT_HEIGHT':'TEMPORARY_OUTPUT'})
 
 You may notice that the last part in curly brakets starting with 'INPUT': is your input parameters. The text before that is how you access the tool via Python.
 
-#. Open the Python console in QGIS (*Plugins > Python Console*) and paste the line you just copied. Before you press *return*, change the output of the height raster to e.g. *'C:/temp/heightraster.tif'* and remove the last variable **OUTPUT_ASPECT**. Press *return*. A new layer (**heightraster.tif**) should have been created.
+#. Open the Python console in QGIS (*Plugins > Python Console*) and paste the line you just copied. Before you press *return*, change the output of the height raster to e.g. *'C:/temp/heightraster.tif'*. Press *return*. A new layer (**heightraster.tif**) should have been created.
 
 Accessing algorithms in a stand-alone Python script 
 ---------------------------------------------------
