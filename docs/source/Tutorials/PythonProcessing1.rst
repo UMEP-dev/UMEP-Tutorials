@@ -210,7 +210,7 @@ Your script should now look like this:
   index = 0
 
   baseraster = gdal.Open('C:/Users/xlinfr/Documents/PythonScripts/SOLWEIG/SOLWEIGdata/DSM_KRbig.tif')
-  fillraster = baseraster.ReadAsArray().astype(np.float)
+  fillraster = baseraster.ReadAsArray().astype(float)
   fillraster = fillraster * 0.0
 
   for i in range(0, 10):
@@ -246,7 +246,7 @@ Your script should now look like this:
         
     for j in range(0, no_of_files.__len__()):
       tempgdal = gdal.Open('c:/temp/shadowmaps/' + no_of_files[j])
-      tempraster = tempgdal.ReadAsArray().astype(np.float)
+      tempraster = tempgdal.ReadAsArray().astype(float)
       fillraster = fillraster + tempraster
       tempgdal = None
       os.remove('c:/temp/shadowmaps/' + no_of_files[j])
@@ -320,7 +320,7 @@ Here is your final script:
     noofdays = 10
 
     baseraster = gdal.Open('C:/Users/xlinfr/Documents/PythonScripts/SOLWEIG/SOLWEIGdata/DSM_KRbig.tif')
-    fillraster = baseraster.ReadAsArray().astype(np.float)
+    fillraster = baseraster.ReadAsArray().astype(float)
     fillraster = fillraster * 0.0
 
     for i in range(0, noofdays):
@@ -356,7 +356,7 @@ Here is your final script:
             
       for j in range(0, no_of_files.__len__()):
         tempgdal = gdal.Open('c:/temp/shadowmaps/' + no_of_files[j])
-        tempraster = tempgdal.ReadAsArray().astype(np.float)
+        tempraster = tempgdal.ReadAsArray().astype(float)
         fillraster = fillraster + tempraster
         tempgdal = None
         os.remove('c:/temp/shadowmaps/' + no_of_files[j])
@@ -411,7 +411,7 @@ To start a new Notebook click on **New** and **Python3** as shown below.
 
        Starting a new Notebook (click on figure for larger image)
 
-A Notebook can be executed in so-called cells which give you more control of your code. Start by adding all the lines with your imports from your **MyFirstPythopnScript.py**-script into the first cell and click *Run*. A new cell is added below. Now add your saveraster function in the next cell, click *Run* and then add the code up to the for-loop in a new cell and click *Run* again. Depending on your version of QGIS you might get a DeprecationWarning about np.float. Try removing *np.* and re-run the cells. You can restart the code in **Kernel>Restart & Clear Output**. Here you can also run all cells at the same time (**Restart and Run All**).
+A Notebook can be executed in so-called cells which give you more control of your code. Start by adding all the lines with your imports from your **MyFirstPythopnScript.py**-script into the first cell and click *Run*. A new cell is added below. Now add your saveraster function in the next cell, click *Run* and then add the code up to the for-loop in a new cell and click *Run* again. You can restart the code in **Kernel>Restart & Clear Output**. Here you can also run all cells at the same time (**Restart and Run All**).
 
 Maybe it is good to save your Notebook at this point. Save as **MyFirstNotebookScript**. If you check your filesystem you now have a file called **MyFirstNotebookScript.ipynd** which is the Notebook just created.
 
