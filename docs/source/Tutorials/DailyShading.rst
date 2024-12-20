@@ -16,7 +16,7 @@ Initial Practical steps
 
 - If **QGIS** and **UMEP** is not on your computer you will `need to install <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__.
 
-- When installed, **UMEP** can be found in the menu bar in QGIS.
+- When installed, **UMEP** can be found in the menu bar in QGIS. There is also **UMEP for Processing** where we moved most of the tool to the Processing toolbox in QGIS. Install **UMEP for Processing** also.
 
 
 Data for this Tutorial
@@ -79,7 +79,7 @@ Now you see the DSM where the CDSM has the value zero.
 Calculate daily shadow patterns
 -------------------------------
 
-- Open the **Daily Shadow Pattern** tool located at *UMEP -> Processor -> Solar radiation -> Daily Shadow Pattern* in the menu bar. 
+- Open the **Daily Shadow Pattern** tool located at *UMEP -> Processor -> Solar radiation -> Daily Shadow Pattern* in the menu bar. As you notice, this tool has moved to **UMEP for Processing**. Eventhough the interface look a bit different, the same settings can be made as shown in the old interface in the figure below.
 
 This tool can do what its name suggests, namely calculate ground shadow patterns based on a DSM and a CDSM.
 

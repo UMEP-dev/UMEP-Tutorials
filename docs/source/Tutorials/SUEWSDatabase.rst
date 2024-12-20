@@ -8,32 +8,23 @@ Urban Energy Balance - SUEWS Database
 Introduction
 ------------
 
-In this tutorial you will make yourself acquainted with a database system that facilitates use of input data for the SUEWS model. This database can be used for any type of SUEWS application but it is also designed to work with so called *urban typologies* (neighborhoods that are similar in buildings materials etc.)
-
-
-.. note:: NOT READY BEYOND THIS POINT.
-
- generate input data for the
-`Urban Weather Generator <https://umep-docs.readthedocs.io/en/latest/processor/Urban%20Heat%20Island%20Urban%20Weather%20Generator.html>`__ and simulate spatial (and temporal) variations of urban heat island (UHI) in Gothenburg, Sweden.
-
-The **Urban Weather Generator** (UWG) tool is an implementation of the `Ladybug <https://github.com/ladybug-tools/uwg>`__ application with the same name. The `original Urban Weather Generator <http://urbanmicroclimate.scripts.mit.edu/uwg.php>`__ was developed by Bruno Bueno for `his PhD thesis at MIT <https://dspace.mit.edu/handle/1721.1/59107>`__. Since this time, it has been validated 3 times and has been `enhanced by Aiko Nakano <https://dspace.mit.edu/handle/1721.1/108779>`__. In 2016, Joseph Yang also `improved the engine and added a range of building templates <https://dspace.mit.edu/handle/1721.1/107347>`__. For more detailed information on UWG, follow the links above.
+In this tutorial you will make yourself acquainted with a database system that facilitates use of input data for the SUEWS model. This database can be used for any type of SUEWS application but it is especially designed to work with so called *urban typologies* (neighborhoods that are similar in buildings materials, functions etc.). First, you will make your self acquainted with the database itself. After that, you will generate input data for the SUEWS model for an area in Gothenburg, Sweden. Lastly, you will add new infromation into the database and investigate changes in the urban energy balance when changes have been made for a ceratin urban typology within the study area.
 
 This tutorial makes use of local high resolution detailed spatial data. If this kind of data is unavailable, other datasets derived from e.g. `Open Street Map <https://www.openstreetmap.org/>`__ can be exploited. However, it is strongly recommended to go through this tutorial before moving on to more user-specific datasets.
 
 Objectives
 ----------
 
-To perform and analyse intra urban temperature variations within an area in Gothenburg, Sweden using the Urban Weather Generator.
+* To get familiar with the urban database connected to SUEWS and how to add information into the database.
+* Explore the influence on urban energy balance when installing solar panels on roofs in a sub-urban urban typology for an area in Gothenburg, Sweden. 
 
 Initial Steps
 -------------
 
-UMEP is a Python plugin used in conjunction with
-`QGIS <http://www.qgis.org>`__. To install the software and the UMEP
-plugins see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__ section in the UMEP manual. For this tutorial you will need both **UMEP** and **UMEP for Processing**.
+UMEP is a Python plugin used in conjunction with `QGIS <http://www.qgis.org>`__. To install the software and the UMEP plugins see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__ section in the UMEP manual. For this tutorial you will need both **UMEP** and **UMEP for Processing**.
 
-Loading and analyzing the spatial data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Loading and visulise the spatial data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the geodata used in this tutorial can be downloaded from `here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/blob/master/other%20files/Kville_Goteborgs_SWEREF99_1200.zip>`__. 
 
@@ -58,7 +49,7 @@ Furthermore, a polygon grid (400 m x 400 m) to define the study area and individ
 - Load the vector layer **gridKville.shp** into your QGIS project.
 - In the *Style* tab in layer *Properties*, choose a *Simple fill* and set *Fill style* to *No Brush*, to be able to see the spatial data within each grid.
 - Also, add the label IDs for the grid to the map canvas in *Properties > Labels > Single Labels* to make it easier to identify the different grid squares later on in this tutorial.
-- There is also a vector polygon layer (**topologiesKville.shp**) describing the different urban topologies within the area. Open the attribute table associated with this layer. Here you see an attribute called *urbantype* which describes the various urban typologies in the area. This is in Swedish so below you find a translation and description for each type.
+- There is also a vector polygon layer (**topologiesKville.shp**) locating different urban topologies within the area. Open the attribute table associated with this layer. Here you see an attribute called *urbantype* which describes the various urban typologies in the area. This is in Swedish so below you find a translation and description for each type.
 
     .. list-table::
        :widths: 20 20 60
@@ -86,26 +77,74 @@ Furthermore, a polygon grid (400 m x 400 m) to define the study area and individ
          - detached houses
          - sub-urban residential houses
 
-The typology poloygon layer is used to describe types of buildings which will affect the building energy model within UWG.
+- To make overview easier of the typology layer and the other data, move **typologiesKville** second to the to the top (**gridKville** should be at the top) in the *Layers*-panel. Then go to *Properties* for the typology layer and set the *Opacity* to **50%** as well as *Classify* to *Categorized* based on *Value* **urbantype** and click, *OK*.
 
-Preparing input data
---------------------
 
-First we need to derive surface fractions etc. from the geodata for each grid. This is similar as done in many other tutorials e.g. `SuewsSpatial`. We start with calculate roughness parameters based on the building geometry within your grids. Open *UMEP > Pre-Processor > Urban Morphology > Morphometric Calculator (Grid)*. 
+.. figure:: /images/SUEWSDatabase_MapOverview.jpg
+   :alt:  none
+   :width: 100%
 
-- Use the settings as in the figure below and press *Run*.
-- When calculation ids done, close the plugin.
+   QGIS project with all data loaded and visaulised. Click on image for enlargement.
+
+The typology poloygon layer is used to describe types of buildings and paved surfaces within each urban typology.
+
+Exploring the SUEWS database
+----------------------------
+
+- Open the database plugin from the menus at the top (*UMEP>Pre-Processor>Urban Energy Balance>SUEWS Database Manager*). 
+
+This multi-purpose plugin can be used to explore the different availble settings that currently exists within the database. It can also be used to add new information to the database as well as connect a polygon layer that represents different urban typologies to typologies available from the database, making it possible to create input data to SUEWS in later steps. The plugin consists of a number of tabs describing different sections of the database. More detailed information about each tab can be found `here <https://umep-docs.readthedocs.io/en/latest/pre-processor/Urban%20Energy%20Balance%20SUEWS%20Database%20Manager.html>`__. Each tab have a panel (upper right) that give some basic explanation on what the current tab is used for and what the content is for this particular tab. 
+
+- Go to the *Typologies*-tab and select **Sub-urban, Sweden** as a *Base Type*. Here, you can see basic information related to this specific typology. As you can see, two lnd cover types are connected to this typology (Paved:Kumpula, Helsinki and Buildings:Detached houses, Wood, Sweden). To the left you se more detailed information related to this urban type as well as a picture. This tab will later be used when we create a new typology where roof solar panels have been introduced.
+- Let us now examine the Detached houses typology more in detail by ckicking *Edit/create Land Cover types*. This will change the tab to Land Cover. Here, select **buildings** in the top combobox and choose **Detached houses, Wood, Sweden** as a *Base element*. 
+
+Now, you can see all parameters that are connected to this particular urban typolology. Taking **albedo** as an example, you can also see the available building related albedo settings that is present in the database. You also see a reference to all the albedo entries available in the database. 
+
+Moving further in the different tabs, *Parameters* gives the opportunity to add new parameters for various land cover related parameters such as albedo, leaf area index (LAI) etc. 
+
+- Now go to the *Profiles*-tab. Here you can examine and create new profiles that for example decides the pattern for traffic for a specific country and type of day. Choose **Traffic** as *Profile Type* and Select **Sweden** as *Country*. Now you see the profile plotted and you see the difference between weekend and weekday where weekday have two peaks, one for people going to work and one for going home. 
+
+.. figure:: /images/SUEWSDatabase_profile.jpg
+   :alt:  none
+   :width: 100%
+
+   Profile for weekday traffic in Sweden. Click on image for enlargement.
+
+Go through the rest of the tabs to make yourself familiar with their different contents and functionalities. 
+
+
+Preparing input data for standard case (no solar panels)
+--------------------------------------------------------
+
+For later comparison, we should now generate input data and run the model for a standard case with no solar panels installed.
+
+- Go to the *Main tab - Reclassifier*. We should now appoint the typologies in our polygon layer to existing typologies found in the database. Use the settings below and click *Reclassify*.
+
+.. figure:: /images/SUEWSDatabase_ReclassifyBase.jpg
+   :alt:  none
+   :width: 100%
+
+   Reclassification of typology vector layer into existing typologies found in SUEWS Database. Click on image for enlargement.
+
+After that, click on **Close** in the right corner. A new window will pop-up asking you to update the database. As you have not yet made any changes you can click **No** and continue with the tutorial. If you like, you can also change the symbology of your new reclassified shapefile in your QGIS project as explained in the beginning of this tutorial.
+
+Now, we need to derive surface fractions etc. from the geodata for each grid. This is similar as done in many other tutorials e.g. `SuewsSpatial`. We start with calculate roughness parameters based on the building geometry and vegetation within your grids. Open *UMEP > Pre-Processor > Urban Morphology: Morphometric Calculator (Grid)*. 
 
 .. note:: For mac users, use this workaround: manually create a directory, go into the folder above and type the folder name. It will give a warning *“—folder name--” already exists. Do you want to replace it?* Click *replace*.
 
+- Use the settings as in the figure below and press *Run*. Do not close the plugon after execution is completed.
 
-.. figure:: /images/uwg_IMCGBuilding.jpg
+.. figure:: /images/SUEWSDatabase_IMCGBuilding.jpg
    :alt:  none
-   :width: 75%
+   :width: 100%
 
    The settings for calculating building morphology. Click on image for enlargement.
+   
+This operation should have produced 16 different text files; 15 (*anisotrophic*) that include morphometric parameters from each 5 degree section for each grid and one file (*isotropic*) that includes averaged values for each of the 15 grids. You can open **KvilleBaseBuild_IMPGrid_isotropic.txt** and compare the different values for different grids. Header abbreviations are explained `here <http://umep-docs.readthedocs.io/en/latest/Abbreviations.html>`__.
 
-This operation should have produced 16 different text files; 15 (*anisotrophic*) that include morphometric parameters from each 5 degree section for each grid and one file (*isotropic*) that includes averaged values for each of the 15 grids. You can open **kv_IMPGrid_isotropic.txt** and compare the different values for different grids. Header abbreviations are explained `here <http://umep-docs.readthedocs.io/en/latest/Abbreviations.html>`__.
+- When first calculation is done, go the the *Parameters*-tab in the plugin and tick in *Raster DSM (only 3D building or vegetation objects) exist*, select **csdm_kville** as *Raster DSM (only 3D objects)*, change your *File prefix* to **Kville BaseVeg**. This will calculate morphometric parameters based on 3D vegetation.
+
+As you might have noticed, we did not calculate specific input files for SUEWS/SS (`Spartacus <https://link.springer.com/article/10.1007/s10546-019-00457-0>`__) which is a more advanced scheme to calcualte radiation in the model. We will instead make use of the more simple `NARP <https://journals.ametsoc.org/view/journals/apme/42/8/1520-0450_2003_042_1157_ponarf_2.0.co_2.xml>`__-scheme.
 
 Moving on to land cover fraction calculations for each grid.
 
@@ -113,55 +152,50 @@ Moving on to land cover fraction calculations for each grid.
 - Use the settings as in the figure below and press *Run*.
 - When calculation is done, close the plugin.
 
-.. figure:: /images/uwg_LCF.jpg
+.. figure:: /images/SUEWSDatabase_LCBase.jpg
    :alt:  none
-   :width: 75%
+   :width: 100%
    
-   The settings for calculating land cover fractions
+   The settings for calculating land cover fractions. Click on image for enlargement.
 
-Finally, you need to reclassify the urban typology layer layer into typologies that UWG use.
 
-- Open *UMEP -> Pre-processor -> Urban Heat Island -> UWG Reclassifier* and use the settings below:
+SUEWS Prepare - Database Typologies 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: /images/uwg_reclassifier.jpg
+Now all the required input information is pre-processed apart from the final step which is to create the actual input data for the SUEWS model. To do this, we will make use of *SUEWS Prepare - Database Typologies*. Open **SUEWS Prepare - Database typologies** (*UMEP > Pre-Processor > Urban Energy Balance > SUEWS Prepare - Database typologies*).
+
+- Starting in the upper left panel, here general settings all vector-based input geodata is set. Population density for this tuorial is available as an attribute in the grid polygon layer. Here we also set the 
+
+- The panel below includes raster data required. These datasets are used when the tool aggregates properties from different typologies within each grid.
+
+- The lower left panel includes some general setting used in SUEWS. Here, for example, it is important set the UTC correct.
+
+- The middle panels make use of the morphology files creates earlier. Here you also specify meteorological forcing data. We have provided you with a ERA5 dataset from 2018 (January to July) for this tutorial.
+
+- In the upper right panel various national (and regional) parameters are specified based on country chosen. There are possibilities to change each parameter if you like, but the tool adds default info taken from the database for the country selected.
+
+- The last panel (lower right) includes settings for the Spartacus radiation scheme but since we will use other settings for SUEWS later, we do not need to consider settings in this panel. Below you see the settings used for each panel. When all settings are made, click OK and wait for the tool to create all input data needed to continue.  
+
+.. figure:: /images/SUEWSDatabase_PrepareBase.jpg
    :alt:  none
-   :width: 60%
+   :width: 100%
 
-   Settings used to reclassify urban typologies into UWG building types.
-   
+   Settings for the SUEWS Database Prepare plugin - Base case (click for a larger image).
 
-
-Preparing input data for the Urban Weather Generator
-----------------------------------------------------
-
-Now all input information required is pre-processed apart from the final step which is to create the uwg-files used by the model.
-
-- Open **UWG Prepare** (*UMEP > Pre-Processor > Urban Heat Island > UWG prepare*) and use the following settings.
-
-.. figure:: /images/uwg_prepare.jpg
-   :alt:  none
-   :width: 75%
-
-   Settings for the UWG Prepare plugin (click for a larger image).
-
-Here you can see the various settings that can be modified. 
-
-
-Meteorological forcing data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Before we execute the Urban Weather Generator, meteorological forcing data is required. The UWG make use of Energy Plus Weather (EPW) files (.epw). These files are generated for purposes of building energy simulation and are one full year in length (hourly resolution). However, the UWG can preferably model just a portion of a year and not always a full year which will take long computation time, especially if multiple grids are inverstigated. Information on EWP-files and possible downloads for your location can be found `here <https://energyplus.net/weather>`__. In the zip-file downloaded for this tutorial, a .epw file from a nearby airport is availabe. This is a so-called typical meteorological dataset where a typical year in the Gothenburg region is created including natural variation within a year.
 
 Executing the model
 -------------------
 
-Open *UMEP -> Processor -> Urban Heat Island: Urban Weather Generator* and use the settings below. Before starting the calculations, open the Python Console in QGIS to see a more detailed information from the model while is runs. The period selected is a warm week in June.
+Open *UMEP -> Processor -> Urban Energy Balance: SUEWS v2020a* and use the settings below. The model will calculate one half year starting in January 2018. It is always good to inculde some time for spin-up, preferably a full year should be used but in this case we only include half year. We will later examine result for the last month in the calculation (June). To avoid issues with memory running low, we divide the calculation into 10 different chunks. If you still experience memory issues, increase the number of chunks. Click **Run**. This will take a couple of minutes so grab a cup of tea while waiting.
 
-.. figure:: /images/uwg_processor.jpg
+.. figure:: /images/SUEWSDatabase_SUEWSBase.jpg
    :alt:  none
-   :width: 75%
+   :width: 100%
 
-   Settings for the UWG main plugin (click for a larger image).
+   Settings for the SUEWS plugin - Base case (click for a larger image).
+   
+.. note:: NOT READY BEYOND THIS POINT.   
+   
 
 Analysing the results
 ---------------------
@@ -169,7 +203,7 @@ Analysing the results
 If you take a look in your output folder, you see a number of UMEP-formatted meteorological files which is the output from the model, one for each grid. First, try to plot grid 9 by opening *UMEP -> Post Processor -> Urban Heat Island -> UWGAnalyzer* and use the settings below beofre clicking **Plot**:
 
 
-.. figure:: /images/uwg_postprocessor_plot9.jpg
+.. figure:: /images/uwg_postprocessor_plots9.jpg
    :alt:  none
    :width: 75%
 

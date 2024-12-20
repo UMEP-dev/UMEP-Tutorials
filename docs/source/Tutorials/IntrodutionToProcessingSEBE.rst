@@ -67,11 +67,11 @@ If you also open the same tool but from the menubar you will see that is is the 
 
 Before closing the tool, take a look in the log-window. Here you see some useful information e.g. if the tool was finished sucesfully, but also the name of all the input parameters:
 :: 
-  Input parameters: 
-  { 'INPUT' : 'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif', 
-  'INPUT_LIMIT' : 3, 
-  'OUTPUT_ASPECT' : 'TEMPORARY_OUTPUT', 
-  'OUTPUT_HEIGHT' : 'TEMPORARY_OUTPUT' } 
+   Input parameters: 
+   { 'INPUT' : 'C:/Users/xlinfr/Desktop/Goteborg_SWEREF99_1200/Goteborg_SWEREF99_1200/DSM_KRbig.tif', 
+   'INPUT_LIMIT' : 3, 
+   'OUTPUT_ASPECT' : 'TEMPORARY_OUTPUT', 
+   'OUTPUT_HEIGHT' : 'TEMPORARY_OUTPUT' } 
 
 * Now close the *Wall Height and Aspect tool* and remove the height and aspect rasters from your QGIS project.
 
@@ -125,6 +125,7 @@ Now two steps (boxes) are shown in the main Modeler window.
     File "C:/Users/user_name/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\processing_umep\processor\sebe_algorithm.py", line 157, in processAlgorithm
     provider = dsmlayer.dataProvider()
     AttributeError: 'NoneType' object has no attribute 'dataProvider'
+  
   Try simply running the model again and it should work.  
     
 Imagine that you now want to change input information for this model workflow. This is done by exposing input and output parameters for the user to alter (i.e. you or others). Lets now expose *Input DSM*, *Input Meterological data*, *UTC*, *Albedo* and *Output folder*.
