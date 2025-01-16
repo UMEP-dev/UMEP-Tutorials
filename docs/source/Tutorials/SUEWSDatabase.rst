@@ -3,7 +3,7 @@
 Urban Energy Balance - SUEWS Database
 =====================================
 
-.. note:: WORK IN PROGRESS. NOT READY.
+.. note:: TURORIAL FOR UPCOMING PLUGIN. WORK IN PROGRESS. NOT READY.
 
 Introduction
 ------------
@@ -16,7 +16,7 @@ Objectives
 ----------
 
 * To get familiar with the urban database connected to SUEWS and how to add information into the database.
-* Explore the influence on urban energy balance when installing solar panels on roofs in a sub-urban urban typology for an area in Gothenburg, Sweden. 
+* Explore the influence on urban energy balance and budget when installing solar panels on roofs in a sub-urban area in Gothenburg, Sweden. 
 
 Initial Steps
 -------------
@@ -144,7 +144,7 @@ This operation should have produced 16 different text files; 15 (*anisotrophic*)
 
 - When first calculation is done, go the the *Parameters*-tab in the plugin and tick in *Raster DSM (only 3D building or vegetation objects) exist*, select **csdm_kville** as *Raster DSM (only 3D objects)*, change your *File prefix* to **Kville BaseVeg**. This will calculate morphometric parameters based on 3D vegetation.
 
-As you might have noticed, we did not calculate specific input files for SUEWS/SS (`Spartacus <https://link.springer.com/article/10.1007/s10546-019-00457-0>`__) which is a more advanced scheme to calcualte radiation in the model. We will instead make use of the more simple `NARP <https://journals.ametsoc.org/view/journals/apme/42/8/1520-0450_2003_042_1157_ponarf_2.0.co_2.xml>`__-scheme.
+As you might have noticed, we did not calculate specific input information for SUEWS/SS (`Spartacus <https://link.springer.com/article/10.1007/s10546-019-00457-0>`__) which is a more advanced scheme to calculate radiation fluxes in the model. We will instead make use of the `NARP <https://journals.ametsoc.org/view/journals/apme/42/8/1520-0450_2003_042_1157_ponarf_2.0.co_2.xml>`__-scheme.
 
 Moving on to land cover fraction calculations for each grid.
 
@@ -157,7 +157,18 @@ Moving on to land cover fraction calculations for each grid.
    :width: 100%
    
    The settings for calculating land cover fractions. Click on image for enlargement.
+   
+Population density is a required input in this tutorial. For each grid, this should be given in *persons/hectare*. 
 
+- Open the attribute table for your grid (right-click on **gridKville** in the *Layers*-panel and click on *Open Attribute Table*). Here, you see a column named **_popsum** which is the total number of residens population for each grid. Now, lets create a new column called **_popdens** giving us population density (pp/ha). This is done via the *Field Calculator* that could be accessed via the abacus-button in the attribute table window. Use the settings as shown in the figure below.
+
+.. figure:: /images/SUEWSDatabase_AttributeTable.jpg
+   :alt:  none
+   :width: 80%
+   
+   The settings for adding an attribute column with population density (pp/ha). Click on image for enlargement.
+
+Remember to save your attribute table and exit editing mode by clicking the yellow pencil button. Now you can close the attribute table window.
 
 SUEWS Prepare - Database Typologies 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,38 +205,88 @@ Open *UMEP -> Processor -> Urban Energy Balance: SUEWS v2020a* and use the setti
 
    Settings for the SUEWS plugin - Base case (click for a larger image).
    
-.. note:: NOT READY BEYOND THIS POINT.   
-   
 
 Analysing the results
 ---------------------
 
-If you take a look in your output folder, you see a number of UMEP-formatted meteorological files which is the output from the model, one for each grid. First, try to plot grid 9 by opening *UMEP -> Post Processor -> Urban Heat Island -> UWGAnalyzer* and use the settings below beofre clicking **Plot**:
+The post-processing tools in UMEP are very basic and more advanced analysis of model output is recommended to be performed outside of QGIS/UMEP. Nevertheless, there are still some useful capabilities existing within UMEP. There are two different tools within UMEP that can be used to examine the results from SUEWS, either focusing more on time or focusing on space (creating maps). Lets have a look at plotting some time series to check that the model produced resonable results.
 
+- From the QGIS menu, open *UMEP -> Post Processor -> Urban Energy Balance -> SUEWS Analyzer* and load your RunControl namelist (**RunControl.nml**) that now should be located in your input folder that you specified earlier. Start by plotting basic data for grid 1 (2018). Zoom in (magnifying glass) last month (June) similar as shown below: 
 
-.. figure:: /images/uwg_postprocessor_plots9.jpg
-   :alt:  none
-   :width: 75%
-
-   Settings for the UWG Post-processing plugin (click for a larger image).
-   
-The result should look something like this:
-
-.. figure:: /images/uwg_plot.jpg
+.. figure:: /images/SUEWSDatabase_PlotBasicBase.jpg
    :alt:  none
    :width: 100%
 
-   Above: Wind speed and global radiation from epw-file. Below: Air temperature from airport compared with grid 9 (click for a larger image).
-   
-   
-Finally, you can also make a spatial grid from your model reults, both as a raster of add output to your grid polygon layer. You will add a new attribute to your grid polygon layer. Open the same tool but in UMEP for Processing and use the following settings:
+   Model output for June (Grid 1) - Base case (click for a larger image).
 
-.. figure:: /images/uwg_analyzer_spatial.jpg
+If you have a look at grid 1 in your map canvas you see that it consist of low building density with dominating areas of detached residential houses and relatively high fraction of trees and grass surfaces. Looking at the basic plot you can see that the anthropogenic energy flux is low (about 25 W m\ :sup:`-2` midday) and storage heat flux (Q\ :sub:`S`) during clear and warm weather (e.g. beginning of June) peaks around 150 W m\ :sup:`-2`. You can, for example,  also the fast response of latent heat flux (Q\ :sub:`E`) during and after periods of rain. Also, have a look at peak values of K\ :sup:`up` for e.g. 1 June which is about 100 W m\ :sup:`-2`. 
+
+Now lets compare with a more dense grid square.
+
+- Close the figure window and tick off *Plot basic data*. Instead, choose a time period between *153* and *183* day of year and scroll to the *Net storage heat flux*. Tick in *Include another variable* and chosse the same variabel but for grid 11 which is the most dense grid within the model domain. Click **Plot**.
+
+Now you see very large differences since the buildings in the more dense grid 11 store more heat compared to grid 1. Feel free to play around and compare other variables and grids with each other. Your can also produce scatter plots. Plots could be saved by clicking the floppy disk at the top of the figure window.
+
+Preparing input data for solar panels case
+------------------------------------------
+
+As stated above, we will now examine the effect of adding solar panels on the roofs of detached residential buildings. To accopmplish this we need to re-visit the SUEWS Database Manager-plugin and create a new typology where the roof solar panels have been added. The urban typology used for the detached residential buildings in the base case is called Sub-urban, Sweden. Based on this typology, we will now create a new one and change the albedo value assuming that dark solar panels will reduce reflectivity of short-wave radiation.
+
+- Open *SUEWS Database Manager* and go to the *Typologies* tab. There, choose **Sub-urban, Sweden** as your *Base Type*. Now you see that the building land cover type for this typology is called **Detached houses, Wood, Sweden**. Moving over to the next tab, select Buildings and **Detached houses, Wood, Sweden** as your *Base Element*. Here you see all the settings for this building type. At the top you see the *Albedo* is specified by **Wood, Gothenburg**.
+
+- Now go to the *Parameters*-tab and choose **Wood, Gothenburg** as your *Base parameter*. Then change according to the figure below and click *Add Parameter*.
+
+.. figure:: /images/SUEWSDatabase_SUEWSSolarParameter.jpg
+   :alt:  none
+   :width: 100%
+
+   Adding a new building albedo parameter for solar panels (click for a larger image).
+
+- Move over to the *Land Cover*-tab. Using **Detached houses, Wood, Sweden** as the *Base Element*, create a new land cover type called **Detached houses SP, Wood** and change the albedo to the new one that you just created (Wood Solar Panels). Click **Add Land Cover** and move to the *Typologies*-tab. Base your new typology on **Sub-urban, Sweden** and use the settings as below. Click **Grenerate New Type**.
+
+.. figure:: /images/SUEWSDatabase_SUEWSSolarTypology.jpg
+   :alt:  none
+   :width: 100%
+
+   Adding a new urban typology for detached wooden houses with solar panels on roofs into the database (click for a larger image).
+
+- Finally, go the the Main tab. A new, updated typology layer should be created. Use the original polygon layer, typologiesKville, and reclassify according to the figure below.
+
+.. figure:: /images/SUEWSDatabase_ReclassifySolar.jpg
+   :alt:  none
+   :width: 100%
+
+   Reclassification of typology vector layer into existing typologies, now with a new typology representing sub-urban houses with solar panels on roofs (click for a larger image).
+   
+- Click **Close**. Answer Yes to the question in the pop-up window. That will save all your new entries made into the database. 
+
+.. note:: IMPORTANT! Remember to export the database (**Export Full Database** in the Main-tab) and send it to fredrikl[at]gvc.gu.se. Then your changes will be added into the next version of the tool and others can benefit from your updates. Also, if you choose not to send the database, all your changes will be lost the next time you update UMEP. 
+
+- Now open SUEWS Database Prepare and use the same settings as you did for the Base-case but change the *Building typology (from polygon layer)* to your new **typologiesKvilleSolar** and change your output folder to a new one named e.g. Solar (*C:/temp/SUEWSDB_tutorial/Solar*). Click *Generate*.
+
+- Run the model again as before but now change your input folder so that information found in your **Solar**-directory is used. Also, make sure that you save in a new output folder, e.g. **./Solar/out**.
+
+
+Comparing the two scenarios
+---------------------------
+- Create a basic plot fro grid 1 from the solar panel case, the same way as you did for the base-case. Look at e.g. K\ :sup:`up` for 1 June youe can now see a lowering of peak K\ :sup:`up` of 20 W m\ :sup:`-2`. The resulting energy flux e.g. senible heat flux a small, just a couple of W m\ :sup:`-2`.
+
+The changes in energy fluxes are small but one can see a clear effect when just altering the albedo for a certain urban typology. Have in mind that the fraction of buildings within the detached residential typology for this area is relatively low (see e.g. grid 1), so altering the albedo for the buildings only will not create a very large effect. Nevertheless, there is a small difference evident. 
+
+Finally, we will produce a spatial comparison between the two scenarios. We will make use of our polygon grid (**gridKville**) and populate new attributes fro each grid polygon. We will investigate daytime Q\ :sub:`H` for the month of June. First, we will calculate for the base-case
+
+- From the Processing toolbox in QGIS, open *UMEP -> Post-Processor -> Urban Energy Balance: SUEWS Analyzer*. Use the settings shown in the figure below.
+
+.. figure:: /images/SUEWSDatabase_SpatialAnalyser.jpg
    :alt:  none
    :width: 80%
 
-   Settings for the UWG Post-processing plugin adding a new attribute field (click for a larger image).
+   The SUEWS Analyzer calculatinging mean daytime Q\ :sub:`H` for the month of June, 2018 (click for a larger image). 
+   
+- Repeat the task but change to the solar panel case.
 
-Open the attribute table for your grid and you should have a column called *mean*. As you can see the differences of nocturnal temperature differences between the airport and any specific grid is about 3.5 degrees celsius. However, the differences between the grids are very small. The reason for this could have many answers but one main explanation is that UWG is not very sensitive to vegetation changes that could create temperature variations within a city. Also, the model seem to be unsensitive to small changes in building density and regional climate. See `here <https://gupea.ub.gu.se/handle/2077/76418>`__ for a more detailed investigation on the performance of UWG for the Gothenburg region. The UMEP development team is also adding a new UHI-model (`TARGET <http://umep-docs.readthedocs.io/en/latest/processor/Urban%20Heat%20Island%20TARGET.html>`__) into UMEP that is more sensitive to blue and green infrastructure in urban areas.
+Two new attribute should now have appeared in the *gridKville** attribute table.
+
+Lastly, open the field calulator and create a new attribute, substracting the **QH_1** column (solar panel case) with **QH** (base-case). Now, right-click on gridKville in your *Layer*-panel and click on *Properties*. Here, go to *Symbology* and make a colourful map of the difference between the two scenarios with regards to mean daytime Q\ :sub:`H` in June, 2018.   
 
 Tutorial finished.
