@@ -104,7 +104,7 @@ Moving further in the different tabs, *Parameters* gives the opportunity to add 
 
 - Now go to the *Profiles*-tab. Here you can examine and create new profiles that for example decides the pattern for traffic for a specific country and type of day. Choose **Traffic** as *Profile Type* and Select **Sweden** as *Country*. Now you see the profile plotted and you see the difference between weekend and weekday where weekday have two peaks, one for people going to work and one for going home. 
 
-.. figure:: /images/SUEWSDatabase_profile.jpg
+.. figure:: /images/SUEWSDatabase_Profile.jpg
    :alt:  none
    :width: 100%
 
