@@ -281,7 +281,7 @@ Finally, we will produce a spatial comparison between the two scenarios. We will
    :alt:  none
    :width: 80%
 
-   The SUEWS Analyzer calculatinging mean daytime Q\ :sub:`H` for the month of June, 2018 (click for a larger image). 
+   The SUEWS Analyzer calculating mean daytime Q\ :sub:`H` for the month of June, 2018 (click for a larger image). 
    
 - Repeat the task but change to the solar panel case.
 
