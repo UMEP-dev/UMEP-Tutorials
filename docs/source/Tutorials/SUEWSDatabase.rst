@@ -64,7 +64,7 @@ Furthermore, a polygon grid (400 m x 400 m) to define the study area and individ
        * - bland
          - Mixed city
          - Modern high density residential neighbourhood
-       * - slut
+       * - kvarter
          - Traditional neighbourhood
          - Early 20th century urban development
        * - miljon
