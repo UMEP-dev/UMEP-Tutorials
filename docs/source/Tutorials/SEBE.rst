@@ -67,7 +67,7 @@ Geodata and meteorological data for **Gothenburg, Sweden**.
 -  Data is projected in SWEREF99 1200 (EPSG:3007) the national
    coordinate system of Sweden.
 
-Data requreiments:
+Data requirements:
 S: Spatial, M: Meteorological,
 
 .. list-table:: Input data and parameters found in the Gothenburg dataset
@@ -105,7 +105,7 @@ S: Spatial, M: Meteorological,
 Steps
 -----
 
-#. Start with the Gothenbrug data. The data is zipped - unzip the data first.
+#. Start with the Gothenburg data. The data is zipped - unzip the data first.
 #. Examine the geodata by adding the layers to your project.
 #. Use *Layer > Add Layer > Add Raster Layer* to open the .tif and .asc raster files and *Layer > Add Layer > Add Vector Layer*. The Vector layer is a shape file which consists of multiple files. It is the **building.shp** that should be used to load the vector layer into QGIS.
 #. You will need to indicate the coordinate reference system (`CRS <https://docs.qgis.org/3.10/en/docs/user_manual/working_with_projections/working_with_projections.html>`__) for the **CDSM_KRbig.asc** dataset.
