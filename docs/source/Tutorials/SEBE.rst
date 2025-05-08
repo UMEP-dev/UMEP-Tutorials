@@ -236,7 +236,7 @@ To determine the irradiance on building walls:
 Use the **Profile tool**, which is a plugin for QGIS, to see the range of values along a transect.
 
 #. *Plugins > Profile tool > Terrain profile.* If this is not installed you will need to install it from official
-   QGIS-plugin reporistory (*Plugins > Manage and Install Plugins*).
+   QGIS-plugin repository (*Plugins > Manage and Install Plugins*).
 
    -  Draw a line across the screen on the area of interest. Double
       click and you will see the profile drawn. Make certain you use the
