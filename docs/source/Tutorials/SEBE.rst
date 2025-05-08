@@ -28,7 +28,7 @@ objects in vector format.
 In this exercise you will apply the model in `Gothenburg,
 Sweden <https://en.wikipedia.org/wiki/Gothenburg>`__ and `Covent
 Garden <https://en.wikipedia.org/wiki/Covent_Garden>`__, London to
-investigate solar energy potential, how it changes between buildings,
+investigate solar energy potential on buildings roofs and walls, how it changes between buildings,
 with seasons, with the effects of vegetation etc.
 
 Initial Practical steps
@@ -38,7 +38,7 @@ Initial Practical steps
 -  Start the QGIS software
 -  *Windows:* If not visible on the desktop use the **Start** button to
    find the software (i.e. Find QGIS under your applications)
--  Select **QGIS 3.12 Desktop** (or the latest version installed).
+-  Select **QGIS 3.42 Desktop** (or the latest version installed).
 
 When you open it on the top toolbar you will see **UMEP**.
 
