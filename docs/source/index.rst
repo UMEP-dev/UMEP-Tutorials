@@ -32,7 +32,7 @@ tool. The tutorials available are found in the table below.
      - Gothenburg, Sweden
    * - Solar Energy in Norrköping - Daily shading
      - Pre-procesoor, Processor and Post-processor
-     - `Link to pdf </data/UMEP_Workshop_QGISNorrkoping2025.pdf>`__
+     - `Link to pdf <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/UMEP_Workshop_QGISNorrkoping2025.pdf>`__
      - Specially designed tutorial for the QGIS 2025 User Confernce in Norrköping
      - Gothenburg, Sweden
    * - Solar Energy
