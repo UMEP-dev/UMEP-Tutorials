@@ -276,168 +276,203 @@ How to Run SOLWEIG from the UMEP-plugin
    *Use land cover scheme (Lindberg et al. 2016)*. Run and compare the
    result again with the previous runs.
 
-Using meteorolgical data and POIs
----------------------------------
+Urban Wind Field - Introduction to URock
+========================================
 
-SOLWEIG is also able to run a continuous dataset of meteorological data.
-You will make use of a single summer day as well as a winter day for
-Gothenburg, Sweden. The GUI is also able to derive full model output
-(all calculated variables) from certain points of interest (POIs).
+Introduction
+------------
 
-#. First you need to create a point vector layer to store the POIs. Go
-   to *Layer > Create Layer > New Shape file*. Choose *Point* as
-   *Type* and add a new text field called **name**. Name the new layer
-   **POI_Kr.shp**. Specify the coordinate system as SWEREF99 12 00
-   (EPSG: 3007).
-#. Now you should add two points within the study area. To add points to
-   the layer it has to be editable and *Add Feature* should be activated.
+.. note:: The tools in this tutorial are found in **UMEP for Processing**. The tool can be found from the menu (*Plugins>Manage and Install Plugins*).
 
-    .. figure:: /images/SOLWEIG_Addpoint.png
-       :alt:  None
-       :width: 411px
-       :align: center
-       
-       Settings to add points 
-   
-   Two points should be added and the attributes should be id=\ **1** and
-   name=\ **courtyard** for the right point and id=\ **2** and
-   name=\ **park** for the left point. See figure below for the locations of
-   the two points. 
-   
-    .. figure:: /images/SOLWEIG_Pointskr.png
-       :alt:  None
-       :width: 100%
-       :align: center
-       
-       Location of the two POIs 
-	   
-   When you are
-   finished, save layer edits (box in-between the two marked boxes in
-   Figure 6). Close the editing by pressing *Toggle editing* (the pencil).
-#. Now open the SOLWEIG plugin. Use both the vegetation and land cover
-   schemes as before. This time, tick in *Include POI(s)*, select your
-   point layer and use the ID attribute as *ID field*.
-#. Tick in *Use continuous meteorological dataset* and choose
-   **gbg19970606_2015a.txt** as *Input meteorological file*. Also, tick
-   in to save T\ :sub:`mrt` (in the *Output maps* section of the dialogue box). Run the model again.
+In this tutorial you will make use the model **URock** to estimate wind fields in an urban setting using a semi-empirical wind model based on Röckle (1990).
 
-Examine your output with SOLWEIG Analyzer
------------------------------------------
+URock can be used to calculate the 3D wind field of an urban area using information about the wind (at least speed and direction at a given height) and geographical data describing the area of interest (building and vegetation footprint and height). Two main stages are used: wind field initialization and wind field balance. For a detailed description of the model see, `Bernard et al. (2023) <https://egusphere.copernicus.org/preprints/2023/egusphere-2023-354/>`__.
 
-To perform a first set of analysis of your result you can make use of
-the SOLWEIG Analyzer plug-in.
+The model requires **meteorological** forcing data (wind speed and direction) and geometry information for buildings and trees. 
 
-#. Open the Analyzer located in *UMEP -> Post-Processor -> Outdoor
-   Thermal Comfort -> SOLWEIG Analyzer*. Here you can analyze both data
-   from your POIs as well as perform statistical analysis based on saved
-   output maps. Start by locating your output folder in the top section
-   (*Load Model Result*). 
-   
-    .. figure:: /images/SOLWEIG_SOLWEIGAnalyzer.png
+Steps
+~~~~~
+
+#. Produce relevant input data needed to run the model using URock Prepare.
+#. Run the model
+#. Examine the model output using URock Analyzer
+
+Initial Practical steps
+-----------------------
+
+**UMEP for Processing** is a Python plugin used in conjunction with
+`QGIS <http://www.qgis.org>`__. To install the software and the UMEP
+plugin (if not already installed), see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
+section in the UMEP manual.
+
+As **UMEP for Processing** is under constant development, some documentation may be missing
+and/or there may be instability. Please report any issues or suggestions
+to our `repository <https://github.com/UMEP-dev/UMEP>`__.
+
+Data for this exercise
+~~~~~~~~~~~~~~~~~~~~~~
+
+The UMEP tutorial datasets can be downloaded from our here repository
+`here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/blob/master/other%20files/Annedal_EPSG3006.zip>`__.
+
+-  Download, extract and add the raster layers (DSM, CDSM, DEM), the building polygon layer and the line profile layer into a new QGIS session. Coordinate system of the grids is Sweref99 TM (EPSG:3006). 
+
+To run **URock**, you need a building vector dataset including building height attributes and/or a vegetation vector layer including height and some additional optional info such as attenuation factor (see below). Here, you will make use of raster DSM, DEM and CDSM to generate information for URock.
+
+URock Prepare
+-------------
+#. Open **URock Prepare** from the **Pre-Processing** section in **UMEP for Processing** found in the **Processing Toolbox**. 
+#. Use the settings shown below except for the output where you maybe need to specify a specific location on your computer where you have read and write access.
+
+    .. figure:: /images/urockprepare.jpg
        :alt:  None
        :width: 100%
        :align: center
        
-       Dialog for the SOLWEIG Analyzer plug-in
+       Dialog for the settings in URock (part1)
 
-#. Firstly you will compare differences in T\ :sub:`mrt` for the two
-   locations (courtyard and park). This can done using the left frame
-   (*Point of Interest data*). Specify *courtyard* (1) as the *POI* and *Mean
-   Radiant Temperature* as the *variable* in the two top scroll down lists. Then tick in
-   *Include another POI/variable* and chose *park* (2) and *Mean Radiant
-   Temperature* below. Click *Plot*. What explains the differences?
-#. Now lets move on to analyse the output maps generated from our
-   last model run. In the right frame, specify *Mean Radiant
-   Temperature* as *Variable to visualize*. Start by clicking *Show
-   Animation*. Now the output maps of T\ :sub:`mrt` generated before are
-   displayed in a sequence.
-#. The next step is to generate some statistical maps from the last model
-   run. Specify *Mean Radiant Temperature* as *Variable to visualize*
-   and tick *Exclude building pixels*. Choose the building grid
-   that you saved earlier in this tutorial. If it is not in the
-   drop-down list you need to add this layer (**buildings**) to your
-   project. Tick in *T*\ :sub:`mrt` *Percent of time above threshold
-   (degC)* and specify **55.0** as threshold. Specify an output folder and also
-   tick *Add analysis to map canvas* before you generate the
-   result. The resulting map show the time that a pixel has been above
-   55 degC based on the whole analysis time i.e. 24 hours. This type of
-   map can be used to identify areas prone to heat stress, for example.
+   If you have a dataset with points including tree location and attributes with heights and/or ratio information, this can also be used to generate vegetation data. Now click **Run** and two new files that are ready to use in URock will be created. The current version of URock does not include ground topography (hopefully available in upcoming versions). The DEM is used to derive building heights comparing the DSM and the DEM.
 
-Climate sensitive planning
---------------------------
+URock
+-----
 
-Vegetation is one effective measure to reduce areas prone to heat
-related health issues. In this section you make use of the Tree
-Generator plugin to see the effect of adding more vegetation into our
-study area. The municipality in Gothenburg have identified a "hot spot"
-south of the German church and they want to see the effect of planting
-three new trees in that area.
+#. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). In your first run only buildings will be included and affecting the wind pattern:
 
-The Tree Generator
-~~~~~~~~~~~~~~~~~~
-
-The Tree Generator plugin makes use of a point vector file including the
-necessary attributes to generate/add/remove vegetation suitable for
-either mean radiant temperature modelling with SOLWEIG or urban energy
-balance modelling with SUEWS.
-
-#. Create a point vector shape file named (**TreesKR.shp**), as described
-   in the previous section, adding five attributes (*id, ttype, trunk,
-   totheight, diameter*). The attributes should all be decimal (float)
-   numbers (see table below). The location of the three new trees are
-   shown in figure below. The values for all three vegetation units should
-   be **ttype=2, trunk=4, totheight=15, diameter=10**. 
-   
-    .. figure:: /images/SOLWEIG_File_TreesKR.png
+    .. figure:: /images/urock1.jpg
        :alt:  None
-	   :width: 100%
+       :width: 100%
        :align: center
        
-       Location of the three new vegetation units.
-
-#. Add your created trunk zone dsm (**tdsm.tif**) that was created
-   previously (located in your output directory).
-#. Open the TreeGenerator (*UMEP > PreProcessor > Spatial Data > TreeGenerator*) and
-   use the settings as shown in figure below. 
-
-    .. figure:: /images/SOLWEIG_Treegeneratorsolweig.png
+       Dialog for the settings in URock (part 1)
+       
+    .. figure:: /images/urock2.jpg
        :alt:  None
-       :width: 411px
+       :width: 100%
        :align: center
        
-       The settings for the Tree Generator
+       Dialog for the settings in URock (part1)
 
-#. As the vegetation DSMs have been changed, the SVFs have to be
-   recalculated. This time use the two generated vegetation DSMs.
-#. Re-run SOLWEIG using the same settings as before but now use the
-   new vegetation surface models as well as the new SVFs generated in
-   the previous step.
-#. Generate a new, updated threshold map based on the new results and
-   compare the differences.
 
-The table below show the input variables needed for each tree point.
+#. When all the settings are made, click **Run**.
 
-+-----------------------+-----------------------+-----------------------+
-| Attribute name        | Name                  | Description           |
-+=======================+=======================+=======================+
-| ttype                 | Tree type             | Two shapes are        |
-|                       |                       | available:            |
-|                       |                       |                       |
-|                       |                       | -  conifer = 1 and    |
-|                       |                       | -  deciduous = 2.     |
-|                       |                       | -  To remove          |
-|                       |                       |    vegetation set     |
-|                       |                       |    ttype = 0.         |
-+-----------------------+-----------------------+-----------------------+
-| trunk                 | Trunk zone height (m  | Height of the trunk   |
-|                       | agl)                  | zone.                 |
-+-----------------------+-----------------------+-----------------------+
-| totheight             | Total tree height (m  | Maximum height of the |
-|                       | agl)                  | vegetation unit       |
-+-----------------------+-----------------------+-----------------------+
-| diameter              | Canopy diameter (m)   | Circular diameter of  |
-|                       |                       | the vegetation unit   |
-+-----------------------+-----------------------+-----------------------+
+The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somehow slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
 
 
 Tutorial finished.
+
+Thermal Comfort - Spatial Thermal Comfort
+=========================================
+
+Introduction
+------------
+
+In this tutorial you will show you how to produce maps of thermal comfort indices using outputs from two different models in UMEP. 
+
+The two different models used are SOLWEIG (radiation model) and URock (wind model). These two models are combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA. This tutorial will make use of PET (Physilogical Equivalent Temperature) as an example.
+
+
+Steps
+~~~~~
+
+#. Produce wind raster from URock
+#. Produce T\ :sub:`mrt` raster from SOLWEIG
+#. Produce map of PET with SpatialTC
+
+Data for this exercise
+~~~~~~~~~~~~~~~~~~~~~~
+
+The UMEP tutorial datasets can be downloaded from our here repository
+`here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/raw/master/other%20files/Annedal_EPSG3006.zip>`__.
+
+-  Download, extract and add the raster layers (DSM, CDSM, DEM), the building polygon layer and the line profile layer (not used in this tutorial) into a new QGIS session. Coordinate system of the grids is Sweref99 TM (EPSG:3006).
+
+Produce result with URock
+-------------------------
+
+The output data generated from the introduction tutorial on Urock will be used for this exercise. If you have not gone through `IntroToURock`, do so and make sure that you produce data with vegetation information included (last section of the tutorial).
+
+Produce T\ :sub:`mrt` raster from SOLWEIG
+-----------------------------------------
+
+It is recommend to get familiar with the SOLWEIG model before you produce your input for SpatialTC by looking at `IntroToSOLWEIG` but below you will also find instructions on how to generate the data needed. All tools should be executed via **UMEP for Processing**.
+
+#. Some additional data has to be prepared in order to execute the SOLWEIG-model.
+   
+   -  Open *UMEP -> Pre-Processor -> Urban geometry -> Sky View Factor*.
+   -  To run SOLWEIG various sky view factor (SVF) maps for both
+      vegetation and buildings must be created (see `Lindberg and
+      Grimmond
+      (2011) <http://link.springer.com/article/10.1007/s00704-010-0382-8>`__
+      for details).
+   -  You can create all SVFs needed (vegetation and buildings) at the
+      same time. Use the settings as shown below. Use an appropriate
+      output folder for your computer. 
+	  
+    .. figure:: /images/spatialtc_svf.jpg
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Settings for the SkyViewFactorCalculator.
+      
+   -  If you look in your output folder you will find a zip-file and a .npz-file containing all the
+      necessary SVF maps needed to run the SOLWEIG-model.
+
+   -  Another pre-processing plugin is needed to create the building wall heights and aspect. Open *UMEP -> Pre-Processor -> Urban geometry -> Wall height and aspect* and use the settings as shown below. QGIS scales the loaded rasters by a *cumulative count out* approach (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your results to see the walls identified (*Layer Properties > Symbology*).
+   
+    .. figure:: /images/spatialtc_wallheightaspect.jpg
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Settings for the Wall height and aspect plugin.
+
+#. Open the SOLWEIG plugin and use the settings shown below (see both figures). Do not 
+   forget to tick *Save necessary raster(s) for the TreePlanter and Spatial TC tools*. The metfile is found in the downloaded tutorial data (*metfile.txt*) and is a clear (and not very warm) Summer day. Click **Run**. 
+   
+    .. figure:: /images/spatialtc_solweig1.png
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       The settings for your SOLWEIG run (click on figure for larger image).
+      
+    .. figure:: /images/spatialtc_solweig2.png
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Continuing.. The settings for your SOLWEIG run (click on figure for larger image).
+       
+
+Details of the model inputs and outputs are provided in the `SOLWEIG manual <http://umep-docs.readthedocs.io/en/latest/OtherManuals/SOLWEIG.html>`__. As the focus of  this tutorial is to run **SpatialTC**, only the most critical parameters are used. Many other parameters can be modified to more appropriate values, if applicable.
+
+Produce map of PET with SpatialTC
+---------------------------------
+
+Now you will run SpatialTC based on the output from the SOLWEIG and URock run in the previous sections.
+
+You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG and one with the pedestrian wind speed produced by URock.
+
+  - Load the *Tmrt_1983_173_1600D.tif* into your QGIS project. This file can be found in your outout folder form the previous SOLWEG-run. Do not change the file name as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
+
+  - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
+
+    .. figure:: /images/spatialtc.png
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Settings for the Spatial TC tool.
+    
+When the computation is finished, you should have a map as shown below.
+
+    .. figure:: /images/spatialtc_result.jpg
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       Spatial variations of PET produced with the Spatial TC tool.
+
+Tutorial finished.
+
