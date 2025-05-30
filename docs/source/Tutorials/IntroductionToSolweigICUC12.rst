@@ -1,6 +1,6 @@
 .. _IntroToSOLWEIG:
 
-Thermal Comfort - Introduction to SOLWEIG
+Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
 
 .. note:: Click `here <IntroductionToSOLWEIGNYC>` to find the same tutorial as below but for data from New York City, US.
@@ -41,7 +41,7 @@ detail.
 Objectives
 ----------
 
-To introduce SOLWEIG and how to run the model within `UMEP (Urban
+To introduce SOLWEIG, URock and SpatialTC and how to run the models within `UMEP (Urban
 Multi-scale Environmental Predictor) <http://umep-docs.readthedocs.io>`__. 
 
 Help with Abbreviations can be found `here <http://umep-docs.readthedocs.io/en/latest/Abbreviations.html>`__.
@@ -50,8 +50,8 @@ Steps
 ~~~~~
 
 #. Different kinds of input data, that are needed to
-   run the model, will be generated.
-#. How to run the model
+   run the models, will be generated.
+#. How to run the models
 #. How to examine the model output
 #. Add additional information (vegetation and ground cover) to improve
    the model outcome and to examine the effect of climate sensitive
@@ -77,18 +77,18 @@ The UMEP tutorial datasets can be downloaded from our here repository
 `here <https://github.com/Urban-Meteorology-Reading/Urban-Meteorology-Reading.github.io/tree/master/other%20files/Goteborg_SWEREF99_1200.zip>`__.
 
 -  Download, extract and add the raster layers (DSM, CDSM, DEM and land
-   cover) from the **Goteborg folder** into a new QGIS session (see
+   cover) from the **DataForTutorials folder** into a new QGIS session (see
    below).
 
    -  Create a new project
-   -  Examine the geodata by adding the layers (*DSM_KRbig*,
-      *CDSM_KRbig*, *DEM_KRbig* and *landcover*) to your project (***Layer
-      > Add Layer > Add Raster Layer**).
+   -  Examine the geodata by adding the layers (*dsm_wijkpark*,
+      *cdsm_wijkpark*, *dem_wijkpark* and *lc_wijkpark*) to your project (***Layer
+      > Add Layer > Add Raster Layer** or drag and drop).
 
--  Coordinate system of the grids is Sweref99 1200 (EPSG:3007). If you
+-  Coordinate system of the grids is Amersfoort / RD New (EPSG:28992). If you
    look at the lower right hand side you can see the CRS used in the
    current QGIS project.
--  Have a look at `DailyShading` on how you can visulaise DSM and CDSM at the same time.
+-  Have a look at `DailyShading` on how you can visualize DSM and CDSM at the same time.
 -  Examine the different datasets before you move on.
 -  To add a legend to the **land cover** raster you can load
    **landcoverstyle.qml** found in the test dataset. Right click on the
