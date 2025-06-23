@@ -30,11 +30,6 @@ tool. The tutorials available are found in the table below.
      - `DailyShading`
      - Shadow patterns for pedestrians
      - Gothenburg, Sweden
-   * - Solar Energy in Norrköping - Daily shading
-     - Pre-procesoor, Processor and Post-processor
-     - `Link to pdf <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/UMEP_Workshop_QGISNorrkoping2025.pdf>`__
-     - Specially designed tutorial for the QGIS 2025 User Confernce in Norrköping
-     - Gothenburg, Sweden
    * - Solar Energy
      - Pre-Processor, Processor and Post-processor
      - `SEBE`
@@ -94,7 +89,7 @@ tool. The tutorials available are found in the table below.
      - Pre-Processor, Processor and Post-processor
      - `IntroToSOLWEIG`
      - Mean radiation temperature modelling in complex urban settings
-     - Gothenburg, Sweden; New York City, US
+     - Gothenburg, Sweden
    * - Outdoor Thermal Comfort
      - Pre-Processor, Processor
      - `IntroToTreePlanter`
@@ -135,6 +130,27 @@ tool. The tutorials available are found in the table below.
      - `PythonProcessing2`
      - Python in QGIS/UMEP for processing in Linux/Mac
      - Gothenburg, Sweden     
+
+**Special tutorials**
+.. list-table::
+   :widths: 13 17 23 35 12
+   :header-rows: 1
+
+   * - Topic
+     - Parts of UMEP
+     - Name
+     - Application
+     - Location
+   * - Outdoor thermal comfort
+     - Pre-Processor, Processor and Post-processor
+     - `IntroToSOLWEIG`
+     - Mean radiation temperature modelling in complex urban settings
+     - Gothenburg, Sweden
+   * - Solar Energy in Norrköping - Daily shading
+     - Pre-procesoor, Processor and Post-processor
+     - `Link to pdf <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/UMEP_Workshop_QGISNorrkoping2025.pdf>`__
+     - Specially designed tutorial for the QGIS 2025 User Confernce in Norrköping
+     - Gothenburg, Sweden
 
 ..   * - Urban energy balance
 ..     - Pre-Processor, Processor and Post-processor
