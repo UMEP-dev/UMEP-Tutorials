@@ -1,4 +1,4 @@
-.. _IntroToSOLWEIG:
+.. _IntroToSOLWEIGICUC12:
 
 Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
