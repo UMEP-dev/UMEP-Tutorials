@@ -131,7 +131,10 @@ tool. The tutorials available are found in the table below.
      - Python in QGIS/UMEP for processing in Linux/Mac
      - Gothenburg, Sweden     
 
+
 **Special tutorials**
+
+
 .. list-table::
    :widths: 13 17 23 35 12
    :header-rows: 1
