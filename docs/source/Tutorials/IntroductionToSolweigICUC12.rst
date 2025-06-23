@@ -60,7 +60,7 @@ Steps
 Initial Practical steps
 -----------------------
 
-UMEP is a python plugin used in conjunction with
+UMEP is a Python plugin used in conjunction with
 `QGIS <http://www.qgis.org>`__. To install the software and the UMEP
 plugin see the `getting
 started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
@@ -178,16 +178,14 @@ Meterological input data should be in UMEP format. You can use the
 `Meterological Preprocessor <http://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__
 to prepare your input data. It is also possible use the plugin for a single point in time. 
 
-Required meteorological data to calculate T\ :sub:`mrt` is: 
+Required meteorological data to calculate T\ :sub:`mrt` are: 
 
 #. Air temperature (°C)
 #. Relative humidity (%)
 #. Incoming shortwave radiation (W m\ :sup:`2`)
 
 The model performance will increase if diffuse and direct beam solar radiation is 
-available but the mdoel can also calculate these variables. 
-
-**If Point Of Interest (POIs) is used, wind speed (m/s) is also required** (see below).
+available but the model can also calculate these variables. 
 
 
 How to Run SOLWEIG from the UMEP-plugin
