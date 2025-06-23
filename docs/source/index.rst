@@ -132,7 +132,7 @@ tool. The tutorials available are found in the table below.
      - Gothenburg, Sweden     
 
 
-**Special tutorials**
+**Conference specific tutorials**
 
 
 .. list-table::
