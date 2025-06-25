@@ -3,6 +3,8 @@
 Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
 
+.. note:: The tools in this tutorial are found in **UMEP for Processing**. The tool can be found from the menu (*Plugins>Manage and Install Plugins*).
+
 Introduction
 ------------
 
@@ -280,8 +282,6 @@ Urban Wind Field - Introduction to URock
 
 Introduction
 ------------
-
-.. note:: The tools in this tutorial are found in **UMEP for Processing**. The tool can be found from the menu (*Plugins>Manage and Install Plugins*).
 
 In this tutorial you will make use the model **URock** to estimate wind fields in an urban setting using a semi-empirical wind model based on Röckle (1990).
 
