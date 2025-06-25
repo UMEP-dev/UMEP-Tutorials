@@ -3,8 +3,6 @@
 Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
 
-.. note:: Click `here <IntroductionToSOLWEIGNYC>` to find the same tutorial as below but for data from New York City, US.
-
 Introduction
 ------------
 
