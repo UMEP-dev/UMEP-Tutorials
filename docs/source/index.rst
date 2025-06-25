@@ -147,7 +147,7 @@ tool. The tutorials available are found in the table below.
    * - Outdoor thermal comfort
      - Pre-Processor, Processor and Post-processor
      - `IntroToSOLWEIGICUC12`
-     - Mean radiation temperature modelling in complex urban settings
+     - Thermal comfort modelling in complex urban settings
      - Rotterdam, The Netherlands
    * - Solar Energy in Norrköping - Daily shading
      - Pre-procesoor, Processor and Post-processor
