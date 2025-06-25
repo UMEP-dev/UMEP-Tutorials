@@ -333,9 +333,9 @@ URock Prepare
 
 URock
 -----
-
 #. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). 
 We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
+When all the settings are made, click **Run**.
 
     .. figure:: /images/ICUC12/URock1.PNG
        :alt:  None
@@ -351,8 +351,6 @@ We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To i
        
        Dialog for the settings in URock (part 2)
 
-
-#. When all the settings are made, click **Run**.
 
 The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somehow slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
 
