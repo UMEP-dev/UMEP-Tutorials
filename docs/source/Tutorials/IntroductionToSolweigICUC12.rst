@@ -81,8 +81,8 @@ The UMEP tutorial datasets can be downloaded from our here repository
    below).
 
    -  Create a new project
-   -  Examine the geodata by adding the layers (*dsm_wijkpark*,
-      *cdsm_wijkpark*, *dem_wijkpark* and *lc_wijkpark*) to your project (***Layer
+   -  Examine the geodata by adding the layers (*dsm_rotterdam*,
+      *cdsm_rotterdam*, *dem_rotterdam* and *lc_rotterdam*) to your project (***Layer
       > Add Layer > Add Raster Layer** or drag and drop).
 
 -  Coordinate system of the grids is Amersfoort / RD New (EPSG:28992). If you
@@ -194,7 +194,7 @@ How to Run SOLWEIG from the UMEP-plugin
 #. Open SOLWEIG in the Processing Toolbox from *UMEP -> Processor -> Outdoor Thermal Comfort: 
    SOLWEIG v2025a*.
 
-   -  You will make use of a test dataset from observations for Gothenburg, Sweden.
+   -  You will make use of a test dataset from observations for Rotterdam, The Netherlands.
 
     .. figure:: /images/ICUC12/SOLWEIG_GUI.PNG
        :alt:  None
@@ -244,11 +244,13 @@ How to Run SOLWEIG from the UMEP-plugin
        
        Settings for the Wall height and aspect plugin.
 
-#. Re-open the SOLWEIG plugin and use the settings shown below. You will
-   use the GUI to set one point in time (i.e. a summer hour in
-   Gothenburg, Sweden) hence, no input meteorological file is needed for
-   now. No information on vegetation or ground cover is added for this
-   first try. Click **Run**. 
+#. Re-open the SOLWEIG plugin and use the settings shown below. 
+   You will use vegetation (cdsm_rotterdam.tif) and ground cover (lc_rotterdam.tif). 
+   As no TDSM exists we estimate it by using 25% of the canopy height. Leave the tranmissivity as 3%.
+   You will use meteorological forcing data from KNMI (Royal Netherlands Meteorological Institute).
+   This data is in UTC 0. The solar radiation is global and therefore we have to tick "Estimate diffuse
+   and direct shortwave radiation from global radiation". Remember to tick "Save necessary raster(s) for the TreePlanter and Spatial TC tools". 
+   Specify an output folder that you can easily find. Click **Run**. 
    
     .. figure:: /images/ICUC12/SOLWEIG1.PNG
        :alt:  None
@@ -256,7 +258,21 @@ How to Run SOLWEIG from the UMEP-plugin
        :align: center
        
        The settings for your first SOLWEIG run (click on figure for larger image).
-      
+
+    .. figure:: /images/ICUC12/SOLWEIG2.PNG
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       The settings for your first SOLWEIG run (click on figure for larger image).
+
+    .. figure:: /images/ICUC12/SOLWEIG3.PNG
+       :alt:  None
+       :width: 100%
+       :align: center
+       
+       The settings for your first SOLWEIG run (click on figure for larger image).
+
 #. Examine the output (Average T\ :sub:`mrt` (°C). What is the main
    driver to the spatial variations in T\ :sub:`mrt`?
 #. Add 3D vegetation information by ticking *Use vegetation scheme
