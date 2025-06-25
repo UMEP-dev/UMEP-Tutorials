@@ -3,7 +3,7 @@
 Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
 
-.. note:: The tools in this tutorial are found in **UMEP for Processing**. The tool can be found from the menu (*Plugins>Manage and Install Plugins*).
+.. note:: This tutorial is specially designed for the UMEP workshop at ICUC12 in Rotterdam, The Netherlands.
 
 Introduction
 ------------
