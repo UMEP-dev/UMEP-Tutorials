@@ -334,8 +334,8 @@ URock Prepare
 URock
 -----
 #. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). 
-We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
-When all the settings are made, click **Run**.
+   We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
+   When all the settings are made, click **Run**.
 
     .. figure:: /images/ICUC12/URock1.PNG
        :alt:  None
