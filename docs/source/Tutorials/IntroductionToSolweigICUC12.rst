@@ -191,12 +191,12 @@ available but the model can also calculate these variables.
 How to Run SOLWEIG from the UMEP-plugin
 ---------------------------------------
 
-#. Open SOLWEIG from *UMEP -> Processor -> Outdoor Thermal Comfort ->
-   Mean radiant temperature (SOLWEIG)*.
+#. Open SOLWEIG in the Processing Toolbox from *UMEP -> Processor -> Outdoor Thermal Comfort: 
+   SOLWEIG v2025a*.
 
    -  You will make use of a test dataset from observations for Gothenburg, Sweden.
 
-    .. figure:: /images/SOLWEIG_Interface.png
+    .. figure:: /images/ICUC12/SOLWEIG_GUI.PNG
        :alt:  None
        :width: 100%
        :align: center
@@ -217,7 +217,7 @@ How to Run SOLWEIG from the UMEP-plugin
       same time. Use the settings as shown below. Use an appropriate
       output folder for your computer. 
 	  
-    .. figure:: /images/SOLWEIG_Svf_solweig.png
+    .. figure:: /images/ICUC12/SVF.PNG
        :alt:  None
        :width: 487px
        :align: center
@@ -237,7 +237,7 @@ How to Run SOLWEIG from the UMEP-plugin
    (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your 
    results to see the walls identified (*Layer Properties > Symbology*).
    
-    .. figure:: /images/SOLWEIG_wallgeight_solweig.png
+    .. figure:: /images/ICUC12/wallheightaspect.PNG
        :alt:  None
        :width: 505px
        :align: center
@@ -250,7 +250,7 @@ How to Run SOLWEIG from the UMEP-plugin
    now. No information on vegetation or ground cover is added for this
    first try. Click **Run**. 
    
-    .. figure:: /images/SOLWEIG_Tmrt1_solweig.png
+    .. figure:: /images/ICUC12/SOLWEIG1.PNG
        :alt:  None
        :width: 100%
        :align: center
@@ -322,7 +322,7 @@ URock Prepare
 #. Open **URock Prepare** from the **Pre-Processing** section in **UMEP for Processing** found in the **Processing Toolbox**. 
 #. Use the settings shown below except for the output where you maybe need to specify a specific location on your computer where you have read and write access.
 
-    .. figure:: /images/urockprepare.jpg
+    .. figure:: /images/ICUC12/URock_prepare.PNG
        :alt:  None
        :width: 100%
        :align: center
@@ -336,14 +336,14 @@ URock
 
 #. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). In your first run only buildings will be included and affecting the wind pattern:
 
-    .. figure:: /images/urock1.jpg
+    .. figure:: /images/ICUC12/URock1.PNG
        :alt:  None
        :width: 100%
        :align: center
        
        Dialog for the settings in URock (part 1)
        
-    .. figure:: /images/urock2.jpg
+    .. figure:: /images/ICUC12/URock2.PNG
        :alt:  None
        :width: 100%
        :align: center
@@ -378,7 +378,7 @@ You need to specify two rasters: one of the mean radiant temperature that has be
 
   - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
-    .. figure:: /images/spatialtc.png
+    .. figure:: /images/ICUC12/SpatialTC.PNG
        :alt:  None
        :width: 100%
        :align: center
