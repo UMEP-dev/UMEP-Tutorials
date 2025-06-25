@@ -146,7 +146,7 @@ tool. The tutorials available are found in the table below.
      - Location
    * - Outdoor thermal comfort
      - Pre-Processor, Processor and Post-processor
-     - `_IntroToSOLWEIGICUC12`
+     - `IntroToSOLWEIGICUC12`
      - Mean radiation temperature modelling in complex urban settings
      - Rotterdam, The Netherlands
    * - Solar Energy in Norrköping - Daily shading
