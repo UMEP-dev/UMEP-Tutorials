@@ -77,7 +77,7 @@ The UMEP tutorial datasets can be downloaded from our here repository
 `here <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/ICUC12_TC.zip>`__.
 
 -  Download, extract and add the raster layers (DSM, CDSM, DEM and land
-   cover) from the **DataForTutorials folder** into a new QGIS session (see
+   cover) from the **input_dataset folder** into a new QGIS session (see
    below).
 
    -  Create a new project
