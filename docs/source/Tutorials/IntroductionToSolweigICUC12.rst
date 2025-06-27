@@ -231,7 +231,7 @@ How to Run SOLWEIG from the UMEP-plugin
    -  If you look in your output folder you will find a zip-file containing all the
       necessary SVF maps needed to run the SOLWEIG-model.
 
-#. Another preprocessing plugin is needed to create the building wall
+#. Another pre-processing plugin is needed to create the building wall
    heights and aspect. Open UMEP from the processing toolbox again and then 
    *Pre-Processor -> Urban geometry: Wall height and aspect* and use the settings as shown below. QGIS scales loaded rasters by a *cumulative count out* approach 
    (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your 
@@ -247,7 +247,7 @@ How to Run SOLWEIG from the UMEP-plugin
 #. Re-open the SOLWEIG plugin and use the settings shown below. 
    You will use vegetation (cdsm_rotterdam.tif) and ground cover (lc_rotterdam.tif). 
    As no TDSM exists we estimate it by using 25% of the canopy height. Leave the tranmissivity as 3%.
-   You will use meteorological forcing data from KNMI (Royal Netherlands Meteorological Institute).
+   You will use meteorological forcing data from `KNMI (Royal Netherlands Meteorological Institute) <https://daggegevens.knmi.nl/klimatologie/uurgegevens>`__.
    This data is in UTC 0. The solar radiation is global and therefore we have to tick "Estimate diffuse
    and direct shortwave radiation from global radiation". Remember to tick "Save necessary raster(s) for the TreePlanter and Spatial TC tools". 
    Specify an output folder that you can easily find. Click **Run**. 
