@@ -149,6 +149,11 @@ tool. The tutorials available are found in the table below.
      - `IntroToSOLWEIGICUC12`
      - Thermal comfort modelling in complex urban settings
      - Rotterdam, The Netherlands
+   * - Urban Heat Island
+     - Pre-Processor, Processor and Post-processor
+     - `Link to pdf <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/ICUC12_UMEP-TARGET_Tutorial.pdf>`__
+     - Intra urban temperature variations during heatwave event
+     - Rotterdam, The Netherlands
    * - Solar Energy in Norrköping - Daily shading
      - Pre-procesoor, Processor and Post-processor
      - `Link to pdf <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/UMEP_Workshop_QGISNorrkoping2025.pdf>`__
