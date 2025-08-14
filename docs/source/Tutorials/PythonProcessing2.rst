@@ -222,7 +222,7 @@ Last we can run SOLWEIG using the input data produced by the previous steps.
                   'TRANS_VEG':3,'INPUT_TDSM':None,'INPUT_THEIGHT':25,
                   'INPUT_LC': crop_landcover["OUTPUT"],
                   'USE_LC_BUILD':False,
-                  'INPUT_DEM': crop_dsm["OUTPUT"],
+                  'INPUT_DEM': crop_dem["OUTPUT"],
                   'SAVE_BUILD':False,
                   'INPUT_ANISO': os.path.join(svf_outputs['OUTPUT_DIR'],'shadowmats.npz'),
                   'ALBEDO_WALLS':0.2,'ALBEDO_GROUND':0.15,'EMIS_WALLS':0.9,'EMIS_GROUND':0.95,
