@@ -85,7 +85,7 @@ This tool can do what its name suggests, namely calculate ground shadow patterns
 
 - Create a directory e.g. on your Desktop called **DailyShading**. Also create a sub-directory to **DailyShading** called **June21_buildings**. 
 - Use this directory to save the result.
-- Set-up the tool as shown in the figure below. This will generate ground shadows from buildings every 30 minutes on June 21, 2020. Click **Run**.
+- Set-up the tool as shown in the figure below. This will generate ground shadows from buildings every 30 minutes on June 21, 2020. To see the aggregated output in your map canvas when using UMEP for Processing, specify an output in the last entry *Aggregated (or single) shadow raster [optional]*. Click **Run**. 
 
   .. figure:: /images/Dailyshading21juneBuildings.jpg
      :alt:  None
