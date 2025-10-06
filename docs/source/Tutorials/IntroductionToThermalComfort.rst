@@ -223,7 +223,7 @@ How to Run SOLWEIG from the UMEP-plugin
       same time. Use the settings as shown below. Use an appropriate
       output folder for your computer. 
 	  
-    .. figure:: /images/ThermalComfort/SVF.PNG
+    .. figure:: /images/ThermalComfort/SVF.png
        :alt:  None
        :width: 487px
        :align: center
@@ -243,7 +243,7 @@ How to Run SOLWEIG from the UMEP-plugin
    (98%). As the height and aspect layers are filled with zeros where no wall are present it might appear as if there is no walls identified. Rescale your 
    results to see the walls identified (*Layer Properties > Symbology*).
    
-    .. figure:: /images/ThermalComfort/wallHeightAspect.PNG
+    .. figure:: /images/ThermalComfort/wallHeightAspect.png
        :alt:  None
        :width: 505px
        :align: center
@@ -258,14 +258,14 @@ How to Run SOLWEIG from the UMEP-plugin
    and direct shortwave radiation from global radiation". Remember to tick "Save necessary raster(s) for the TreePlanter and Spatial TC tools". 
    Specify an output folder that you can easily find. Click **Run**. 
    
-    .. figure:: /images/ThermalComfort/SOLWEIG1.PNG
+    .. figure:: /images/ThermalComfort/SOLWEIG1.png
        :alt:  None
        :width: 100%
        :align: center
        
        The settings for your first SOLWEIG run (part 1) (click on figure for larger image).
 
-    .. figure:: /images/ThermalComfort/SOLWEIG2.PNG
+    .. figure:: /images/ThermalComfort/SOLWEIG2.png
        :alt:  None
        :width: 100%
        :align: center
@@ -304,7 +304,7 @@ URock Prepare
 #. Open **URock Prepare** from the **Pre-Processing** section in **UMEP for Processing** found in the **Processing Toolbox**. 
 #. Use the settings shown below except for the output where you maybe need to specify a specific location on your computer where you have read and write access.
 
-    .. figure:: /images/ThermalComfort/URock_prepare.PNG
+    .. figure:: /images/ThermalComfort/URock_prepare.png
        :alt:  None
        :width: 100%
        :align: center
@@ -319,14 +319,14 @@ URock
    We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
    When all the settings are made, click **Run**.
 
-    .. figure:: /images/ThermalComfort/URock1.PNG
+    .. figure:: /images/ThermalComfort/URock1.png
        :alt:  None
        :width: 100%
        :align: center
        
        Dialog for the settings in URock (part 1)
        
-    .. figure:: /images/ThermalComfort/URock2.PNG
+    .. figure:: /images/ThermalComfort/URock2.png
        :alt:  None
        :width: 100%
        :align: center
@@ -354,7 +354,7 @@ You need to specify two rasters: one of the mean radiant temperature that has be
 
   - Last you need to select the thermal comfort index to map (UTCI for this tutorial). The Advanced parameters describing the person to consider for the comfort index (PET or COMFA) can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
-    .. figure:: /images/ThermalComfort/SpatialTC.PNG
+    .. figure:: /images/ThermalComfort/SpatialTC.png
        :alt:  None
        :width: 100%
        :align: center
