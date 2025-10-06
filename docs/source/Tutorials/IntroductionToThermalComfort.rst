@@ -363,12 +363,12 @@ You need to specify two rasters: one of the mean radiant temperature that has be
     
 When the computation is finished, you should have a map as shown below.
 
-    .. figure:: /images/ICUC12/UTCI.png
+    .. figure:: /images/ThermalComfort/PET.png
        :alt:  None
        :width: 100%
        :align: center
        
-       Spatial variations of UTCI produced with the Spatial TC tool.
+       Spatial variations of PET produced with the Spatial TC tool.
 
 Try to produce output maps of Physiological Equivalent Temperature (PET) and COMfort FormulA (COMFA).
 
