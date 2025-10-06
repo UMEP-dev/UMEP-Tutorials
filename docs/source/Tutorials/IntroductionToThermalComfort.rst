@@ -75,7 +75,7 @@ Irradiance Geometry model (SOLWEIG)** model to estimate the mean radiant
 temperature (T\ :sub:`mrt`).
 
 SOLWEIG is a model that simulates spatial variations of 3D radiation
-fluxes and the T\ :sub:`mrt` in complex urban settings. It is also able
+fluxes and T\ :sub:`mrt` in complex urban settings. It is also able
 to model spatial variations of shadow patterns. T\ :sub:`mrt` is one of
 the key meteorological variables governing human energy balance and the
 thermal comfort of people. It is derived from summing all the radiative
@@ -182,13 +182,13 @@ S: Spatial, M: Meteorological,
 
 Meterological input data should be in UMEP format. You can use the
 `Meterological Preprocessor <http://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__
-to prepare your input data. It is also possible use the plugin for a single point in time. 
+to prepare your input data. It is also possible to use the plugin for a single point in time. 
 
 Required meteorological data to calculate T\ :sub:`mrt` are: 
 
 #. Air temperature (°C)
 #. Relative humidity (%)
-#. Incoming shortwave radiation (W m\ :sup:`2`)
+#. Incoming global shortwave radiation (W m\ :sup:`2`)
 
 The model performance will increase if diffuse and direct beam solar radiation is 
 available but the model can also calculate these variables. 
@@ -200,7 +200,7 @@ How to Run SOLWEIG from the UMEP-plugin
 #. Open SOLWEIG in the Processing Toolbox from *UMEP -> Processor -> Outdoor Thermal Comfort: 
    SOLWEIG v2025a*.
 
-   -  You will make use of a test dataset from observations for Rotterdam, The Netherlands.
+   -  You will make use of a test dataset from observations for an area in the central parts of Gothenburg, Sweden.
 
     .. figure:: /images/ICUC12/SOLWEIG_GUI.PNG
        :alt:  None
@@ -286,10 +286,7 @@ How to Run SOLWEIG from the UMEP-plugin
 Part 2: Urban Wind Field - Introduction to URock
 ------------------------------------------------
 
-Introduction
-------------
-
-In this tutorial you will make use the model **URock** to estimate wind fields in an urban setting using a semi-empirical wind model based on Röckle (1990).
+In this part you will make use the model **URock** to estimate wind fields in an urban setting using a semi-empirical wind model based on Röckle (1990).
 
 URock can be used to calculate the 3D wind field of an urban area using information about the wind (at least speed and direction at a given height) and geographical data describing the area of interest (building and vegetation footprint and height). Two main stages are used: wind field initialization and wind field balance. For a detailed description of the model see, `Bernard et al. (2023) <https://egusphere.copernicus.org/preprints/2023/egusphere-2023-354/>`__.
 
@@ -301,18 +298,6 @@ Steps
 #. Produce relevant input data needed to run the model using URock Prepare.
 #. Run the model
 #. Examine the model output using URock Analyzer
-
-Initial Practical steps
------------------------
-
-**UMEP for Processing** is a Python plugin used in conjunction with
-`QGIS <http://www.qgis.org>`__. To install the software and the UMEP
-plugin (if not already installed), see the `getting started <http://umep-docs.readthedocs.io/en/latest/Getting_Started.html>`__
-section in the UMEP manual.
-
-As **UMEP for Processing** is under constant development, some documentation may be missing
-and/or there may be instability. Please report any issues or suggestions
-to our `repository <https://github.com/UMEP-dev/UMEP>`__.
 
 Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -361,9 +346,6 @@ The computation will take some time depending on your computer standard. During 
 
 Part 3: Thermal Comfort - Spatial Thermal Comfort
 -------------------------------------------------
-
-Introduction
-------------
 
 In this last step of the tutorial you will use the SpatialTC tool to produce maps of thermal comfort indices using outputs from the two previous steps (SOLWEIG and URock). 
 
