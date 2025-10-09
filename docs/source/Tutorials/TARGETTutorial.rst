@@ -3,8 +3,6 @@
 Urban Heat Island - TARGET
 ==========================
 
-.. note:: WORK IN PROGRESS. NOT READY.
-
 Introduction
 ------------
 
