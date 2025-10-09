@@ -5,9 +5,9 @@ Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 
 Introduction
 ------------
-This tutorial is divided into three parts. In :ref:`part 1<part1>` you will use the 
-SOLWEIG model to calculate mean radiant temperature. In :ref:`part 2<part2>` you will use
-the URock model to estimate wind fields and in :ref:`part 3<part3>` you will combine your 
+This tutorial is divided into three parts. In :ref:`part 1<tc_part1>` you will use the 
+SOLWEIG model to calculate mean radiant temperature. In :ref:`part 2<tc_part2>` you will use
+the URock model to estimate wind fields and in :ref:`part 3<tc_part3>` you will combine your 
 results from part 1 and part 2 into the Physiological Equivalent Temperature
 index.
 
@@ -15,20 +15,11 @@ Objectives
 ----------
 
 To introduce SOLWEIG, URock and SpatialTC and how to run the models within `UMEP (Urban
-Multi-scale Environmental Predictor) <http://umep-docs.readthedocs.io>`__. 
+Multi-scale Environmental Predictor) <http://umep-docs.readthedocs.io>`__ to produce outputs
+of human thermal comfort. 
 
 Help with Abbreviations can be found `here <http://umep-docs.readthedocs.io/en/latest/Abbreviations.html>`__.
 
-Steps
-~~~~~
-
-#. Different kinds of input data, that are needed to
-   run the models, will be generated.
-#. How to run the models
-#. How to examine the model output
-#. Add additional information (vegetation and ground cover) to improve
-   the model outcome and to examine the effect of climate sensitive
-   design
 
 Initial Practical steps
 -----------------------
@@ -47,33 +38,33 @@ Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The dataset for this tutorial can be downloaded from our repository
-`here <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/ICUC12_TC.zip>`__.
+`here <https://github.com/UMEP-dev/UMEP-Tutorials/blob/master/docs/source/data/GBG_TC.zip>`__.
 
 -  Download, extract and add the raster layers (DSM, CDSM, DEM and land
    cover) from the **input_dataset folder** into a new QGIS session (see
    below).
 
    -  Create a new project
-   -  Examine the geodata by adding the layers (*dsm_rotterdam*,
-      *cdsm_rotterdam*, *dem_rotterdam* and *lc_rotterdam*) to your project (***Layer
+   -  Examine the geodata by adding the layers (*DSM*,
+      *CDSM*, *DEM* and *LANDCOVER*) to your project (***Layer
       > Add Layer > Add Raster Layer** or drag and drop).
 
--  Coordinate system of the grids is Amersfoort / RD New (EPSG:28992). If you
+-  Coordinate system of the grids is SWEREF99 12 00 (EPSG:3007). If you
    look at the lower right hand side you can see the CRS used in the
    current QGIS project.
 -  Have a look at `DailyShading` on how you can visualize DSM and CDSM at the same time.
 -  Examine the different datasets before you move on.
--  To add a legend to the **land cover** raster you can load
+-  To add a legend to the **LANDCOVER** raster you can load
    **landcoverstyle.qml** found in the test dataset. Right click on the
    land cover (*Properties -> Style (lower left) -> Load Style*).
 
-.. _part1:
+.. _tc_part1:
 
 Part 1: SOlar and LongWave Environmental Irradiance Geometry Model (SOLWEIG)
 -----------------------------------------------------------------------------
 
-In this part of the tutorial you will use the **SOlar and LongWave Environmental
-Irradiance Geometry model (SOLWEIG)** model to estimate the mean radiant
+In this part of the tutorial you will use the `**SOlar and LongWave Environmental
+Irradiance Geometry model (SOLWEIG)**<https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
 temperature (T\ :sub:`mrt`).
 
 SOLWEIG is a model that simulates spatial variations of 3D radiation
@@ -180,7 +171,16 @@ S: Spatial, M: Meteorological,
      - R 
      - O 
      - Set in the interface of the model.
-	 
+   * - Anisotropic sky
+     - The sky is divided into 153 patches with varying amounts of sky diffuse shortwave radiation and sky longwave radiation
+     - O 
+     - S 
+     - Set in the interface of the model.	
+   * - Wall surface temperature parameterization
+     - Walls are divided into voxels
+     - O
+     - S 
+     - Set in the interface of the model.     
 
 Meterological input data should be in UMEP format. You can use the
 `Meterological Preprocessor <http://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__
@@ -202,7 +202,8 @@ How to Run SOLWEIG from the UMEP-plugin
 #. Open SOLWEIG in the Processing Toolbox from *UMEP -> Processor -> Outdoor Thermal Comfort: 
    SOLWEIG v2025a*.
 
-   -  You will make use of a test dataset from observations for an area in the central parts of Gothenburg, Sweden.
+   -  As you can see we already have some of the input data (DSM, DEM, CDSM, LANDCOVER). There are, however, other required input data that we have to create, 
+      for example sky view factor, wall height and wall aspect. 
 
     .. figure:: /images/ICUC12/SOLWEIG_GUI.PNG
        :alt:  None
@@ -253,11 +254,12 @@ How to Run SOLWEIG from the UMEP-plugin
        Settings for the Wall height and aspect plugin.
 
 #. Re-open the SOLWEIG plugin and use the settings shown below. 
-   You will use vegetation (cdsm_rotterdam.tif) and ground cover (lc_rotterdam.tif). 
-   As no TDSM exists we estimate it by using 25% of the canopy height. Leave the tranmissivity as 3%.
-   You will use meteorological forcing data from `KNMI (Royal Netherlands Meteorological Institute) <https://daggegevens.knmi.nl/klimatologie/uurgegevens>`__.
-   This data is in UTC 0. The solar radiation is global and therefore we have to tick "Estimate diffuse
-   and direct shortwave radiation from global radiation". Remember to tick "Save necessary raster(s) for the TreePlanter and Spatial TC tools". 
+   You will use vegetation (CDSM.tif) and ground cover (LANDCOVER.tif).
+   Leave the tranmissivity of light through vegetation as 3%.
+   As no Vegetation Trunk-zone DSM exists we estimate it by using 25% of the canopy height.
+   You will use meteorological forcing data from a summer day in 1997-06-06 (gbg19970606_2015a.txt).
+   This data is in UTC 1. In this meteorological data, the global solar radiation is divided into one direct and one diffuse component. 
+   Remember to tick "Save necessary raster(s) for the TreePlanter and Spatial TC tools". 
    Specify an output folder that you can easily find. Click **Run**. 
    
     .. figure:: /images/ThermalComfort/SOLWEIG1.png
@@ -278,7 +280,7 @@ How to Run SOLWEIG from the UMEP-plugin
    driver to the spatial variations in T\ :sub:`mrt`?
 #. Now add the Tmrt_2025_172_1200D.tif from the output folder. This file will be used later in the tutorial.
 
-.. _part2:
+.. _tc_part2:
 
 Part 2: Urban Wind Field - Introduction to URock
 ------------------------------------------------
@@ -287,19 +289,18 @@ In this part you will make use the model **URock** to estimate wind fields in an
 
 URock can be used to calculate the 3D wind field of an urban area using information about the wind (at least speed and direction at a given height) and geographical data describing the area of interest (building and vegetation footprint and height). Two main stages are used: wind field initialization and wind field balance. For a detailed description of the model see, `Bernard et al. (2023) <https://egusphere.copernicus.org/preprints/2023/egusphere-2023-354/>`__.
 
-The model requires **meteorological** forcing data (wind speed and direction) and geometry information for buildings and trees. 
+The model requires **meteorological** forcing data (wind speed and direction) and geometry information for buildings and trees.
 
 Steps
 ~~~~~
 
 #. Produce relevant input data needed to run the model using URock Prepare.
 #. Run the model
-#. Examine the model output using URock Analyzer
 
 Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We will use the DSM, CDSM and DEM that we used to force SOLWEIG. We, however, have to add another file; **BuildingsRotterdam.gpkg** that should also be in your input dataset.
+We will use the DSM, CDSM and DEM that we used to force SOLWEIG. We, however, have to add another file; **buildings.gpkg** that should also be in your input dataset.
 
 To run **URock**, you need a building vector dataset including building height attributes and/or a vegetation vector layer including height and some additional optional info such as attenuation factor (see below). Here, you will make use of raster DSM, DEM and CDSM to generate information for URock.
 
@@ -320,7 +321,7 @@ URock Prepare
 URock
 -----
 #. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). 
-   We will use a wind speed of 4 m/s with a wind direction set to 110 degrees. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
+   We will use a wind speed of 2 m/s with a wind direction set to 200\u00B0. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
    When all the settings are made, click **Run**.
 
     .. figure:: /images/ThermalComfort/URock1.png
@@ -338,26 +339,33 @@ URock
        Dialog for the settings in URock (part 2)
 
 
-The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somehow slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
+The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. 
+A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, 
+open the Python Console in QGIS. However, this will somehow slow down the computational process. 
+When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
 
-.. _part3:
+.. _tc_part3:
 
 Part 3: Thermal Comfort - Spatial Thermal Comfort
 -------------------------------------------------
 
 In this last step of the tutorial you will use the SpatialTC tool to produce maps of thermal comfort indices using outputs from the two previous steps (SOLWEIG and URock). 
 
-The two previous modeling steps provided us with Tmrt (SOLWEIG) and wind fields (URock). These outputs are combined in the **SpatialTC**-tool to generate raster maps on thermal indices such as PET, UTCI and COMFA.
+The two previous modeling steps provided us with Tmrt (SOLWEIG) and wind fields (URock). These outputs are combined in the **SpatialTC**-tool to generate raster maps on 
+thermal indices such as PET, UTCI and COMFA.
 
 
-Produce map of Universal Thermal Climate Index (UTCI) with SpatialTC
----------------------------------
+Produce map of Physiological Equivalent Temperature (PET) with SpatialTC
+------------------------------------------------------------------------
 
-You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG (**Tmrt_2025_172_1200D.tif**) and one with the pedestrian wind speed produced by URock (**urock_outputWS.tif**).
+You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG (**Tmrt_2025_172_1200D.tif**) and one with the pedestrian wind speed 
+produced by URock (**urock_outputWS.tif**).
 
-  - Load the *Tmrt_2025_172_1200D.tif* into your QGIS project if you have not done this already. This file can be found in your outout folder form the previous SOLWEG-run. Do not change the file name or its location as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
+  - Load the *Tmrt_2025_172_1200D.tif* into your QGIS project if you have not done this already. This file can be found in your outout folder form the previous SOLWEG-run. 
+    Do not change the file name or its location as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
 
-  - Last you need to select the thermal comfort index to map (UTCI for this tutorial). The Advanced parameters describing the person to consider for the comfort index (PET or COMFA) can also be defined but the default values are kept for this tutorial. Then click **Run**. 
+  - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index 
+    (PET or COMFA) can also be defined but the default values are kept for this tutorial. Then click **Run**. 
 
     .. figure:: /images/ThermalComfort/SpatialTC.png
        :alt:  None
@@ -366,7 +374,7 @@ You need to specify two rasters: one of the mean radiant temperature that has be
        
        Settings for the Spatial TC tool.
     
-When the computation is finished, you should have a map as shown below.
+When the computation is finished, you should have a map as shown below. You can change the color range in the properties of the raster layer.
 
     .. figure:: /images/ThermalComfort/PET.png
        :alt:  None
@@ -375,7 +383,7 @@ When the computation is finished, you should have a map as shown below.
        
        Spatial variations of PET produced with the Spatial TC tool.
 
-Try to produce output maps of Physiological Equivalent Temperature (PET) and COMfort FormulA (COMFA).
+Try to produce output maps of Universal Thermal Climate Index (UTCI) and COMfort FormulA (COMFA).
 
 Tutorial finished.
 
