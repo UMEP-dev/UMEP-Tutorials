@@ -1,13 +1,13 @@
-.. _IntroToSOLWEIGICUC12:
+.. _IntroToThermalComfort:
 
 Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 =========================================
 
 Introduction
 ------------
-This tutorial is divided into three parts. In part 1 you will use the 
-SOLWEIG model to calculate mean radiant temperature. In part 2 you will use
-the URock model to estimate wind fields and in part 3 you will combine your 
+This tutorial is divided into three parts. In :ref:`part 1<part1>` you will use the 
+SOLWEIG model to calculate mean radiant temperature. In :ref:`part 2<part2>` you will use
+the URock model to estimate wind fields and in :ref:`part 3<part3>` you will combine your 
 results from part 1 and part 2 into the Physiological Equivalent Temperature
 index.
 
@@ -66,6 +66,8 @@ The dataset for this tutorial can be downloaded from our repository
 -  To add a legend to the **land cover** raster you can load
    **landcoverstyle.qml** found in the test dataset. Right click on the
    land cover (*Properties -> Style (lower left) -> Load Style*).
+
+.. _part1:
 
 Part 1: SOlar and LongWave Environmental Irradiance Geometry Model (SOLWEIG)
 -----------------------------------------------------------------------------
@@ -276,6 +278,8 @@ How to Run SOLWEIG from the UMEP-plugin
    driver to the spatial variations in T\ :sub:`mrt`?
 #. Now add the Tmrt_2025_172_1200D.tif from the output folder. This file will be used later in the tutorial.
 
+.. _part2:
+
 Part 2: Urban Wind Field - Introduction to URock
 ------------------------------------------------
 
@@ -336,6 +340,7 @@ URock
 
 The computation will take some time depending on your computer standard. During the computation, you can follow the steps in the log-window in the URock-interface. A large part of the computation time is related to creation of all the different zones around buildings and vegetation. If you want an even more detailed picture of the process, open the Python Console in QGIS. However, this will somehow slow down the computational process. When the computation is finished, the tool will load the raster windspeed and the vector points at 1.5 meter above ground level.
 
+.. _part3:
 
 Part 3: Thermal Comfort - Spatial Thermal Comfort
 -------------------------------------------------
