@@ -63,8 +63,8 @@ The dataset for this tutorial can be downloaded from our repository
 Part 1: SOlar and LongWave Environmental Irradiance Geometry Model (SOLWEIG)
 -----------------------------------------------------------------------------
 
-In this part of the tutorial you will use the `**SOlar and LongWave Environmental
-Irradiance Geometry model (SOLWEIG)**<https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
+In this part of the tutorial you will use the `SOlar and LongWave Environmental
+Irradiance Geometry model (SOLWEIG)<https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
 temperature (T\ :sub:`mrt`).
 
 SOLWEIG is a model that simulates spatial variations of 3D radiation
@@ -300,9 +300,10 @@ Steps
 Data for this exercise
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We will use the DSM, CDSM and DEM that we used to force SOLWEIG. We, however, have to add another file; **buildings.gpkg** that should also be in your input dataset.
+We will use the DSM, CDSM and DEM that we used to force SOLWEIG. We, however, have to add another file; **buildings.gpkg (buildingsosm_kr)** that should also be in your input dataset.
 
-To run **URock**, you need a building vector dataset including building height attributes and/or a vegetation vector layer including height and some additional optional info such as attenuation factor (see below). Here, you will make use of raster DSM, DEM and CDSM to generate information for URock.
+To run **URock**, you also need a building vector dataset including building height attributes and/or a vegetation vector layer including height and some additional optional info such as attenuation factor (see below). 
+Here, you will make use of raster DSM, DEM, CDSM and the building vector layer to generate information for URock.
 
 URock Prepare
 -------------
@@ -322,6 +323,7 @@ URock
 -----
 #. Open the URock interface (*UMEP > Processing > Urban Wind Field: URock*). Here you can make a lot of settings (divided into two figures). 
    We will use a wind speed of 2 m/s with a wind direction set to 200\u00B0. To increase the speed of the calculations we will use 4 meter horizontal and vertical resolutions.
+   Be sure to pick the right building vector layer (the one you produced with URock prepare).
    When all the settings are made, click **Run**.
 
     .. figure:: /images/ThermalComfort/URock1.png
@@ -349,9 +351,9 @@ When the computation is finished, the tool will load the raster windspeed and th
 Part 3: Thermal Comfort - Spatial Thermal Comfort
 -------------------------------------------------
 
-In this last step of the tutorial you will use the SpatialTC tool to produce maps of thermal comfort indices using outputs from the two previous steps (SOLWEIG and URock). 
+In this last step of the tutorial you will use the **SpatialTC** tool (you find it in the post-processor) to produce maps of thermal comfort indices using outputs from the two previous steps (SOLWEIG and URock). 
 
-The two previous modeling steps provided us with Tmrt (SOLWEIG) and wind fields (URock). These outputs are combined in the **SpatialTC**-tool to generate raster maps on 
+The two previous modeling steps provided us with Tmrt (SOLWEIG) and wind fields (URock). These outputs are combined in the **SpatialTC** tool to generate raster maps on 
 thermal indices such as PET, UTCI and COMFA.
 
 
@@ -374,7 +376,7 @@ produced by URock (**urock_outputWS.tif**).
        
        Settings for the Spatial TC tool.
     
-When the computation is finished, you should have a map as shown below. You can change the color range in the properties of the raster layer.
+When the computation is finished, you should have a map as shown below. You can change the color ramp in the properties of the raster layer.
 
     .. figure:: /images/ThermalComfort/PET.png
        :alt:  None
