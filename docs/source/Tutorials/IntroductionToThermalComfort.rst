@@ -64,7 +64,7 @@ Part 1: SOlar and LongWave Environmental Irradiance Geometry Model (SOLWEIG)
 -----------------------------------------------------------------------------
 
 In this part of the tutorial you will use the `SOlar and LongWave Environmental
-Irradiance Geometry model (SOLWEIG)<https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
+Irradiance Geometry model (SOLWEIG) <https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
 temperature (T\ :sub:`mrt`).
 
 SOLWEIG is a model that simulates spatial variations of 3D radiation
