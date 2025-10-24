@@ -6,10 +6,10 @@ Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 Introduction
 ------------
 This tutorial is divided into three parts. In :ref:`part 1<tc_part1>` you will use the 
-SOLWEIG model to calculate mean radiant temperature. In :ref:`part 2<tc_part2>` you will use
+SOLWEIG model to calculate mean radiant temperature [°C]. In :ref:`part 2<tc_part2>` you will use
 the URock model to estimate wind fields and in :ref:`part 3<tc_part3>` you will combine your 
 results from part 1 and part 2 into the Physiological Equivalent Temperature
-index.
+index [°C].
 
 Objectives
 ----------
@@ -65,7 +65,7 @@ Part 1: SOlar and LongWave Environmental Irradiance Geometry Model (SOLWEIG)
 
 In this part of the tutorial you will use the `SOlar and LongWave Environmental
 Irradiance Geometry model (SOLWEIG) <https://umep-docs.readthedocs.io/en/latest/processor/Outdoor%20Thermal%20Comfort%20SOLWEIG.html>`__ model to estimate the mean radiant
-temperature (T\ :sub:`mrt`).
+temperature (T\ :sub:`mrt`) [°C].
 
 SOLWEIG is a model that simulates spatial variations of 3D radiation
 fluxes and T\ :sub:`mrt` in complex urban settings. It is also able
@@ -354,7 +354,7 @@ Part 3: Thermal Comfort - Spatial Thermal Comfort
 In this last step of the tutorial you will use the **SpatialTC** tool (you find it in the post-processor) to produce maps of thermal comfort indices using outputs from the two previous steps (SOLWEIG and URock). 
 
 The two previous modeling steps provided us with Tmrt (SOLWEIG) and wind fields (URock). These outputs are combined in the **SpatialTC** tool to generate raster maps on 
-thermal indices such as PET, UTCI and COMFA.
+thermal indices such as PET [°C], UTCI [°C] and COMFA [Wm⁻²].
 
 
 Produce map of Physiological Equivalent Temperature (PET) with SpatialTC
