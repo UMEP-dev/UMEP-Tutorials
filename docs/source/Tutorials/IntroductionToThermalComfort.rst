@@ -184,7 +184,7 @@ S: Spatial, M: Meteorological,
 
 Meterological input data should be in UMEP format. You can use the
 `Meterological Preprocessor <http://umep-docs.readthedocs.io/en/latest/pre-processor/Meteorological%20Data%20MetPreprocessor.html>`__
-to prepare your input data. It is also possible to use the plugin for a single point in time. 
+to prepare your own input data (data for this tutorial is already prepared). It is also possible to use the plugin for a single point in time. 
 
 Required meteorological data to calculate T\ :sub:`mrt` are: 
 
