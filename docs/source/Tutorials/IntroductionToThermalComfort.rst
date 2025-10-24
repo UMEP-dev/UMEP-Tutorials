@@ -5,7 +5,7 @@ Thermal Comfort - Introduction to SOLWEIG, URock and SpatialTC
 
 Introduction
 ------------
-This tutorial is divided into three parts. In :ref:`part 1<tc_part1>` you will use the 
+This tutorial is divided into three parts. You will use UMEP for processing. In :ref:`part 1<tc_part1>` you will use the 
 SOLWEIG model to calculate mean radiant temperature [°C]. In :ref:`part 2<tc_part2>` you will use
 the URock model to estimate wind fields and in :ref:`part 3<tc_part3>` you will combine your 
 results from part 1 and part 2 into the Physiological Equivalent Temperature
