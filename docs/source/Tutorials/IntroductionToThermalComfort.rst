@@ -360,10 +360,10 @@ thermal indices such as PET [°C], UTCI [°C] and COMFA [Wm⁻²].
 Produce map of Physiological Equivalent Temperature (PET) with SpatialTC
 ------------------------------------------------------------------------
 
-You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG (**Tmrt_2025_172_1200D.tif**) and one with the pedestrian wind speed 
+You need to specify two rasters: one of the mean radiant temperature that has been produced by SOLWEIG (**Tmrt_1997_157_1200D.tif**) and one with the pedestrian wind speed 
 produced by URock (**urock_outputWS.tif**).
 
-  - Load the *Tmrt_2025_172_1200D.tif* into your QGIS project if you have not done this already. This file can be found in your outout folder form the previous SOLWEG-run. 
+  - Load the *Tmrt_1997_157_1200D.tif* into your QGIS project if you have not done this already. This file can be found in your outout folder form the previous SOLWEG-run. 
     Do not change the file name or its location as the info in the name will be used to identify the meteorological information that is needed to calcualte PET.
 
   - Last you need to select the thermal comfort index to map (PET for this tutorial). The Advanced parameters describing the person to consider for the comfort index 
