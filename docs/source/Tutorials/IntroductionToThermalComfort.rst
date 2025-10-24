@@ -278,7 +278,7 @@ How to Run SOLWEIG from the UMEP-plugin
 
 #. Add the Tmrt_average.tif from your output folder and examine it (Average T\ :sub:`mrt` (°C). What is the main
    driver to the spatial variations in T\ :sub:`mrt`?
-#. Now add the Tmrt_2025_172_1200D.tif from the output folder. This file will be used later in the tutorial.
+#. Now add the Tmrt_1997_157_1200D.tif from the output folder. This file will be used later in the tutorial.
 
 .. _tc_part2:
 
