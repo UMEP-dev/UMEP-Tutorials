@@ -243,10 +243,9 @@ and shrubs). This requires some additional steps and to achieve the best
 possible results, one needs to undergo a number of filtering processes.
 You can study this further in Lindberg and Grimmond (2011). To create a
 decent vegetation model, we will use two types of filters. First, we
-want to filter out lower points that can be, for example, people or cars. To do this, we use *ClipData*. Unfortunately there is a bug in
-the algorithm of running it from the *Processing Toolbox* so we need
-to run it from the command prompt. Locate your folder *Output* and enter
-the following:
+want to filter out lower points that can be, for example, people or cars. 
+To do this, we use *ClipData*. Lets execute this tool from the command prompt. 
+Locate your folder *Output* and enter the following:
 ::
   clipdata /ground:ground.dtm /zmin:2.5 veg.las veg_filt.las 318864.0 319364.0 6397926.0 6398400.0
 
